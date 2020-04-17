@@ -29,7 +29,6 @@ export default class BabyDisplay extends React.Component {
         })
         return(
             <div>
-                {mappedBabies}
                 Baby Display Component
             </div>
         )

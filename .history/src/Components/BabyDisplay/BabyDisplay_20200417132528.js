@@ -1,5 +1,4 @@
 import React from 'react'
-import axios from 'axios'
 
 export default class BabyDisplay extends React.Component {
     constructor(){
@@ -19,18 +18,9 @@ export default class BabyDisplay extends React.Component {
 
 
     render(){
-        console.log(this.state.babies)
-        const mappedBabies = this.state.babies.map(baby => {
-            return (
-                <div key={baby.baby_id}>
-                    NAME: {baby.name}
-                </div>
-            )
-        })
         return(
             <div>
-                {mappedBabies}
-                Baby Display Component
+
             </div>
         )
     }

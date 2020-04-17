@@ -10,8 +10,6 @@ class Login extends React.Component {
       email: "",
       password: "",
     };
-    this.loginHandler = this.loginHandler.bind(this)
-    this.changeHandler = this.changeHandler.bind(this)
   }
   loginHandler(e) {
     e.preventDefault();

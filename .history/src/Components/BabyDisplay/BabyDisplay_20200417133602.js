@@ -20,16 +20,15 @@ export default class BabyDisplay extends React.Component {
 
     render(){
         console.log(this.state.babies)
-        const mappedBabies = this.state.babies.map(baby => {
+        const mappedBabies = this.state.babies.map(elem => {
             return (
-                <div key={baby.baby_id}>
-                    NAME: {baby.name}
+                <div key>
+
                 </div>
             )
         })
         return(
             <div>
-                {mappedBabies}
                 Baby Display Component
             </div>
         )

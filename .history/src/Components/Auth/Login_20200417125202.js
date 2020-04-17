@@ -10,14 +10,13 @@ class Login extends React.Component {
       email: "",
       password: "",
     };
-    this.loginHandler = this.loginHandler.bind(this)
-    this.changeHandler = this.changeHandler.bind(this)
   }
   loginHandler(e) {
     e.preventDefault();
     this.props
       .login(this.state)
       .then(() => {
+          console.log(req.session.user.user_id)
         this.props.redirect();
       })
       .catch((err) => console.log("Error with login.", err));
