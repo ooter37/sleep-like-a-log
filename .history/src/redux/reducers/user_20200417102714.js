@@ -71,6 +71,7 @@ export function register(user) {
         payload: axios.post('/auth/register', user)
     }
 }
+
 export function login(user) {
     return {
         type: LOGIN_USER,

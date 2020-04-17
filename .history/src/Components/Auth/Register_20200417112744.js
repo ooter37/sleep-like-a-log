@@ -1,7 +1,7 @@
 import React from "react";
+import "./Register.scss";
 import { connect } from "react-redux";
 import { register } from "../../redux/reducers/user";
-import "./Auth.scss";
 
 class Register extends React.Component {
   constructor(props) {
@@ -30,6 +30,7 @@ class Register extends React.Component {
     return (
       <div className="auth">
         <form onSubmit={this.registrationHandler}>
+          Register:
           <input
             placeholder="email"
             type="text"
@@ -46,10 +47,10 @@ class Register extends React.Component {
           />
           <button>Register</button>
         </form>
-        <button onClick={this.props.display}>I Already Registered!</button>
+        <button onClick={this.props.toggle}>I Already Registered!</button>
       </div>
     );
   }
 }
 
-export default connect(null, { register })(Register);
+export default connect(null, { register })(register);

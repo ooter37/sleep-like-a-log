@@ -64,22 +64,3 @@ export default function(state = initialState,action) {
             return state
     }
 }
-
-export function register(user) {
-    return {
-        type: REGISTER_USER,
-        payload: axios.post('/auth/register', user)
-    }
-}
-export function login(user) {
-    return {
-        type: LOGIN_USER,
-        payload: axios.post('/auth/login', user)
-    }
-}
-export function logout(){
-    return {
-        type: LOGOUT_USER,
-        payload: axios.get('/auth/logout')
-    }
-}

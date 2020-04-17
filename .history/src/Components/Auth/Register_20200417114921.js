@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { register } from "../../redux/reducers/user";
-import "./Auth.scss";
+import './Auth.scss'
 
 class Register extends React.Component {
   constructor(props) {

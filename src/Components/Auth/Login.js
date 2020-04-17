@@ -1,25 +1,24 @@
 import React from "react";
 import { connect } from "react-redux";
-import { register } from "../../redux/reducers/user";
+import { login } from "../../redux/reducers/user";
 import "./Auth.scss";
 
-class Register extends React.Component {
+class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       email: "",
       password: "",
     };
-    this.registrationHandler = this.registrationHandler.bind(this);
   }
-  registrationHandler(e) {
+  loginHandler(e) {
     e.preventDefault();
     this.props
-      .register(this.state)
+      .login(this.state)
       .then(() => {
         this.props.redirect();
       })
-      .catch((err) => console.log("Error registering.", err));
+      .catch((err) => console.log("Error with login.", err));
   }
   changeHandler(e) {
     this.setState({
@@ -29,7 +28,7 @@ class Register extends React.Component {
   render() {
     return (
       <div className="auth">
-        <form onSubmit={this.registrationHandler}>
+        <form onSubmit={this.loginHandler}>
           <input
             placeholder="email"
             type="text"
@@ -44,12 +43,12 @@ class Register extends React.Component {
             value={this.state.password}
             onChange={(e) => this.changeHandler(e)}
           />
-          <button>Register</button>
+          <button>Login</button>
         </form>
-        <button onClick={this.props.display}>I Already Registered!</button>
+        <button onClick={this.props.display}>Click to Register</button>
       </div>
     );
   }
 }
 
-export default connect(null, { register })(Register);
+export default connect(null, { login })(Login);
