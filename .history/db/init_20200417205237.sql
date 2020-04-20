@@ -43,6 +43,6 @@ CREATE TABLE logs (
     log_id SERIAL PRIMARY KEY,
     user_id INT REFERENCES users(user_id),
     baby_id INT REFERENCES babies(baby_id),
-    asleep TEXT,
+    asleeep TEXT,
     awake TEXT
 );

@@ -62,7 +62,6 @@ class NewLogEntry extends React.Component {
               dateFormat="MMMM d, yyyy h:mm aa"
             />
           </div>
-          <button onClick={this.submitDates}>Submit</button>
         </div>
       </div>
     );

@@ -12,7 +12,7 @@ const initialState = {
 const REGISTER_USER = 'REGISTER_USER'
 const LOGIN_USER = 'LOGIN_USER'
 const LOGOUT_USER = 'LOGOUT_USER'
-//type can be REGISTER_USER, LOGIN_USER, or LOGOUT_USER
+
 export default function(state = initialState,action) {
     let {type, payload} = action
     switch(type) {
@@ -68,7 +68,7 @@ export default function(state = initialState,action) {
             return state
     }
 }
-//Action creators. Return an action object.
+
 export function register(user) {
     return {
         type: REGISTER_USER,

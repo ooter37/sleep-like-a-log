@@ -5,7 +5,7 @@ import "./NewLogEntry.scss";
 import axios from 'axios'
 import {connect} from 'react-redux'
 
-class NewLogEntry extends React.Component {
+export default class NewLogEntry extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -27,14 +27,13 @@ class NewLogEntry extends React.Component {
     });
   }
   submitDates() {
-    const user_id = this.props.user.data.user_id
+    // const user_id = req.session.user.user_id
     const baby_id = this.props.babyId
     const asleep = this.state.startDate
     const awake = this.state.endDate
-    axios.post('/api/logs', {user_id, baby_id, asleep, awake})
+    // axios.post('/api/logs', {user_id, baby_id, asleep, awake})
   }
   render() {
-    console.log(this.props.user.data)
     return (
       <div>
         <div className="log-entry">
@@ -62,13 +61,8 @@ class NewLogEntry extends React.Component {
               dateFormat="MMMM d, yyyy h:mm aa"
             />
           </div>
-          <button onClick={this.submitDates}>Submit</button>
         </div>
       </div>
     );
   }
 }
-
-const mapStateToProps = state => state
-
-export default connect(mapStateToProps, null)(NewLogEntry)

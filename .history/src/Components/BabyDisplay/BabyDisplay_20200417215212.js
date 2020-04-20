@@ -6,8 +6,7 @@ export default class BabyDisplay extends React.Component {
     constructor(){
         super()
         this.state = {
-            babies: [],
-
+            babies: []
         }
     }
 
@@ -23,7 +22,8 @@ export default class BabyDisplay extends React.Component {
             return (
                 <div key={baby.baby_id}>
                     NAME: {baby.name}
-                    <NewLogEntry babyId={baby.baby_id}/>
+                    <NewLogEntry/>
+                    <button>Submit</button>
                 </div>
             )
         })
