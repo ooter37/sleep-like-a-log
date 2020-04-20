@@ -1,0 +1,16 @@
+.baby-container {
+    width: 100vw;
+    background-color: red;
+    display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: baseline;
+    align-content: space-around;
+}
+
+.baby-card {
+    width: 200px;
+    height: 200px;
+    background-color: darkblue;
+}

@@ -1,0 +1,25 @@
+module.exports = {
+    getBabiesByGuardian: async (req,res) => {
+        try {
+            const db = req.app.get('db')
+            if (req.session.user) {
+                const babies = await db.babies.get_babies_by_guardian(req.session.user.user_id)
+                res.status(200).send(babies)
+            }
+        } catch (error) {
+            console.log('Error getting babies by guardian.', error)
+            res.status(500).send(error)
+        }
+    },
+    addBaby: async (req,res) => {
+        try {
+            const db = req.app.get('db')
+            if (req.session.user) {
+                const baby = await db.babies.add_new_baby()
+            }
+        } catch (error) {
+            console.log('Error adding baby.', error)
+            res.status(500).send(error)
+        }
+    }
+}
