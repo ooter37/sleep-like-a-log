@@ -39,8 +39,8 @@ module.exports = {
         try {
             const db = req.app.get('db')
             const {id} = req.params
-            const {babyName} = req.body
-            const baby = await db.babies.update_baby(babyName,id)
+            const {name} = req.body
+            const baby = await db.babies.update_baby(name,id)
             res.status(200).send(baby)
         } catch (error) {
             console.log('Error updating baby.', error)

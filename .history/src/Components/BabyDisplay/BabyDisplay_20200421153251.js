@@ -39,6 +39,7 @@ export default class BabyDisplay extends React.Component {
     }
     render(){
         const mappedNames = this.state.babies.map(baby => {
+            
             return (
                 <Tab onClick={() => this.setStateOnSelect(baby.baby_id)} key={`Tab${baby.baby_id}`}>{baby.name.toUpperCase()}</Tab>
             )
@@ -49,7 +50,7 @@ export default class BabyDisplay extends React.Component {
                 <TabPanel className='tab-panel' key={`TabPanel${baby.baby_id}`}>
                     <LogDisplay babyId={baby.baby_id} selectedTab={this.state.selectedTab}/>
                     <button className='delete-baby-button' onClick={() => this.deleteBaby(baby.baby_id)}>Delete Baby</button>
-                    <UpdateBaby getBabies={this.getBabies} babyId={baby.baby_id}/>
+                    <UpdateBaby/>
                 </TabPanel>
             )
         })

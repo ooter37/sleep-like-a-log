@@ -49,7 +49,7 @@ export default class BabyDisplay extends React.Component {
                 <TabPanel className='tab-panel' key={`TabPanel${baby.baby_id}`}>
                     <LogDisplay babyId={baby.baby_id} selectedTab={this.state.selectedTab}/>
                     <button className='delete-baby-button' onClick={() => this.deleteBaby(baby.baby_id)}>Delete Baby</button>
-                    <UpdateBaby getBabies={this.getBabies} babyId={baby.baby_id}/>
+                    <UpdateBaby babyId={baby.baby_id}/>
                 </TabPanel>
             )
         })
