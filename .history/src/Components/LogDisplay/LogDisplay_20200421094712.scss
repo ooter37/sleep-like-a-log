@@ -1,0 +1,30 @@
+@import '../../variables.scss';
+
+.log-display {
+    color: white;
+    border: 1px;
+    border-color: white;
+    border-radius: 5px;
+    border-style: solid;
+    width: 95%;
+    margin: auto;
+    margin-bottom: 5px;
+    box-shadow: 1px 1px 5px $lighter-highlight;
+
+}
+
+.log-display-delete {
+    width: 25%;
+    height: 80%;
+    float: right;
+}
+.log-display-asleep {
+    width: 25%;
+    height: 80%;
+    float: left;
+}
+.log-display-awake {
+    width: 25%;
+    height: 80%;
+    float: 
+}

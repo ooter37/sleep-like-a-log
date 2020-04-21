@@ -1,0 +1,74 @@
+$primary-color: #204051;
+$secondary-color: #3b6978;
+$darker-highlight: #84a9ac;
+$lighter-highlight: #cae8d5;
+$font-color: #cae8d5;
+
+
+// @mixin button($padding:5px 10px, $font-size:14px, $border-radius:10px, $bg-color:$secondary-color, $font-color:$font-color) {
+// 	padding:$padding;
+// 	display:inline-block;
+// 	border-radius:$border-radius;
+// 	background:$bg-color;
+// 	font-size:$font-size;
+//     color:$font-color;
+    
+// }
+
+// .submit-new-log {
+// 	@include button;
+// }
+
+// .btn-large {
+// 	@include button(20px 30px, 22px);
+// }
+
+
+@mixin button-bg($bg) {
+  background: $bg;
+  &:hover {
+    background:darken($bg,8%);
+    transition: all 0.3s ease;
+  }
+  &:active {
+    background:darken($bg,25%);
+  } 
+}
+
+.btn {
+ color:white;
+ text-decoration:none;
+ padding:5px 10px;
+ border-radius:3px;
+//  font-family: 'Poiret One', cursive;
+//  font-size:2em;
+}
+
+.btn-green {
+   @include button-bg(#2ecc71);
+}
+
+.btn-blue {
+   @include button-bg(#3498db);
+}
+
+.btn-yellow{
+   @include button-bg(#f1c40f);
+}
+
+.btn-red {
+   @include button-bg(#e74c3c);
+}
+
+/*Other Stylez*/
+.wrap {
+  margin:0 auto;
+  width:800px;
+  text-align:center;
+}
+
+h1 {
+//   font-family: 'Poiret One', cursive;
+//   font-size:4em;
+}
+

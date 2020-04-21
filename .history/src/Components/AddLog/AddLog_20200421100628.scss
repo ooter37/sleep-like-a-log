@@ -1,0 +1,21 @@
+@import '../../variables.scss';
+// .add-log {
+//     width: 200px;
+//     height: 200px;
+//     background-color: lightblue;
+//     color: white;
+//     display: flex;
+//     flex-direction: column;
+// }
+.add-log-container{
+    margin-left:20px;
+    color: $font-color;
+}
+.new-log{
+    margin-top: 20px;
+}
+.add-log {
+    margin-top: 20px;
+    display: flex;
+    margin-bottom: 20px;
+}

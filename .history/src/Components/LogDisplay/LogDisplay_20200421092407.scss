@@ -1,0 +1,16 @@
+@import '../../variables.scss';
+
+.log-display {
+    // background-color: $secondary-color;
+    color: white;
+    display: flex;
+    border: 1px;
+    border-color: white;
+    border-radius: 5px;
+    border-style: solid;
+    width: 95%;
+    margin: auto;
+    margin-bottom: 5px;
+    box-shadow: 3px 3px 10px $lighter-highlight;
+
+}

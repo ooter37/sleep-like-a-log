@@ -1,0 +1,44 @@
+@import '../../variables.scss';
+@import '../../Components/BabyDisplay/Tabs.scss';
+
+// .baby-container {
+//     width: 100vw;
+//     height: 60%;
+//     background-color: red;
+//     display: flex;
+// 	flex-direction: row;
+// 	flex-wrap: wrap;
+// 	justify-content: space-between;
+// 	align-items: baseline;
+//     align-content: space-around;
+// }
+
+// .baby-card {
+//     width: 200px;
+//     height: 200px;
+//     background-color: darkblue;
+// }
+
+
+.baby-container {
+    margin: auto;
+    width: 95%;
+    background-color: $secondary-color;
+    height: 500px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px  $lighter-highlight;
+    margin-bottom: 10px;    
+    position: relative;
+}
+.tab-panel {
+    height: 100%;
+    width: 100%;
+    
+}
+.delete-baby-button {
+
+    font-size: 16px;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}

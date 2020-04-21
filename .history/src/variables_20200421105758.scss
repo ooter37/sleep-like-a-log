@@ -1,0 +1,23 @@
+$primary-color: #204051;
+$secondary-color: #3b6978;
+$darker-highlight: #84a9ac;
+$lighter-highlight: #cae8d5;
+$font-color: #cae8d5;
+
+
+@mixin button($padding:5px 10px, $font-size:14px, $border-radius:10px, $bg-color:$secondary-color, $font-color:$font-color) {
+	padding:$padding;
+	display:inline-block;
+	border-radius:$border-radius;
+	background:$bg-color;
+	font-size:$font-size;
+	color:$font-color;
+}
+
+.btn {
+	@include button;
+}
+
+.btn-large {
+	@include button(20px 30px, 22px);
+}
