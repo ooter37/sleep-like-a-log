@@ -34,10 +34,10 @@ button:active {
     box-shadow: inset 0 0 1.094em $aux-5, inset 0 .063em $aux-4, inset 0 -0.188em $aux-3, 0 .063em rgba(255,255,255,.4); 
 }
 
-@mixin shadowbox-heavy($border-radius:10px, $box-shadow:5px 5px 10px  $lighter-highlight, $background-color:$secondary-color) {
+@mixin shadowbox-heavy($border-radius:10px, $box-shadow:5px 5px 10px  $lighter-highlight, $background-color2:$secondary-color) {
     border-radius: $border-radius;
     box-shadow: $box-shadow;   
-    background-color: $background-color;
+    background-color: $background-color2;
 }
 @mixin shadowbox-light($border-radius:10px, $box-shadow:3px 3px 7px  $lighter-highlight, $background-color:$aux-2) {
     border-radius: $border-radius;

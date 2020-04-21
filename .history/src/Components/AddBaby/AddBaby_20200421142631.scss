@@ -1,19 +1,14 @@
 @import '../../variables.scss';
 
 .add-baby {
-    @include shadowbox-heavy;
+    @include shadowbox-light;
     width: 300px;
     height: 100px;
     position: relative;
-    margin-left: 30px;
-}
-.add-baby-input {
-    margin: 10px;
 }
 
 .add-baby-button {
     font-size: 14px;
     position: absolute;
-    bottom: 10px;
-    right: 10px;
+    bottom: 0px;
 }

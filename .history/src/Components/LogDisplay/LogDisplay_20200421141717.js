@@ -43,9 +43,8 @@ export default class LogDisplay extends React.Component {
             <AddLog getLogsByBaby={this.getLogsByBaby} babyId={this.props.babyId}/>
                 <div className='log-display-container'>
                     <div className='log-display-labels'>
-                        <div className='log-display-asleep'>Fell Asleep At:</div>
-                        <div className='log-display-awake'>Woke Up At:</div>
-                        <div className='log-display-length'>Length (hr:mn):</div>
+                        <div className='log-display-asleep'>Fell Asleep At...</div>
+                        <div className='log-display-awake'>Woke Up At...</div>
                         <div className='log-display-delete'></div>
                     </div>
                     {mappedLogs}

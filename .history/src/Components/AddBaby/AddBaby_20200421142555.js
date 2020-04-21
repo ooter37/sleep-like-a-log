@@ -35,7 +35,6 @@ class AddBaby extends React.Component{
         return (
             <div className='add-baby'>
                 <input
-                    className='add-baby-input'
                     placeholder='Name'
                     type='text'
                     name='babyName'
@@ -43,7 +42,6 @@ class AddBaby extends React.Component{
                     onChange={(e) => this.changeHandler(e)}
                 />
                 <input
-                    className='add-baby-input'
                     placeholder='Relationship'
                     type='text'
                     name='relationship'

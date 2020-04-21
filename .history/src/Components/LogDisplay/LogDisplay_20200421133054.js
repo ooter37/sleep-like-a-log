@@ -33,7 +33,8 @@ export default class LogDisplay extends React.Component {
                 <div className='log-display' key={log.log_id}>
                     <div className='log-display-asleep'>{moment(log.asleep).format('MMMM Do, h:mm A')}</div>
                     <div className='log-display-awake'>{moment(log.awake).format('MMMM Do, h:mm A')}</div>
-                    <div className='log-display-length'>{moment.utc(moment.duration(moment(log.awake).diff(moment(log.asleep)), "milliseconds").asMilliseconds()).format("HH:mm")}</div>
+                    <div>{log.asleep}</div>
+                    <div className='log-display-length'>{moment(log.asleep).subtract(7, 'days')}</div>
                     <button className='log-display-delete' onClick={() => this.deleteLog(log.log_id)}>Delete</button>
                 </div>
             )
@@ -43,9 +44,8 @@ export default class LogDisplay extends React.Component {
             <AddLog getLogsByBaby={this.getLogsByBaby} babyId={this.props.babyId}/>
                 <div className='log-display-container'>
                     <div className='log-display-labels'>
-                        <div className='log-display-asleep'>Fell Asleep At:</div>
-                        <div className='log-display-awake'>Woke Up At:</div>
-                        <div className='log-display-length'>Length (hr:mn):</div>
+                        <div className='log-display-asleep'>Fell Asleep At...</div>
+                        <div className='log-display-awake'>Woke Up At...</div>
                         <div className='log-display-delete'></div>
                     </div>
                     {mappedLogs}

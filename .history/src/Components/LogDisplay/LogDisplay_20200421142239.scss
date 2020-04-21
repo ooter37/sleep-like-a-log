@@ -8,7 +8,7 @@
     border-color: white;
     border-radius: 5px;
     border-style: solid;
-    width: 99%;
+    width: 95%;
     margin: auto;
     margin-bottom: 5px;
     box-shadow: 1px 1px 5px $lighter-highlight;
@@ -18,11 +18,12 @@
     color: $font-color;
     display: flex;
     justify-content: space-between;
-    width: 99%;
+    width: 95%;
     margin: auto;
     margin-top: 10px;
     margin-bottom: 5px;
     font-size: 20px;
+    padding-bottom: 5px;
 }
 .log-display-asleep {
     width: 25%;
@@ -47,6 +48,5 @@
 }
 .log-display-container {
     width: 95%;
-    margin: auto;
     @include shadowbox-light;
 }
