@@ -36,6 +36,7 @@ module.exports = {
     getLogsByBaby: async (req,res) => {
         try {
             const db = req.app.get('db')
+            console.log(req.params.id)
             if (req.session.user) {
                 const logs = await db.logs.get_logs_by_baby(req.params.id)
                 res.status(200).send(logs)

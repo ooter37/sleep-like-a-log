@@ -1,9 +1,9 @@
 import React from 'react'
 import axios from 'axios'
+import AddLog from '../AddLog/AddLog'
 import './BabyDisplay.scss'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import LogDisplay from '../LogDisplay/LogDisplay';
-import AddLog from '../AddLog/AddLog'
 
 export default class BabyDisplay extends React.Component {
     constructor(){

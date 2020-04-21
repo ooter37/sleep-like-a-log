@@ -1,9 +1,9 @@
 import React from 'react'
 import axios from 'axios'
+import AddLog from '../AddLog/AddLog'
 import './BabyDisplay.scss'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import LogDisplay from '../LogDisplay/LogDisplay';
-import AddLog from '../AddLog/AddLog'
 
 export default class BabyDisplay extends React.Component {
     constructor(){
@@ -11,7 +11,7 @@ export default class BabyDisplay extends React.Component {
         this.state = {
             babies: [],
             tabIndex: 0,
-            selectedTab: 0
+            selectedTab: 'changeMe'
         }
         this.deleteBaby = this.deleteBaby.bind(this)
         this.getBabies = this.getBabies.bind(this)
@@ -31,16 +31,17 @@ export default class BabyDisplay extends React.Component {
     deleteBaby(id){
         axios.delete(`/api/babies/${id}`).then(()=> this.getBabies()).catch(err => console.log('Error deleting baby', err))
     }
-    setStateOnSelect(baby_id) {
+    setStateOnSelect(val) {
         this.setState({
-            selectedTab: baby_id
+            selectedTab: val
         })
     }
     render(){
+        console.log(this.state.selectedTab)
         const mappedNames = this.state.babies.map(baby => {
             
             return (
-                <Tab onClick={() => this.setStateOnSelect(baby.baby_id)} key={`Tab${baby.baby_id}`}>{baby.name.toUpperCase()}</Tab>
+                <Tab onClick={() => this.setStateOnSelect(baby.name)} key={`Tab${baby.baby_id}`}>{baby.name.toUpperCase()}</Tab>
             )
         })
         const mappedBabies = this.state.babies.map(baby => {

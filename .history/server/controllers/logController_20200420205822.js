@@ -33,16 +33,15 @@ module.exports = {
             res.status(500).send(error)
         }
     },
-    getLogsByBaby: async (req,res) => {
-        try {
-            const db = req.app.get('db')
-            if (req.session.user) {
-                const logs = await db.logs.get_logs_by_baby(req.params.id)
-                res.status(200).send(logs)
-            }
-        } catch (error) {
-            console.log('Error getting logs by baby.', error)
-            res.status(500).send(error)
-        }
-    }
+    // getLogsByBaby: async (req,res) => {
+    //     try {
+    //         const db = req.app.get('db')
+    //         if (req.session.user) {
+    //             const logs = await db.logs.get_logs_by_baby(req.)
+    //         }
+    //     } catch (error) {
+    //         console.log('Error getting logs by baby.', error)
+    //         res.status(500).send(error)
+    //     }
+    // }
 }

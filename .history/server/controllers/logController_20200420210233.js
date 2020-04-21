@@ -37,7 +37,7 @@ module.exports = {
         try {
             const db = req.app.get('db')
             if (req.session.user) {
-                const logs = await db.logs.get_logs_by_baby(req.params.id)
+                const logs = await db.logs.get_logs_by_baby(req.baby_id)
                 res.status(200).send(logs)
             }
         } catch (error) {
