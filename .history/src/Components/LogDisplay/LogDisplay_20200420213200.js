@@ -46,9 +46,8 @@ export default class LogDisplay extends React.Component {
             )
         })
         return(
-            <div>{mappedLogs}
-            <AddLog getLogsByBaby={this.getLogsByBaby} babyId={this.props.babyId}/>
-            </div>
+            <div>{mappedLogs}</div>
+            <AddLog babyId={this.props.babyId}/>
         )
     }
 }

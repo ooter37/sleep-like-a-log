@@ -62,7 +62,7 @@ class AddLog extends React.Component {
             />
           </div>
           <button onClick={() => {
-            this.submitDates()
+            this.submitDates
             this.props.getLogsByBaby()
             }}>Submit</button>
         </div>
