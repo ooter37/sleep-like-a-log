@@ -34,7 +34,7 @@ export default class LogDisplay extends React.Component {
         axios.delete(`/api/logs/${id}`).then(() => this.getLogs()).catch(err => console.log('Error deleting log', err))
     }
     render(){
-        console.log(this.state.logs)
+
         const mappedLogs = this.state.logs.map(log => {
             return (
                 <div hidden={this.state.hidden} className='log-display' key={log.log_id}>

@@ -29,15 +29,15 @@ export default class LogDisplay extends React.Component {
     //         })
     //     })
     // }
- 
     deleteLog(id) {
         axios.delete(`/api/logs/${id}`).then(() => this.getLogs()).catch(err => console.log('Error deleting log', err))
     }
     render(){
         console.log(this.state.logs)
+        
         const mappedLogs = this.state.logs.map(log => {
             return (
-                <div hidden={this.state.hidden} className='log-display' key={log.log_id}>
+                <div className='log-display' key={log.log_id}>
                 <h1>{log.name}</h1>
                 <div>{moment(log.asleep).format('MMMM Do YYYY, h:mm:ss a')}</div>
                 <button onClick={() => this.deleteLog(log.log_id)}>Delete</button>

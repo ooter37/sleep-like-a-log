@@ -51,7 +51,7 @@ export default class BabyDisplay extends React.Component {
 
         return(
                 <div className='baby-container'>
-                    <Tabs selectedIndex={this.state.tabIndex} onSelect={tabIndex => this.setState({tabIndex})}>
+                    <Tabs onSelect={index => console.log(index)}>
                         <TabList>
                     {mappedNames}
                         </TabList>

@@ -7,8 +7,7 @@ export default class LogDisplay extends React.Component {
     constructor(props){
         super(props)
         this.state = {
-            logs: [],
-            logs2: []
+            logs: []
         }
         this.getLogs = this.getLogs.bind(this)
     }
@@ -22,14 +21,6 @@ export default class LogDisplay extends React.Component {
             })
         }).catch(err => console.log('Error getting logs', err))
     }
-    // getLogsByBaby() {
-    //     axios.get('/api/logs2').then(res => {
-    //         this.setState({
-    //             logs2: res.data
-    //         })
-    //     })
-    // }
- 
     deleteLog(id) {
         axios.delete(`/api/logs/${id}`).then(() => this.getLogs()).catch(err => console.log('Error deleting log', err))
     }
@@ -37,7 +28,7 @@ export default class LogDisplay extends React.Component {
         console.log(this.state.logs)
         const mappedLogs = this.state.logs.map(log => {
             return (
-                <div hidden={this.state.hidden} className='log-display' key={log.log_id}>
+                <div className='log-display' key={log.log_id}>
                 <h1>{log.name}</h1>
                 <div>{moment(log.asleep).format('MMMM Do YYYY, h:mm:ss a')}</div>
                 <button onClick={() => this.deleteLog(log.log_id)}>Delete</button>

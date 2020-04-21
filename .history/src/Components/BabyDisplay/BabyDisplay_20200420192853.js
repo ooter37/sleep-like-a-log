@@ -10,7 +10,6 @@ export default class BabyDisplay extends React.Component {
         super()
         this.state = {
             babies: [],
-            tabIndex: 0
 
         }
         this.deleteBaby = this.deleteBaby.bind(this)
@@ -30,7 +29,7 @@ export default class BabyDisplay extends React.Component {
     deleteBaby(id){
         axios.delete(`/api/babies/${id}`).then(()=> this.getBabies()).catch(err => console.log('Error deleting baby', err))
     }
-    
+
     render(){
         const mappedNames = this.state.babies.map(baby => {
             
@@ -42,16 +41,17 @@ export default class BabyDisplay extends React.Component {
             
             return (
                 <TabPanel className='tab-panel' key={`TabPanel${baby.baby_id}`}>
+                    {baby.name.toUpperCase()}
                     <AddLog babyId={baby.baby_id}/>
                     <button onClick={() => this.deleteBaby(baby.baby_id)}>Delete Baby</button>
-                    <LogDisplay babyId={baby.baby_id}/>
+                    <LogDisplay/>
                 </TabPanel>
             )
         })
 
         return(
                 <div className='baby-container'>
-                    <Tabs selectedIndex={this.state.tabIndex} onSelect={tabIndex => this.setState({tabIndex})}>
+                    <Tabs>
                         <TabList>
                     {mappedNames}
                         </TabList>

@@ -32,6 +32,7 @@ export default class BabyDisplay extends React.Component {
     }
     
     render(){
+        console.log(this.state.babies)
         const mappedNames = this.state.babies.map(baby => {
             
             return (

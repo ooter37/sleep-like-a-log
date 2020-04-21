@@ -30,7 +30,7 @@ export default class BabyDisplay extends React.Component {
     deleteBaby(id){
         axios.delete(`/api/babies/${id}`).then(()=> this.getBabies()).catch(err => console.log('Error deleting baby', err))
     }
-    
+
     render(){
         const mappedNames = this.state.babies.map(baby => {
             
