@@ -49,7 +49,7 @@ export default class LogDisplay extends React.Component {
                 <AddLog getLogsByBaby={this.getLogsByBaby} babyId={this.props.babyId}/>
                 <div onClick={(e) => this.togglePanel(e)} className='collapsible-log-container'>
                     <div className='detailed-logs'>
-                        DETAILED LOGS (Click to Expand)
+                        Detailed Logs
                     </div>
                     {
                     this.state.open
