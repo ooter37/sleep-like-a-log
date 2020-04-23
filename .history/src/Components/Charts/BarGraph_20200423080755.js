@@ -20,6 +20,7 @@ export default class BarGraph extends React.Component {
                 this.extractor(res.data)
             }
         })
+        console.log(this.state.splitData)
     }
     extractor(array) {
         let splitAsleep = [];
@@ -48,7 +49,6 @@ export default class BarGraph extends React.Component {
         this.setState({
             splitData: splitAsleep
         })
-        console.log(this.state.splitData)
       }
     render(){
         return (

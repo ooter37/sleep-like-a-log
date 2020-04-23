@@ -9,15 +9,21 @@ export default class BarGraph extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
+            unformatted: null,
             splitData: null
         }
         this.extractor = this.extractor.bind(this)
+        this.formatData = this.formatData.bind(this)
     }
     componentDidMount(){
         const id = this.props.selectedTab
         axios.get(`/api/logs/${id}`).then(res => {
             if (res.data) {
-                this.extractor(res.data)
+                this.setState({
+                    unformatted: res.data
+                })
+                this.extractor(this.state.unformatted)
+                console.log(this.state.splitData)
             }
         })
     }
@@ -48,7 +54,6 @@ export default class BarGraph extends React.Component {
         this.setState({
             splitData: splitAsleep
         })
-        console.log(this.state.splitData)
       }
     render(){
         return (

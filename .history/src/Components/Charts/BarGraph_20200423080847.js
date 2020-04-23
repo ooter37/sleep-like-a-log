@@ -18,6 +18,7 @@ export default class BarGraph extends React.Component {
         axios.get(`/api/logs/${id}`).then(res => {
             if (res.data) {
                 this.extractor(res.data)
+                console.log(res.data)
             }
         })
     }

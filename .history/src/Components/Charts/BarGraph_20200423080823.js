@@ -18,8 +18,10 @@ export default class BarGraph extends React.Component {
         axios.get(`/api/logs/${id}`).then(res => {
             if (res.data) {
                 this.extractor(res.data)
+                console.log(res.data)
             }
         })
+        console.log(this.state.splitData)
     }
     extractor(array) {
         let splitAsleep = [];
@@ -48,7 +50,6 @@ export default class BarGraph extends React.Component {
         this.setState({
             splitData: splitAsleep
         })
-        console.log(this.state.splitData)
       }
     render(){
         return (
