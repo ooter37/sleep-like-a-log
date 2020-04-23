@@ -3,7 +3,7 @@ import axios from 'axios'
 import moment from 'moment'
 import './LogDisplay.scss'
 import AddLog from '../AddLog/AddLog'
-import BarGraph from '../Charts/BarGraph'
+import HoursPerDay from '../Charts/HoursPerDay'
 
 export default class LogDisplay extends React.Component {
     constructor(props){
@@ -41,10 +41,18 @@ export default class LogDisplay extends React.Component {
                 <div className='log-display' key={log.log_id}>
                     <div className='log-display-asleep'>{moment(log.asleep).format('MMMM Do, h:mm A')}</div>
                     <div className='log-display-awake'>{moment(log.awake).format('MMMM Do, h:mm A')}</div>
-                    <div className='log-display-length'>{sleepTime}</div>
+                    <div className='log-display-length'>{SleepTime}</div>
                     <button className='log-display-delete' onClick={() => this.deleteLog(log.log_id)}>Delete</button>
                 </div>
             )
+        })
+        const chartedLogs = this.state.logs.map(log => {
+            const 
+            return (
+                <div>
+                    
+                </div>
+                )
         })
         return(
             <div>
@@ -71,8 +79,9 @@ export default class LogDisplay extends React.Component {
                     }
                 </div>   
                 <div className='hours-per-day'>
-                <BarGraph selectedTab={this.props.selectedTab}/>
+                <HoursPerDay/>
                 </div>
+                {chartedLogs}
             </div>
         )
     }

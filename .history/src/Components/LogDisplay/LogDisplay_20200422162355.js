@@ -3,7 +3,7 @@ import axios from 'axios'
 import moment from 'moment'
 import './LogDisplay.scss'
 import AddLog from '../AddLog/AddLog'
-import BarGraph from '../Charts/BarGraph'
+import Chart from "chart.js"
 
 export default class LogDisplay extends React.Component {
     constructor(props){
@@ -14,9 +14,45 @@ export default class LogDisplay extends React.Component {
         }
         this.getLogsByBaby = this.getLogsByBaby.bind(this)
         this.togglePanel = this.togglePanel.bind(this)
+        this.chartCreator = this.chartCreator.bind(this)
     }
     componentDidMount(){
         this.getLogsByBaby()
+        this.chartCreator()
+
+    }
+    chartCreator() {
+        const myChartRef = this.chartRef.current.getContext("2d");
+        
+        new Chart(myChartRef, {
+            type: "bar",
+            data: {
+                labels: ['1', '2', '3', '4', '5', '6', '7'],
+                datasets: [
+                    {
+                      label: 'Low',
+                      data: [67.8],
+                      backgroundColor: '#D6E9C6' // green
+                    },
+                    {
+                      label: 'Moderate',
+                      data: [20.7],
+                      backgroundColor: '#FAEBCC' // yellow
+                    },
+                    {
+                      label: 'High',
+                      data: [11.4],
+                      backgroundColor: '#EBCCD1' // red
+                    }
+                  ]
+            },
+            options: {
+                scales: {
+                  xAxes: [{ stacked: true }],
+                  yAxes: [{ stacked: true }]
+                }
+              }
+        });
     }
     getLogsByBaby() {
         const id = this.props.selectedTab
@@ -36,19 +72,23 @@ export default class LogDisplay extends React.Component {
     }
     render(){
         const mappedLogs = this.state.logs.map(log => {
-            const sleepTime = moment.utc(moment.duration(moment(log.awake).diff(moment(log.asleep)), "milliseconds").asMilliseconds()).format("HH:mm")
             return (
                 <div className='log-display' key={log.log_id}>
                     <div className='log-display-asleep'>{moment(log.asleep).format('MMMM Do, h:mm A')}</div>
                     <div className='log-display-awake'>{moment(log.awake).format('MMMM Do, h:mm A')}</div>
-                    <div className='log-display-length'>{sleepTime}</div>
+                    <div className='log-display-length'>{moment.utc(moment.duration(moment(log.awake).diff(moment(log.asleep)), "milliseconds").asMilliseconds()).format("HH:mm")}</div>
                     <button className='log-display-delete' onClick={() => this.deleteLog(log.log_id)}>Delete</button>
                 </div>
             )
         })
         return(
+            <div className='chart'>
+                <canvas
+                    id="myChart"
+                    ref={this.chartRef}
+                />
+            </div>
             <div>
-                
                 <AddLog getLogsByBaby={this.getLogsByBaby} babyId={this.props.babyId}/>
                 <div onClick={(e) => this.togglePanel(e)} className='collapsible-log-container'>
                     <div className='detailed-logs'>
@@ -70,9 +110,6 @@ export default class LogDisplay extends React.Component {
                     null
                     }
                 </div>   
-                <div className='hours-per-day'>
-                <BarGraph selectedTab={this.props.selectedTab}/>
-                </div>
             </div>
         )
     }

@@ -35,6 +35,7 @@ export default class LogDisplay extends React.Component {
         })
     }
     render(){
+        console.log(this.state.logs)
         const mappedLogs = this.state.logs.map(log => {
             const sleepTime = moment.utc(moment.duration(moment(log.awake).diff(moment(log.asleep)), "milliseconds").asMilliseconds()).format("HH:mm")
             return (

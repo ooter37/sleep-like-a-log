@@ -7,6 +7,7 @@ import Auth from './Components/Auth/Auth'
 import Main from './Components/Main/Main'
 import {connect} from 'react-redux'
 import {requestUserData} from './redux/reducers/user'
+import LineGraph from './Components/Charts/Graph'
 
 class App extends React.Component {
   componentDidMount(){
@@ -15,6 +16,7 @@ class App extends React.Component {
   render(){
     return (
       <div className="App">
+      <LineGraph/>
       <Switch>
         <Route exact path='/' component={Auth}/>
         <Route path='/main' component={Main}/>

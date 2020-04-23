@@ -3,7 +3,7 @@ import axios from 'axios'
 import moment from 'moment'
 import './LogDisplay.scss'
 import AddLog from '../AddLog/AddLog'
-import BarGraph from '../Charts/BarGraph'
+import HoursPerDay from '../Charts/HoursPerDay'
 
 export default class LogDisplay extends React.Component {
     constructor(props){
@@ -71,8 +71,9 @@ export default class LogDisplay extends React.Component {
                     }
                 </div>   
                 <div className='hours-per-day'>
-                <BarGraph selectedTab={this.props.selectedTab}/>
+                <HoursPerDay logs={this.state.logs}/>
                 </div>
+                {chartedLogs}
             </div>
         )
     }
