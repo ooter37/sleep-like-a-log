@@ -1,0 +1,59 @@
+@import '../../variables.scss';
+.add-log-container{
+    margin-left:20px;
+    color: $font-color;
+    width: 400px;
+    @include shadowbox-light
+}
+.add-log-label {
+    margin-top: 20px;
+    font-size: 20px;
+    padding: 7px;
+    margin-left: 5px;
+    font-weight: bold;
+}
+
+.asleep-awake-container {
+    margin-left: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+.add-log-labels {
+    margin-left: 20px;
+}
+.add-log-inputs {
+    margin-right: 100px;
+}
+.submit-new-log{
+    margin-left: 320px;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+@media screen and (max-width: 375px) {
+    .add-log-container {
+        width: 340px;
+        margin: 0 auto;
+        height: 110px;
+        display: grid;
+        grid-template-columns: 3fr 1fr 1fr;
+    }
+    .submit-new-log{
+        margin-bottom: 100px;
+    }
+    .asleep-awake-container {
+        margin-left: 5px;
+        display: flex;
+	    flex-direction: column;
+        width: 150px;
+    }
+    .submit-new-log{
+        margin-left: 260px;
+        margin-bottom: 10px;
+    }
+    .add-log-labels {
+        margin-left: 0px;
+    }
+    .add-log-inputs {
+        margin-left: 0px;
+    }
+}
