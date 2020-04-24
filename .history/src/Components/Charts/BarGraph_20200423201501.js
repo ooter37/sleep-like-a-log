@@ -113,7 +113,7 @@ export default class BarGraph extends React.Component {
                 scaleLabel: {
                     display: true,
                     labelString: 'Minutes',
-                    fontColor: '#cae8d5'
+                    fontColor: 'red'
                 },
                 gridLines: {display: false},
                 ticks: {

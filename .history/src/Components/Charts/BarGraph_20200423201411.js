@@ -97,6 +97,15 @@ export default class BarGraph extends React.Component {
       ],
     };
     const options = {
+        scales: {
+            yAxes: [{
+                gridLines: {color: "rgba(255, 255, 255, 1)"},
+                scaleLabel: {
+                    display: true,
+                    labelString: 'Minutes'
+                }
+            }]
+        },
         maintainAspectRatio: false,
         legend: {
              labels: {
@@ -110,11 +119,6 @@ export default class BarGraph extends React.Component {
         }     ,
         scales: {
             yAxes: [{
-                scaleLabel: {
-                    display: true,
-                    labelString: 'Minutes',
-                    fontColor: '#cae8d5'
-                },
                 gridLines: {display: false},
                 ticks: {
                     beginAtZero:true,
@@ -122,6 +126,7 @@ export default class BarGraph extends React.Component {
                 },
             }],
           xAxes: [{
+              
                 gridLines: {display: false},
                 ticks: {
                     fontColor: '#cae8d5'

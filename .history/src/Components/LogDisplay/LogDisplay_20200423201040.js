@@ -109,6 +109,7 @@ export default class LogDisplay extends React.Component {
                     ?
                     null:
                     <BarGraph selectedTab={this.props.selectedTab} splitData={this.state.splitData}/>
+
                 }   
             </div>
         )
