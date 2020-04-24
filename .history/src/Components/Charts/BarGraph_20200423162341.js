@@ -80,65 +80,29 @@ export default class BarGraph extends React.Component {
       labels: [minusFour, minusThree, minusTwo, minusOne, today],
       datasets: [
         {
-          label: "Minutes Slept Per Day",
-          backgroundColor: "#6C939F",
-          borderColor: "#104050",
+          label: "Minutes Slept Per Day - Last Five Days",
+          backgroundColor: "#cae8d5",
+          borderColor: "rgba(255,99,132,1)",
           borderWidth: 1,
-          hoverBackgroundColor: "#84a9ac",
-          hoverBorderColor: "#104050",
+          hoverBackgroundColor: "rgba(255,99,132,0.4)",
+          hoverBorderColor: "rgba(255,99,132,1)",
           data: [
-            minusFourNaps,
-            minusThreeNaps,
-            minusTwoNaps,
-            minusOneNaps,
-            todayNaps,
+            120,
+            300,
+            40,
+            0,
+            220,
           ],
         },
       ],
     };
-    const options = {
-        scales: {
-            xAxes: [{
-                gridLines: {display: false}
-            }],
-            yAxes: [{
-                gridLines: {color: "rgba(255, 255, 255, 1)"},
-                scaleLabel: {
-                    display: true,
-                    labelString: 'Minutes'
-                }
-            }]
-        },
-        maintainAspectRatio: false,
-        legend: {
-             labels: {
-                  fontColor: '#cae8d5'
-                 }
-              },
-        title: {
-            display: true,
-            fontColor: '#cae8d5',
-            // text: 'Custom Chart Title'
-        }     ,
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero:true,
-                    fontColor: '#cae8d5'
-                },
-            }],
-          xAxes: [{
-                ticks: {
-                    fontColor: '#cae8d5'
-                },
-            }]
-        } 
-
-    }
     return (
         <div className='slept-per-day'>
     <Bar className='chart'
-    options={options}
+    options={
+        { maintainAspectRatio: false },
+        {color: 'red'}
+    }
     ref={this.chartReference}
      data={data} 
     />

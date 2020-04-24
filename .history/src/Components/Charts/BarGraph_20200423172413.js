@@ -99,10 +99,10 @@ export default class BarGraph extends React.Component {
     const options = {
         scales: {
             xAxes: [{
-                gridLines: {display: false}
+                gridLines: {drawOnChartArea: false}
             }],
             yAxes: [{
-                gridLines: {color: "rgba(255, 255, 255, 1)"},
+                gridLines: {drawOnChartArea: false},
                 scaleLabel: {
                     display: true,
                     labelString: 'Minutes'

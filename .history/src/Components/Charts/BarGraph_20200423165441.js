@@ -87,22 +87,18 @@ export default class BarGraph extends React.Component {
           hoverBackgroundColor: "#84a9ac",
           hoverBorderColor: "#104050",
           data: [
-            minusFourNaps,
-            minusThreeNaps,
-            minusTwoNaps,
-            minusOneNaps,
-            todayNaps,
+            minusFour,
+            minusThree,
+            minusTwo,
+            minusOne,
+            today,
           ],
         },
       ],
     };
     const options = {
         scales: {
-            xAxes: [{
-                gridLines: {display: false}
-            }],
             yAxes: [{
-                gridLines: {color: "rgba(255, 255, 255, 1)"},
                 scaleLabel: {
                     display: true,
                     labelString: 'Minutes'

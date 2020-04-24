@@ -82,7 +82,7 @@ export default class LogDisplay extends React.Component {
             )
         })
         return(
-            <div className='log-display-container'>
+            <div>
                 <AddLog getLogsByBaby={this.getLogsByBaby} babyId={this.props.babyId}/>
                 <div onClick={(e) => this.togglePanel(e)} className='collapsible-log-container'>
                     <div className='detailed-logs'>

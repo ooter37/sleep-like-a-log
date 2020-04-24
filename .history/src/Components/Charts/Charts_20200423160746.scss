@@ -1,15 +1,12 @@
-@import '../../variables.scss';
-
 .slept-per-day{
-    height: 250px;
+    background-color: grey;
+    height: 400px;
     width: 800px;
     position: relative;
-    margin-top: 15px;
-    margin-left: 15px;
 }
 .chart {
     height: 200px;
 width: 600px;
 position: absolute;
-color: $font-color
+
 }

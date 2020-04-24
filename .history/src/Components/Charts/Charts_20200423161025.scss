@@ -1,6 +1,5 @@
-@import '../../variables.scss';
-
 .slept-per-day{
+    background-color: grey;
     height: 250px;
     width: 800px;
     position: relative;
@@ -11,5 +10,5 @@
     height: 200px;
 width: 600px;
 position: absolute;
-color: $font-color
+
 }

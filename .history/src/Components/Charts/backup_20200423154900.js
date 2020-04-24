@@ -2,11 +2,6 @@ import React from "react";
 import "./Charts.scss";
 import Chart from "chart.js";
 
-// 0: (2) ["2020-04-20", 60]
-// 1: (2) ["2020-04-21", 60]
-// 2: (2) ["2020-04-22", 14]
-// 3: (2) ["2020-04-22", 18]
-//,  "2020-04-23", "2020-04-24", "2020-04-25", "2020-04-26"
 export default class BarGraph extends React.Component {
   constructor(props) {
     super(props);
