@@ -63,13 +63,13 @@ class BabyDisplay extends React.Component {
                 <TabPanel className='tab-panel' key={`TabPanel${baby.baby_id}`}>
                     <LogDisplay babyId={baby.baby_id} selectedTab={this.state.selectedTab}/>
                     {
-                        this.state.updatingName
-                        ?
-                        null:
-                        <button className='delete-baby-button' 
+
+                    }
+
+                    <button className='delete-baby-button' 
                     onClick={() => { if (window.confirm('Are you sure you wish to delete this baby?')) this.deleteBaby(baby.baby_id) } }
                     >Delete Baby</button>
-                    }
+
                     <UpdateBaby toggleButton={this.toggleButton} updatingName={this.state.updatingName} getBabies={this.getBabies} babyId={baby.baby_id}/>
                 </TabPanel>
             )

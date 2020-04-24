@@ -116,7 +116,9 @@ class LogDisplay extends React.Component {
                             <div className='log-display-length'>Length (hr:mn):</div>
                             <div className='log-display-delete'></div>
                         </div>
-                        {mappedLogs}
+                            <div className='log-container'>
+                                {mappedLogs}
+                            </div>
                         </div>
                     </div>
                     :

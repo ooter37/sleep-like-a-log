@@ -101,14 +101,14 @@ class LogDisplay extends React.Component {
         return(
             <div className='log-display-container'>
                 <AddLog getLogsByBaby={this.getLogsByBaby} babyId={this.props.babyId}/>
-                <div onClick={(e) => this.togglePanel(e)} className='collapsible-log-container'>
                     <div className='detailed-logs'>
                         DETAILED LOGS (Click to Expand)
                     </div>
+                <div onClick={(e) => this.togglePanel(e)} className='collapsible-log-container'>
                     {
                     this.state.open
                     ?
-                    <div>
+                    <div className='scrollbar-container'>
                         <div className='log-display-container'>
                         <div className='log-display-labels'>
                             <div className='log-display-asleep'>Fell Asleep At:</div>

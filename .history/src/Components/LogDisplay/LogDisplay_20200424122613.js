@@ -108,7 +108,7 @@ class LogDisplay extends React.Component {
                     {
                     this.state.open
                     ?
-                    <div>
+                    <div className='scrollbar-container'>
                         <div className='log-display-container'>
                         <div className='log-display-labels'>
                             <div className='log-display-asleep'>Fell Asleep At:</div>

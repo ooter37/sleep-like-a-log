@@ -7,9 +7,11 @@ class UpdateBaby extends React.Component {
     constructor(props){
         super(props)
         this.state = {
-            babyName: ''
+            babyName: '',
+            updating: false
         }
         this.changeHandler = this.changeHandler.bind(this)
+        this.toggleButton = this.toggleButton.bind(this)
         this.updateBaby = this.updateBaby.bind(this)
     }
     changeHandler(e){
@@ -17,7 +19,12 @@ class UpdateBaby extends React.Component {
             [e.target.name]: e.target.value
         })
     }
-    
+    toggleButton(){
+        let {updating} = this.state
+        this.setState({
+            updating: !updating
+        })
+    }
     updateBaby() {
         if (this.props.user.data) {
             const babyName = this.state.babyName
@@ -32,15 +39,15 @@ class UpdateBaby extends React.Component {
         return(
             <div className='update-baby-container'>
                 {
-                    this.props.updatingName
+                    this.state.updating
                     ?
                     <div>
                     <button
                         className='update-baby-button'
-                        onClick={() => { if (window.confirm('Are you sure you wish to edit this name?')) {
+                        onClick={() => {
                             this.updateBaby()
-                            this.props.toggleButton()
-                        }}
+                            this.toggleButton()
+                        }
                     }
                     >Submit</button>
                     <input
@@ -51,12 +58,12 @@ class UpdateBaby extends React.Component {
                         value={this.state.babyName}
                         onChange={this.changeHandler}
                     />
-                    <button className='cancel-update-button' onClick={this.props.toggleButton}>Cancel</button>
+                    <button className='cancel-update-button' onClick={this.toggleButton}>Cancel</button>
                     </div>
                     :
                     <button
                         className='update-baby-button'
-                        onClick={() => this.props.toggleButton()}
+                        onClick={() => this.toggleButton()}
                     >Edit Name</button>
                 }
             </div>
