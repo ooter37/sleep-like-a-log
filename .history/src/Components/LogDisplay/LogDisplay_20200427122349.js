@@ -30,10 +30,10 @@ class LogDisplay extends React.Component {
     }
     getLogsByBaby() {
         if (this.props.user) {
-            const id = this.props.babyId
+            const id = this.props.selectedTab
             console.log(this.props.selectedTab)
             axios.get(`/api/logs/${id}`).then(res => {
-                console.log(res.data)
+                console.log(res)
                 this.setState({
                     logs: res.data
                 })
