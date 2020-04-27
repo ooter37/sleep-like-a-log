@@ -29,7 +29,7 @@ class LogDisplay extends React.Component {
         this.getLogsByBaby()
     }
     getLogsByBaby() {
-        if (this.props.user.data) {
+        if (1 === 1) {
             const id = this.props.selectedTab
             axios.get(`/api/logs/${id}`).then(res => {
                 this.setState({
@@ -169,7 +169,7 @@ class LogDisplay extends React.Component {
 
                     :
 
-                    <div className='click-to-expand' onClick={(e) => this.togglePanel(e)}>Detailed Logs (Click to Expand)</div>
+                    <div className='click-to-expand' onClick={(e) => this.togglePanel(e)}>DETAILED LOGS (Click to Expand)</div>
                     
                 }
                 </div>

@@ -22,21 +22,19 @@ class LogDisplay extends React.Component {
         this.togglePanel = this.togglePanel.bind(this)
         this.extractor = this.extractor.bind(this);
         this.onSort = this.onSort.bind(this)
-        this.deleteLog = this.deleteLog.bind(this)
-        this.setArrow = this.setArrow.bind(this)
     }
     componentDidMount(){
         this.getLogsByBaby()
+        console.log(this.state.logs)
     }
     getLogsByBaby() {
-        if (this.props.user.data) {
+        if (1 === 1) {
             const id = this.props.selectedTab
             axios.get(`/api/logs/${id}`).then(res => {
                 this.setState({
                     logs: res.data
                 })
                 this.extractor(this.state.logs)
-                console.log(this.state.logs)
             }).catch(err => console.log('Error getting logs.', err))
         }
     }
@@ -169,7 +167,7 @@ class LogDisplay extends React.Component {
 
                     :
 
-                    <div className='click-to-expand' onClick={(e) => this.togglePanel(e)}>Detailed Logs (Click to Expand)</div>
+                    <div className='click-to-expand' onClick={(e) => this.togglePanel(e)}>DETAILED LOGS (Click to Expand)</div>
                     
                 }
                 </div>

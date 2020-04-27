@@ -21,8 +21,8 @@ class Logout extends React.Component{
     //     }
     // }
     logoutHandler(){
+        this.props.redirect()
         this.props.logout().then(() => {
-            // this.props.redirect()
             // this.setState({
             //     redirect: true
             // })

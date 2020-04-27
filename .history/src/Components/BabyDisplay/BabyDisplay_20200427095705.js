@@ -52,6 +52,7 @@ class BabyDisplay extends React.Component {
         })
     }
     render(){
+        console.log(this.state.selectedTab)
         const mappedNames = this.state.babies.map(baby => {
             return (
                 <Tab onClick={() => this.setStateOnSelect(baby.baby_id)} key={`Tab${baby.baby_id}`}>{baby.name.toUpperCase()}</Tab>
