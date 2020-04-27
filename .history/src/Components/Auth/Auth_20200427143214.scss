@@ -10,13 +10,14 @@
 //     background-color: white;
 // }
 .landing-login {
-    width: 340px;
+    width: 330px;
 	height: 100px;
 	position: absolute;
 	top:0;
 	bottom: 0;
 	left: 0;
 	right: 0;
+  	background-color: red;
 	margin: auto;
 }
 
@@ -28,7 +29,7 @@
     font-size: 14px;
 }
 .login-container {
-    width: 330px;
+    width: 370px;
     padding-top: 10px;
     margin-left: 10px;
 }
