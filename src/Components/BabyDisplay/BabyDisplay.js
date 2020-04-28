@@ -77,7 +77,7 @@ class BabyDisplay extends React.Component {
                         this.state.updatingName
                         ?
                         null:
-                        <button className='delete-baby-button' 
+                        <button className='delete-baby-button delete-button' 
                     onClick={() => { if (window.confirm('Are you sure you wish to delete this baby?')) this.deleteBaby(baby.baby_id) } }
                     >Delete Baby</button>
                     }

@@ -115,7 +115,7 @@ class LogDisplay extends React.Component {
                     <td className='log-display-asleep'>{moment(log.asleep).format('MMMM Do, h:mm A')}</td>
                     <td className='log-display-awake' >{moment(log.awake).format('MMMM Do, h:mm A')}</td>
                     <td className='log-display-length' >{length}</td>
-                    <td><button className='log-display-delete' onClick={() => { if (window.confirm('Are you sure you wish to delete this log entry?')) this.deleteLog(log.log_id) } }
+                    <td><button className='log-display-delete delete-button' onClick={() => { if (window.confirm('Are you sure you wish to delete this log entry?')) this.deleteLog(log.log_id) } }
                     >Delete</button></td>
                 </tr>
             )

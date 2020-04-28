@@ -13,47 +13,11 @@ export default class BarGraph extends React.Component {
   }
 
   render() {
-    // const date0 = new Date();
     const today = moment().format().slice(0,10)
-      // date0.getFullYear() +
-      // "-" +
-      // ("0" + (date0.getMonth() + 1)).slice(-2) +
-      // "-" +
-      // ("0" + date0.getDate()).slice(-2);
-    // const date1 = new Date();
-    // date1.setDate(date1.getDate() - 1);
     const minusOne = moment().subtract(1,'days').format().slice(0,10)
-      // date1.getFullYear() +
-      // "-" +
-      // ("0" + (date1.getMonth() + 1)).slice(-2) +
-      // "-" +
-      // ("0" + date1.getDate()).slice(-2);
-    // const date2 = new Date();
-    // date2.setDate(date2.getDate() - 2);
     const minusTwo = moment().subtract(2,'days').format().slice(0,10)
-    //   date2.getFullYear() +
-    //   "-" +
-    //   ("0" + (date2.getMonth() + 1)).slice(-2) +
-    //   "-" +
-    //   ("0" + date2.getDate()).slice(-2);
-
-    // const date3 = new Date();
-    // date3.setDate(date3.getDate() - 3);
     const minusThree = moment().subtract(3,'days').format().slice(0,10)
-    //   date3.getFullYear() +
-    //   "-" +
-    //   ("0" + (date3.getMonth() + 1)).slice(-2) +
-    //   "-" +
-    //   ("0" + date3.getDate()).slice(-2);
-
-    // const date4 = new Date();
-    // date4.setDate(date4.getDate() - 4);
     const minusFour = moment().subtract(4,'days').format().slice(0,10)
-      // date4.getFullYear() +
-      // "-" +
-      // ("0" + (date4.getMonth() + 1)).slice(-2) +
-      // "-" +
-      // ("0" + date4.getDate()).slice(-2);
     let todayNaps = 0;
     let minusOneNaps = 0;
     let minusTwoNaps = 0;

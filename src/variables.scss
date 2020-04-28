@@ -14,8 +14,18 @@ $aux-3: #457585;
 $aux-4: #104050;
 $aux-5: #022835;
 
-//ADD MIXIN
-
+.delete-button {
+    background-color: #ca3535;
+    border-color: #c43c35;
+}
+.delete-button:hover {
+    background-color: #ee5f5b;
+    box-shadow: none;
+}
+.delete-button:active {
+    background: #c43c35;
+    box-shadow: inset 0 0 1.094em black, inset 0 .063em black, inset 0 -0.188em black, 0 .063em rgba(255,255,255,.4); 
+}
 button {
     display: inline-block; 
     padding: .3em .6em;
