@@ -31,14 +31,11 @@ class LogDisplay extends React.Component {
     getLogsByBaby() {
         if (this.props.user) {
             const id = this.props.babyId
-            console.log(this.props.selectedTab)
             axios.get(`/api/logs/${id}`).then(res => {
-                console.log(res.data)
                 this.setState({
                     logs: res.data
                 })
                 this.extractor(this.state.logs)
-                console.log(this.state.logs)
             }).catch(err => console.log('Error getting logs.', err))
         }
     }

@@ -6,16 +6,21 @@ import {connect} from 'react-redux'
 import Login from '../Auth/Login'
 import {Link} from 'react-router-dom'
 
-function Header(props) {
+class Header extends React.Component {
+  constructor(props){
+    super(props)
+  }
+  
+  render(){
     return (
       <div className="header">
         {
-                    !props.user.data
+                    !this.props.user.data
                     ?
                     <div>
-                    <Login location={props.location} />
+                    <Login location={this.props.location} />
                     {
-                      props.location
+                      this.props.location
                       ?
                       <Link to='/'>
                       <button className='click-register-button'>Click to Register</button>
@@ -26,13 +31,14 @@ function Header(props) {
                     </div>
                     :
                     <div>
-                    <Logout/>
-                    <div className='welcome-username'>Welcome, {props.user.data.email}</div>
+                    <Logout toggleRedirect={this.props.toggleRedirect} />
+                    <div className='welcome-username'>Welcome, {this.props.user.data.email}</div>
                     </div>
                 }
         
       </div>
     );
+  }
   }
 
   const mapStateToProps = state => state

@@ -21,13 +21,23 @@ class BabyDisplay extends React.Component {
         this.setStateOnSelect = this.setStateOnSelect.bind(this)
         this.toggleButton = this.toggleButton.bind(this)
     }
-
+    componentDidUpdate(prevProps){
+        if (!this.props.user.data && this.state.babies[0]) {
+            this.setState({
+                babies: []
+            })
+        }
+        if (this.props.user.data && !prevProps.user.data){
+            this.getBabies()
+            }
+        }
     componentDidMount(){
-        this.getBabies()
+        if (this.props.user){
+            this.getBabies()
+        }
     }
     getBabies(){
         axios.get('/api/babies').then(res => {
-            console.log(res.data)
             this.setState({
                 babies: res.data
             })
