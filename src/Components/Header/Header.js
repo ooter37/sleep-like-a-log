@@ -1,26 +1,22 @@
 import React from "react";
 import "./Header.scss";
-import Logout from '../Auth/Logout'
 import requestUserData from '../../redux/reducers/user'
 import {connect} from 'react-redux'
-import Login from '../Auth/Login'
 import {Link} from 'react-router-dom'
+import Logout from '../Auth/Logout'
+import LoginFromHeader from '../Auth/LoginFromHeader'
 
-class Header extends React.Component {
-  constructor(props){
-    super(props)
-  }
-  
-  render(){
+function Header (props) {
+
     return (
       <div className="header">
         {
-                    !this.props.user.data
+                    !props.user.data
                     ?
                     <div>
-                    <Login location={this.props.location} />
+                    <LoginFromHeader location={props.location} />
                     {
-                      this.props.location
+                      props.location
                       ?
                       <Link to='/'>
                       <button className='click-register-button'>Click to Register</button>
@@ -31,15 +27,15 @@ class Header extends React.Component {
                     </div>
                     :
                     <div>
-                    <Logout toggleRedirect={this.props.toggleRedirect} />
-                    <div className='welcome-username'>Welcome, {this.props.user.data.email}</div>
+                    <Logout toggleRedirect={props.toggleRedirect} />
+                    <div className='welcome-username'>Welcome, {props.user.data.email}</div>
                     </div>
                 }
         
       </div>
     );
   }
-  }
+  
 
   const mapStateToProps = state => state
 

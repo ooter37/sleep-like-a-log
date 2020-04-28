@@ -1,25 +1,27 @@
 import React from "react";
 import { connect } from "react-redux";
-import { register } from "../../redux/reducers/user";
+import { login } from "../../redux/reducers/user";
+
 import "./Auth.scss";
 
-class Register extends React.Component {
+class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       email: "",
       password: "",
     };
-    this.registrationHandler = this.registrationHandler.bind(this);
+    this.loginHandler = this.loginHandler.bind(this)
+    this.changeHandler = this.changeHandler.bind(this)
   }
-  registrationHandler(e) {
+  loginHandler(e) {
     e.preventDefault();
     this.props
-      .register(this.state)
-      .then(() => {
-        this.props.redirect();
-      })
-      .catch((err) => console.log("Error registering.", err));
+      .login(this.state)
+      .catch((err) => {
+        window.alert('Incorrect username or password.') 
+        console.log("Error with login from landing.", err)
+      });
   }
   changeHandler(e) {
     this.setState({
@@ -29,7 +31,7 @@ class Register extends React.Component {
   render() {
     return (
       <div className="login-container">
-        <form onSubmit={this.registrationHandler}>
+        <form onSubmit={this.loginHandler}>
           <input
             placeholder="email"
             type="text"
@@ -46,12 +48,18 @@ class Register extends React.Component {
             value={this.state.password}
             onChange={(e) => this.changeHandler(e)}
           />
-          <button className='login-button'>Register</button>
+          <button className='login-button'>Login</button>
         </form>
-        <button className='click-register-button' onClick={this.props.display}>Click to Login</button>
+        {
+          this.props.location
+          ?
+          null
+          :
+        <button className='click-register-button' onClick={this.props.display}>Click to Register</button>
+        }
       </div>
     );
   }
 }
 
-export default connect(null, { register })(Register);
+export default connect(null, { login })(Login);

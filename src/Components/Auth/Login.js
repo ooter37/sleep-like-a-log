@@ -21,7 +21,10 @@ class Login extends React.Component {
       .then(() => {
         this.props.redirect();
       })
-      .catch((err) => console.log("Error with login.", err));
+      .catch((err) => {
+        window.alert('Incorrect username or password.')
+        // console.log("Error with login.", err)   // This causes a ~7 sec delay on login?
+      });
   }
   changeHandler(e) {
     this.setState({
@@ -36,6 +39,7 @@ class Login extends React.Component {
             placeholder="email"
             type="text"
             name="email"
+            required
             value={this.state.email}
             onChange={(e) => this.changeHandler(e)}
           />
@@ -43,6 +47,7 @@ class Login extends React.Component {
             placeholder="password"
             type="text"
             name="password"
+            required
             value={this.state.password}
             onChange={(e) => this.changeHandler(e)}
           />
