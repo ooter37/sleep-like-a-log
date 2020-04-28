@@ -85,6 +85,12 @@ export default class BarGraph extends React.Component {
                 },
             }],
           xAxes: [{
+                scaleLabel: {
+                  display: true,
+                  labelString: 'Last Five Days',
+                  fontColor: '#cae8d5',
+                  fontSize: 18
+              },
                 gridLines: {display: false},
                 ticks: {
                     fontColor: '#cae8d5'

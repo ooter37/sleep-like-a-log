@@ -7,7 +7,6 @@ module.exports = {
             let {email, password} = req.body
             let users = await db.auth.find_user_by_email(email)
             let user = users[0]
-
             if (!user) {
                 return res.status(401).send('Email or password incorrect.')
             }
@@ -65,7 +64,7 @@ module.exports = {
     },
     userData: (req,res) => {
         const {user} = req.session;
-        if (user) return res.status(200).send({user})
+        if (user) res.status(200).send(user)
         else return res.sendStatus(401)
     }
 }

@@ -18,6 +18,7 @@ class App extends React.Component {
     }
     this.toggleRedirect = this.toggleRedirect.bind(this)
   }
+
   toggleRedirect(){
     let {redirect} = this.state
     this.setState({
@@ -25,9 +26,9 @@ class App extends React.Component {
     })
 }
   componentDidMount(){
-      this.props.requestUserData()
+    this.props.requestUserData()
+    // console.log(this.props)
   }
-  
   render(){
     if (this.state.redirect) {
       return <Redirect to='/'/>

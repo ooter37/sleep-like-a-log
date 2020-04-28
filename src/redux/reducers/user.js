@@ -67,9 +67,16 @@ export default function(state = initialState,action) {
                 loading: false
             }
         case REQUEST_USER_DATA + '_FULFILLED':
+            console.log('test')
+            console.log(action.payload)
             return {
                 ...state,
-                data: action.payload.data
+                data: action.payload
+            }
+        case REQUEST_USER_DATA + '_PENDING':
+            return {
+                ...state,
+                loading: true
             }
         default:
             return state
@@ -77,10 +84,9 @@ export default function(state = initialState,action) {
 }
 //Action creators. Returns an action object.
 export function requestUserData(){
-    let data = axios.get('/auth/user-data').then(res => res.data)
     return {
         type: REQUEST_USER_DATA,
-        payload: data
+        payload: axios.get('/auth/user-data').then(res => res.data)
     }
 }
 export function register(user) {
