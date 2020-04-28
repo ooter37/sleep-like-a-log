@@ -6,6 +6,7 @@ import LogDisplay from '../LogDisplay/LogDisplay';
 import AddBaby from '../AddBaby/AddBaby'
 import UpdateBaby from '../UpdateBaby/UpdateBaby'
 import {connect} from 'react-redux'
+import Loading from '../Loading/Loading'
 
 class BabyDisplay extends React.Component {
     constructor(){
@@ -63,6 +64,7 @@ class BabyDisplay extends React.Component {
         })
     }
     render(){
+        console.log(this.props.user.loading)
         const mappedNames = this.state.babies.map(baby => {
             return (
                 <Tab onClick={() => this.setStateOnSelect(baby.baby_id)} key={`Tab${baby.baby_id}`}>{baby.name.toUpperCase()}</Tab>
@@ -88,7 +90,11 @@ class BabyDisplay extends React.Component {
 
         return(
             <div>
-
+                {
+                    (this.props.user.loading === true)
+                    ?
+                    <Loading/>
+                    :
                 <div className='baby-container'>
                     <Tabs className='tabs' selectedIndex={this.state.tabIndex} onSelect={tabIndex => this.setState({tabIndex})}>
                         <TabList>
@@ -97,6 +103,7 @@ class BabyDisplay extends React.Component {
                             {mappedBabies}
                     </Tabs>
                 </div>
+                }
                 <AddBaby getBabies={this.getBabies}/>
             </div>
         )

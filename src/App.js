@@ -27,14 +27,13 @@ class App extends React.Component {
 }
   componentDidMount(){
     this.props.requestUserData()
-    // console.log(this.props)
   }
   render(){
     if (this.state.redirect) {
       return <Redirect to='/'/>
   }
     return (
-
+      
       <div className="App">
         {
           this.props.location.pathname === '/main'

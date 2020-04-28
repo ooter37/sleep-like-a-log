@@ -2,7 +2,7 @@ import axios from 'axios'
 
 const initialState = {
     data: null,
-    loading: false
+    loading: null
 }
 // NOTES
 // data = user. {
@@ -67,11 +67,10 @@ export default function(state = initialState,action) {
                 loading: false
             }
         case REQUEST_USER_DATA + '_FULFILLED':
-            console.log('test')
-            console.log(action.payload)
             return {
                 ...state,
-                data: action.payload
+                data: action.payload,
+                loading: false
             }
         case REQUEST_USER_DATA + '_PENDING':
             return {

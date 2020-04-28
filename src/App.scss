@@ -5,6 +5,11 @@
   width: 100vw;
   background-color: $primary-color;
 }
+.loading {
+  height: 100vh;
+  width: 100vw;
+  background-color: white;
+}
 
 body::-webkit-scrollbar {
   background-color: $primary-color;
