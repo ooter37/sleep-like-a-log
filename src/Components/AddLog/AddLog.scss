@@ -2,21 +2,15 @@
 .add-log-container{
     margin-left:20px;
     color: $font-color;
-    width: 400px;
-    @include shadowbox-light
+    width: 370px;
+    @include shadowbox-light;
+    height: 100px;
 }
 .add-log-label {
-    margin-top: 20px;
     font-size: 20px;
     padding: 7px;
     margin-left: 5px;
     font-weight: bold;
-}
-
-.asleep-awake-container {
-    margin-left: 5px;
-    display: flex;
-    justify-content: space-between;
 }
 .add-log-labels {
     margin-left: 20px;
@@ -24,10 +18,17 @@
 .add-log-inputs {
     margin-right: 100px;
 }
-.submit-new-log{
-    margin-left: 320px;
-    margin-bottom: 10px;
+.add-log-button{
+    margin-left: 293px;
+    margin-top: -20px;
     font-size: 14px;
+    position: relative;
+}
+.asleep-awake-container {
+    margin-left: 5px;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
 }
 @media screen and (max-width: 767px) {
     .add-log-container {
@@ -37,8 +38,11 @@
         height: 110px;
         position: relative;
     }
-    .submit-new-log{
+    .add-log-button{
         position: absolute;
+        margin: auto;
+        bottom: 7px;
+        right: 6px;
     }
 }
 @media screen and (max-width: 550px) {
@@ -46,19 +50,26 @@
         width: 95%;
         max-width: 400px;
         margin: 0 auto;
-        height: 110px;
         position: relative;
     }
-    .submit-new-log{
+    .add-log-button{
         position: absolute;
+        margin: auto;
+        bottom: 0px;
+        right: 6px;
     }
     .asleep-awake-container {
-        margin-left: 5px;
-        margin-top: 0px;
-        display: flex;
-	    flex-direction: column;
-        width: 150px;
-        padding-top: 3px;
+        font-weight: bold;
+        flex-direction: column;
+        padding-left: 10px;
+        padding-top: 12px;
+    }
+    .add-log-container {
+        width: 95%;
+        max-width: 400px;
+        margin: 0 auto;
+        height: 110px;
+        position: relative;
     }
     .add-log-label {
         font-size: 20px;
@@ -75,7 +86,7 @@
     .add-log-inputs {
         margin-right: 0px;
     }
-    .submit-new-log{
+    .add-log-button{
         margin-left: 260px;
         margin-bottom: 10px;
     }

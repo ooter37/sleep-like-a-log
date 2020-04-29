@@ -1,19 +1,70 @@
 @import '../../variables.scss';
 
-.add-baby {
-    @include shadowbox-heavy;
+.add-baby-container {
+    right: 20px;
+    top: 40px;
+    position: absolute;
+    color: $font-color;
     width: 300px;
+    @include shadowbox-light;
     height: 100px;
+}
+.add-baby-label {
+    font-size: 20px;
+    padding: 7px;
+    margin-left: 5px;
+    font-weight: bold;
+}
+.add-baby-input-container {
+    display: flex;
+    flex-direction: column;
+    width: 150px;
     position: relative;
-    margin-left: 30px;
+    margin: auto;
+    left: 60px;
 }
-.add-baby-input {
-    margin: 10px;
+.add-baby-name-input {
+    margin-bottom: 1px;
 }
-
 .add-baby-button {
     font-size: 14px;
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
+    width: 100px;
+    position: relative;
+    bottom: 6px;
+    left: 8px;
+    margin-right: 10px;
 }
+
+@media screen and (max-width: 767px) {
+    .add-baby-container {
+        left: 10px;
+        top: 10px;
+        margin-bottom: 20px;
+        position: relative;
+        width: 95%;
+        max-width: 300px;
+
+        // width: 95%;
+        // margin-left:20px;
+        // max-width: 400px; 
+        // height: 110px;
+        // position: relative;
+    }
+    .submit-new-log{
+        position: absolute;
+    }
+}
+
+// .add-baby {
+//     @include shadowbox-light;
+//     width: 200px;
+//     height: 100px;
+//     // margin-left: 30px;
+//     right: 20px;
+//     top: 50px;
+//     position: absolute;
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: space-around;
+//     align-items: flex-end;
+// }

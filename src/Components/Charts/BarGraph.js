@@ -62,21 +62,25 @@ export default class BarGraph extends React.Component {
     const options = {
         maintainAspectRatio: false,
         legend: {
+          display: false,
              labels: {
-                  fontColor: '#cae8d5'
+                  fontColor: 'red',
+                  fontSize: 16,
+                  display: false
                  }
               },
         title: {
-            display: true,
+            display: false,
             fontColor: '#cae8d5',
+            fontSize: 18
             // text: 'Custom Chart Title'
         }     ,
         scales: {
             yAxes: [{
                 scaleLabel: {
-                    display: true,
-                    labelString: 'Minutes',
-                    fontColor: '#cae8d5'
+                  display: true,
+                  abelString: 'Minutes',
+                  fontColor: '#cae8d5'
                 },
                 gridLines: {display: false},
                 ticks: {
@@ -87,13 +91,14 @@ export default class BarGraph extends React.Component {
           xAxes: [{
                 scaleLabel: {
                   display: true,
-                  labelString: 'Last Five Days',
+                  labelString: 'Minutes Slept Over the Last Five Days',
                   fontColor: '#cae8d5',
                   fontSize: 18
               },
                 gridLines: {display: false},
                 ticks: {
-                    fontColor: '#cae8d5'
+                    fontColor: '#cae8d5',
+                    fontSize: 16
                 },
             }]
         } 

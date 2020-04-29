@@ -2,10 +2,9 @@ import React from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "./AddLog.scss";
-import axios from 'axios'
-import {connect} from 'react-redux'
-import requestUserData from '../../redux/reducers/user'
-
+import axios from "axios";
+import { connect } from "react-redux";
+import requestUserData from "../../redux/reducers/user";
 
 class AddLog extends React.Component {
   constructor(props) {
@@ -30,57 +29,66 @@ class AddLog extends React.Component {
   }
   submitDates() {
     if (this.props.user.data) {
-      const user_id = this.props.user.data.user_id
-      const baby_id = this.props.babyId
-      const asleep = this.state.startDate
-      const awake = this.state.endDate
-      axios.post('/api/logs', {user_id, baby_id, asleep, awake}).then(()=> this.props.getLogsByBaby())
-      .catch(err => console.log('Error adding log.', err))
+      const user_id = this.props.user.data.user_id;
+      const baby_id = this.props.babyId;
+      const asleep = this.state.startDate;
+      const awake = this.state.endDate;
+      axios
+        .post("/api/logs", { user_id, baby_id, asleep, awake })
+        .then(() => this.props.getLogsByBaby())
+        .catch((err) => console.log("Error adding log.", err));
     } else {
-      window.alert('Please login.')
+      window.alert("Please login.");
     }
   }
   render() {
     // console.log('date goes out',this.state.startDate)
     return (
-      <div className='add-log-container'>
-        <div className='add-log-label'>Add Log</div>
-          <div className='asleep-awake-container'>
-            <div className='add-log-labels'>Sleep Time</div>
-            <DatePicker
-              className='add-log-inputs'
-              selected={this.state.startDate}
-              onChange={this.startHandler}
-              showTimeSelect
-              timeFormat="h:mm aa"
-              timeIntervals={15}
-              timeCaption="time"
-              dateFormat="MMMM d, h:mm aa"
+      <div className="add-log-container">
+        <div className="add-log-label">Add Log</div>
+        <div className='logging-container'>
+        <div className="asleep-awake-container">
+          <div className="add-log-labels">Sleep Time</div>
+          <DatePicker
+            className="add-log-inputs"
+            selected={this.state.startDate}
+            onChange={this.startHandler}
+            showTimeSelect
+            timeFormat="h:mm aa"
+            timeIntervals={15}
+            timeCaption="time"
+            dateFormat="MMMM d, h:mm aa"
             />
-          </div>
-          <div className='asleep-awake-container'>
-            <div className='add-log-labels'>Wake Time</div>
-            <DatePicker
-            className='add-log-inputs'
-              selected={this.state.endDate}
-              onChange={this.endHandler}
-              showTimeSelect
-              timeFormat="h:mm aa"
-              timeIntervals={15}
-              timeCaption="time"
-              dateFormat="MMMM d, h:mm aa"
+        </div>
+        <div className="asleep-awake-container">
+          <div className="add-log-labels">Wake Time</div>
+          <DatePicker
+            className="add-log-inputs"
+            selected={this.state.endDate}
+            onChange={this.endHandler}
+            showTimeSelect
+            timeFormat="h:mm aa"
+            timeIntervals={15}
+            timeCaption="time"
+            dateFormat="MMMM d, h:mm aa"
             />
-          </div>
-          <button className='submit-new-log' onClick={() => {
-            this.submitDates()
-            }}>Submit</button>
+        </div>
+            </div>
+        <button
+          className="add-log-button"
+          onClick={() => {
+            this.submitDates();
+          }}
+        >
+          Submit
+        </button>
       </div>
     );
   }
 }
 
-const mapDispatchToProps = {requestUserData}
+const mapDispatchToProps = { requestUserData };
 
-const mapStateToProps = state => state
+const mapStateToProps = (state) => state;
 
-export default connect(mapStateToProps, mapDispatchToProps)(AddLog)
+export default connect(mapStateToProps, mapDispatchToProps)(AddLog);

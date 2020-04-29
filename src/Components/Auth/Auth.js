@@ -31,6 +31,7 @@ export default class Auth extends React.Component {
         }
         return(
             <div className='landing-login'>
+                {/* <button>Sample</button> */}
                 {
                     this.state.display
                     ?
