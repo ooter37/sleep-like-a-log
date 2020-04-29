@@ -2,6 +2,7 @@ import React from "react";
 import { Bar } from "react-chartjs-2";
 import './Charts.scss'
 import moment from 'moment'
+// import 'chartjs-plugin-colorschemes'
 
 export default class BarGraph extends React.Component {
   constructor(props) {
@@ -44,11 +45,11 @@ export default class BarGraph extends React.Component {
       datasets: [
         {
           label: "Minutes Slept Per Day",
-          backgroundColor: "#cae8d5",
-          borderColor: "#104050",
+          backgroundColor: "#019A48",
+          borderColor: "#013B00",
           borderWidth: 1,
-          hoverBackgroundColor: "#84a9ac",
-          hoverBorderColor: "#104050",
+          hoverBackgroundColor: "#BCCFB4",
+          hoverBorderColor: "#013B00",
           data: [
             minusFourNaps,
             minusThreeNaps,
@@ -60,6 +61,11 @@ export default class BarGraph extends React.Component {
       ],
     };
     const options = {
+      // plugins: {
+      //   colorschemes: {
+      //     scheme: 'brewer.BrBG11'
+      //   }
+      // },
         maintainAspectRatio: false,
         legend: {
           display: false,
@@ -91,7 +97,7 @@ export default class BarGraph extends React.Component {
           xAxes: [{
                 scaleLabel: {
                   display: true,
-                  labelString: 'Minutes Slept Over the Last Five Days',
+                  labelString: 'Minutes Slept Over the Past Five Days',
                   fontColor: '#cae8d5',
                   fontSize: 18
               },

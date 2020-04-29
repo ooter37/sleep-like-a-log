@@ -16,6 +16,7 @@ class Login extends React.Component {
   }
   loginHandler(e) {
     e.preventDefault();
+    console.log(this.state)
     this.props
       .login(this.state)
       .then(() => {
