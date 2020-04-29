@@ -1,9 +1,9 @@
 @import '../../variables.scss';
 
 .loading {
-    background-color: $primary-color;
-    height: 60vh;
-    width: 100%;
+    background-color: $secondary-color;
+    height: 65vh;
+    width: 99%;
     position: relative;
 }
 
@@ -12,24 +12,26 @@
 }
 .lds-dual-ring {
     display: inline-block;
-    width: 80px;
-    height: 80px;
+    width: 30vw;
+    height: 30vw;
+    margin: auto;
+    margin-top: 135px;
+    position: fixed;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    top: 0px;
   }
   .lds-dual-ring:after {
     content: " ";
     display: block;
-    width: 30vw;
-    height: 30vw;
+    width: 78%;
+    height: 78%;
     margin: 8px;
     border-radius: 50%;
-    border: 30px solid #fff;
+    border: 20px solid #fff;
     border-color: $font-color transparent $font-color transparent;
     animation: lds-dual-ring 1.2s linear infinite;
-    margin-left: auto;
-    margin-right: auto;
-    position: fixed;
-    left: 0px;
-    right: 0px; 
 }
   @keyframes lds-dual-ring {
     0% {
