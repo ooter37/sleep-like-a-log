@@ -14,7 +14,7 @@ class Auth extends React.Component {
         }
         this.toggleDisplay = this.toggleDisplay.bind(this)
         this.toggleRedirect = this.toggleRedirect.bind(this)
-        this.loginHandler = this.loginHandler.bind(this)
+        // this.loginHandler = this.loginHandler.bind(this)
     }
     toggleDisplay(){
         let {display} = this.state
