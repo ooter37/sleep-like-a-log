@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { login } from "../../redux/reducers/user";
+import Button from '@material-ui/core/Button'
 
 import "./Auth.scss";
 
@@ -48,14 +49,14 @@ class Login extends React.Component {
             value={this.state.password}
             onChange={(e) => this.changeHandler(e)}
           />
-          <button className='login-button'>Login</button>
+          <Button color='primary' variant='contained' className='login-button'>Login</Button>
         </form>
         {
           this.props.location
           ?
           null
           :
-        <button className='click-register-button' onClick={this.props.display}>Click to Register</button>
+        <Button color='primary' variant='contained' className='click-register-button' onClick={this.props.display}>Click to Register</Button>
         }
       </div>
     );

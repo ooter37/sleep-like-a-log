@@ -2,6 +2,7 @@ import React from 'react'
 import './UpdateBaby.scss'
 import axios from 'axios'
 import {connect} from 'react-redux'
+import Button from '@material-ui/core/Button'
 
 class UpdateBaby extends React.Component {
     constructor(props){
@@ -34,14 +35,15 @@ class UpdateBaby extends React.Component {
                     this.props.updatingName
                     ?
                     <div>
-                    <button
+                    <Button
+                        color='primary' variant='contained' 
                         className='update-baby-button'
                         onClick={() => { if (this.state.babyName !== '') {if (window.confirm('Are you sure you wish to edit this name?')) {
                             this.updateBaby()
                             this.props.toggleButton()
                         }}}
                     }
-                    >Submit</button>
+                    >Submit</Button>
                     <input
                         className='update-baby-input'
                         placeholder='Name'
@@ -50,13 +52,14 @@ class UpdateBaby extends React.Component {
                         value={this.state.babyName}
                         onChange={this.changeHandler}
                     />
-                    <button className='cancel-update-button' onClick={this.props.toggleButton}>Cancel</button>
+                    <Button color='primary' variant='contained' className='cancel-update-button' onClick={this.props.toggleButton}>Cancel</Button>
                     </div>
                     :
-                    <button
+                    <Button
+                    color='primary' variant='contained' 
                         className='update-baby-button'
                         onClick={() => this.props.toggleButton()}
-                    >Edit Baby Name</button>
+                    >Edit Baby Name</Button>
                 }
             </div>
         )

@@ -2,11 +2,18 @@ body {
     font-family: "Roboto", sans-serif;
   } 
 
-$primary-color: #204051;
+// $primary-color: #204051;
+// $secondary-color: #3b6978;
+// $darker-highlight: #84a9ac;
+// $lighter-highlight: #cae8d5;
+// $font-color: white;
+$background-color: #204051;
+$primary-color: #6C939F;
 $secondary-color: #3b6978;
 $darker-highlight: #84a9ac;
 $lighter-highlight: #cae8d5;
 $font-color: white;
+$button-color: #3b6978;
 //Auxillary Colors
 $aux-1: #26596A;	// Main Primary color */
 $aux-2: #6C939F;
@@ -35,35 +42,35 @@ input {
     box-sizing: border-box;
     font-size: 14px;
   }
-  button {
-    font-family: "Roboto", sans-serif;
-    text-transform: uppercase;
-    outline: 0;
-    background: $secondary-color;
-    border: 0;
-    padding: 15px;
-    color: $font-color;
-    font-size: 14px;
-    -webkit-transition: all 0.3 ease;
-    transition: all 0.3 ease;
-    cursor: pointer;
-  }
+//   button {
+//     font-family: "Roboto", sans-serif;
+//     text-transform: uppercase;
+//     outline: 0;
+//     background: $button-color;
+//     border: 0;
+//     padding: 15px;
+//     color: $font-color;
+//     font-size: 14px;
+//     -webkit-transition: all 0.3 ease;
+//     transition: all 0.3 ease;
+//     cursor: pointer;
+//   }
 
 
 
 
-.delete-button {
-    background-color: #ca3535;
-    border-color: #c43c35;
-}
-.delete-button:hover {
-    background-color: #ee5f5b;
-    box-shadow: none;
-}
-.delete-button:active {
-    background: #c43c35;
-    box-shadow: inset 0 0 1.094em black, inset 0 .063em black, inset 0 -0.188em black, 0 .063em rgba(255,255,255,.4); 
-}
+// .delete-button {
+//     background-color: #ca3535;
+//     border-color: #c43c35;
+// }
+// .delete-button:hover {
+//     background-color: #ee5f5b;
+//     box-shadow: none;
+// }
+// .delete-button:active {
+//     background: #c43c35;
+//     box-shadow: inset 0 0 1.094em black, inset 0 .063em black, inset 0 -0.188em black, 0 .063em rgba(255,255,255,.4); 
+// }
 // button {
 //     display: inline-block; 
 //     padding: .3em .6em;
@@ -87,15 +94,24 @@ input {
 // }
 
 @mixin shadowbox-heavy($border-radius:10px, $box-shadow:5px 5px 15px  $darker-highlight, $background-color:$secondary-color) {
-    border-radius: $border-radius;
-    box-shadow: $box-shadow;   
+    // border-radius: $border-radius;
+    // box-shadow: $box-shadow;   
+    // background-color: $background-color;
+}
+@mixin shadowbox-light($border-radius:10px, $box-shadow: inset 3px 4px 10px  $primary-color, $background-color:$primary-color) {
+    // border-radius: $border-radius;
+    // box-shadow: $box-shadow; 
     background-color: $background-color;
 }
-@mixin shadowbox-light($border-radius:10px, $box-shadow: inset 3px 4px 10px  $primary-color, $background-color:$aux-2) {
-    border-radius: $border-radius;
-    box-shadow: $box-shadow; 
-    background-color: $background-color;
+@mixin heavy-box (){
+    background: $secondary-color;
 }
+@mixin light-box ($background-color:$aux-2){
+    background: $background-color;
+    
+    
+}
+
 
 // @mixin button($padding:5px 10px, $font-size:14px, $border-radius:10px, $bg-color:$secondary-color, $font-color:$font-color) {
 // 	padding:$padding;

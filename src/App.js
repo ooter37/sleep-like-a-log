@@ -10,12 +10,13 @@ import {requestUserData} from './redux/reducers/user'
 import Header from './Components/Header/Header'
 import {Redirect} from 'react-router-dom'
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
-import blue from '@material-ui/core/colors/blue';
-import red from '@material-ui/core/colors/red'
+import red from '@material-ui/core/colors/red';
 
 const theme = createMuiTheme({
   palette: {
-       primary: blue,
+       primary: {
+         main: '#022835'
+       },
        secondary: red
      }
    });

@@ -2,6 +2,7 @@ import React from "react";
 import "./AddBaby.scss";
 import axios from "axios";
 import { connect } from "react-redux";
+import Button from '@material-ui/core/Button'
 
 class AddBaby extends React.Component {
     constructor(props) {
@@ -56,7 +57,8 @@ render() {
             onChange={(e) => this.changeHandler(e)}
             />
         </div>
-        <button
+        <Button
+        color='primary' variant='contained' 
         className="add-baby-button"
         onClick={() => {
             if (this.state.babyName !== "" && this.state.relationship) {
@@ -72,7 +74,7 @@ render() {
         }}
         >
             Add Baby
-        </button>
+        </Button>
         </div>
     );}
 }

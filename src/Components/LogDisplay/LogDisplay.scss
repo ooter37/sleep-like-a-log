@@ -2,22 +2,22 @@
 
 .log-display {
     border: 1px;
-    border-color: white;
-    border-radius: 5px;
+    border-color:white;
+    // border-radius: 5px;
     border-style: solid;
     color: $font-color;
     display: flex;
+    align-items: center;
     justify-content: space-between;
     width: 99%;
     margin: auto;
     margin-bottom: 8px;
-    box-shadow: 1px 1px 5px $lighter-highlight;
-    height: 25px;
+    // box-shadow: 1px 1px 5px $lighter-highlight;
+    height: 34px;
     margin-left: 20px;
     text-align: center;
 }
 .log-display-labels {
-    color: $font-color;
     display: flex;
     justify-content: space-between;
     width: 99%;
@@ -30,20 +30,20 @@
     width: 25%;
     height: 80%;
     padding-left: 20px;
-    padding-top: 4px;
+    padding-top: 5px;
     cursor: pointer;
 }
 .log-display-awake {
     width: 25%;
     height: 80%;
-    padding-top: 4px;
+    padding-top: 5px;
     cursor: pointer;
 }
 .log-display-length {
     width: 25%;
     height: 80%;
     flex-grow: 1;
-    padding-top: 4px;
+    padding-top: 5px;
     cursor: pointer;
 }
 .log-display-delete {

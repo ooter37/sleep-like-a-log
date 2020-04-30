@@ -3,7 +3,7 @@
 .App {
   height: 120vh;
   width: 100vw;
-  background-color: $primary-color;
+  background-color: $background-color;
 }
 .loading {
   height: 100vh;
@@ -12,16 +12,16 @@
 }
 
 body::-webkit-scrollbar {
-  background-color: $primary-color;
+  background-color: $background-color;
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background-color: $primary-color;
+  background-color: $background-color;
 }
 
 
 ::-webkit-scrollbar-corner {
-  background-color: $primary-color;
+  background-color: $background-color;
 }
 // ::-webkit-scrollbar-track-piece
 

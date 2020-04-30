@@ -4,6 +4,7 @@ import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import Logout from '../Auth/Logout'
 import LoginFromHeader from '../Auth/LoginFromHeader'
+import Button from '@material-ui/core/Button'
 
 function Header (props) {
 
@@ -18,7 +19,7 @@ function Header (props) {
                       props.location
                       ?
                       <Link to='/'>
-                      <button className='click-register-button'>Click to Register</button>
+                      <Button color='primary' variant='contained' className='click-register-button'>Click to Register</Button>
                       </Link>
                       :
                       null
@@ -27,7 +28,7 @@ function Header (props) {
                     :
                     <div>
                     <Logout toggleRedirect={props.toggleRedirect} />
-                    <div className='welcome-username'>Welcome, {props.user.data.email}</div>
+                    <h1 className='welcome-username'>Welcome, {props.user.data.email}</h1>
                     </div>
                 }
         

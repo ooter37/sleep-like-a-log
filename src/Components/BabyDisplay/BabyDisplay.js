@@ -7,6 +7,7 @@ import AddBaby from '../AddBaby/AddBaby'
 import UpdateBaby from '../UpdateBaby/UpdateBaby'
 import {connect} from 'react-redux'
 import Loading from '../Loading/Loading'
+import Button from '@material-ui/core/Button'
 
 class BabyDisplay extends React.Component {
     constructor(){
@@ -78,9 +79,11 @@ class BabyDisplay extends React.Component {
                         this.state.updatingName
                         ?
                         null:
-                        <button className='delete-baby-button delete-button' 
-                    onClick={() => { if (window.confirm('Are you sure you wish to delete this baby?')) this.deleteBaby(baby.baby_id) } }
-                    >Delete Baby</button>
+                        <div className='delete-baby-button delete-button'><Button 
+                        color='secondary' 
+                        variant='contained' 
+                        onClick={() => { if (window.confirm('Are you sure you wish to delete this baby?')) this.deleteBaby(baby.baby_id) } }
+                    >Delete Baby</Button></div>
                     }
                     <UpdateBaby toggleButton={this.toggleButton} updatingName={this.state.updatingName} getBabies={this.getBabies} babyId={baby.baby_id} babyName={baby.name}/>
                 </TabPanel>

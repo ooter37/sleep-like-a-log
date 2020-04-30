@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { register } from "../../redux/reducers/user";
 import "./Auth.scss";
+import Button from '@material-ui/core/Button'
 
 class Register extends React.Component {
   constructor(props) {
@@ -51,7 +52,7 @@ class Register extends React.Component {
                 onChange={(e) => this.changeHandler(e)}
                 />
             </div>
-          <button className='login-button'>Register</button>
+          <Button type='submit' color='primary' variant='contained' className='login-button'>Register</Button>
         </form>
         {
           this.props.location
@@ -60,34 +61,9 @@ class Register extends React.Component {
           :
           <div className='need-register-container'>
             <p>Already have an account?</p>
-            <button className='click-register-button' onClick={this.props.display}>Click to Login</button>
+            <Button color='primary' variant='contained' className='click-register-button' onClick={this.props.display}>Click to Login</Button>
         </div>
         }
-      </div>
-    );
-
-    return (
-      <div className="login-container">
-        <form onSubmit={this.registrationHandler}>
-          <input
-            placeholder="email"
-            type="text"
-            name="email"
-            required
-            value={this.state.email}
-            onChange={(e) => this.changeHandler(e)}
-          />
-          <input
-            placeholder="password"
-            type="text"
-            name="password"
-            required
-            value={this.state.password}
-            onChange={(e) => this.changeHandler(e)}
-          />
-          <button className='login-button'>Register</button>
-        </form>
-        <button className='click-register-button' onClick={this.props.display}>Click to Login</button>
       </div>
     );
   }

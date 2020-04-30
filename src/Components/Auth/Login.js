@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { login } from "../../redux/reducers/user";
 import "./Auth.scss";
+import Button from '@material-ui/core/Button'
 
 class Login extends React.Component {
   constructor(props) {
@@ -56,7 +57,7 @@ class Login extends React.Component {
                 onChange={(e) => this.changeHandler(e)}
                 />
             </div>
-          <button className='login-button'>Login</button>
+          <Button type='submit' color='primary' variant='contained' className='login-button'>Login</Button>
         </form>
         {
           this.props.location
@@ -65,7 +66,7 @@ class Login extends React.Component {
           :
           <div className='need-register-container'>
             <p>Need an account?</p>
-            <button className='click-register-button' onClick={this.props.display}>Click to Register</button>
+            <Button color='primary' variant='contained' className='click-register-button' onClick={this.props.display}>Click to Register</Button>
         </div>
         }
       </div>

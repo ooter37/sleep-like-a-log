@@ -4,6 +4,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import "./AddLog.scss";
 import axios from "axios";
 import { connect } from "react-redux";
+import Button from '@material-ui/core/Button'
 
 class AddLog extends React.Component {
   constructor(props) {
@@ -73,14 +74,15 @@ class AddLog extends React.Component {
             />
         </div>
             </div>
-        <button
+        <Button
+        color='primary' variant='contained' 
           className="add-log-button"
           onClick={() => {
             this.submitDates();
           }}
         >
           Submit
-        </button>
+        </Button>
       </div>
     );
   }

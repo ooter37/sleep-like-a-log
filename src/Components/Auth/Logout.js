@@ -3,6 +3,7 @@ import "./Auth.scss";
 import {connect} from 'react-redux'
 // import {Redirect} from 'react-router-dom'
 import {logout} from '../../redux/reducers/user'
+import Button from '@material-ui/core/Button'
 
 
 class Logout extends React.Component{
@@ -37,10 +38,11 @@ class Logout extends React.Component{
             <div>
                 
                     <div>
-                    <button 
+                    <Button 
+                        color='primary' variant='contained' 
                         className='logout-button'
                         onClick={this.logoutHandler}
-                    >Logout</button>
+                    >Logout</Button>
                     <div className='welcome-username'>Welcome, {this.props.user.data.email}</div>
                     </div>
                 

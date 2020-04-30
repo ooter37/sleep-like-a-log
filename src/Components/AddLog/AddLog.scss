@@ -17,6 +17,8 @@
 }
 .add-log-inputs {
     margin-right: 100px;
+    padding: 5px;
+    width: 70%;
 }
 .add-log-button{
     margin-left: 293px;
@@ -29,6 +31,7 @@
     display: flex;
     justify-content: space-between;
     position: relative;
+    // background-color: red;
 }
 @media screen and (max-width: 767px) {
     .add-log-container {
