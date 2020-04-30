@@ -45,11 +45,11 @@ export default class BarGraph extends React.Component {
       datasets: [
         {
           label: "Minutes Slept Per Day",
-          backgroundColor: "#019A48",
-          borderColor: "#013B00",
+          backgroundColor: "#1de9b6",
+          borderColor: "#004d40",
           borderWidth: 1,
-          hoverBackgroundColor: "#BCCFB4",
-          hoverBorderColor: "#013B00",
+          hoverBackgroundColor: "#a7ffeb",
+          hoverBorderColor: "#004d40",
           data: [
             minusFourNaps,
             minusThreeNaps,

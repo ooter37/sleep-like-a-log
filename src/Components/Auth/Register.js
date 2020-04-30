@@ -29,6 +29,45 @@ class Register extends React.Component {
   render() {
     return (
       <div className="login-container">
+        <div className='login-text-container'>
+          <p>Registering is easy. All you need to provide is an email address and password.</p>
+        </div>
+        <form className='form-container' onSubmit={this.registrationHandler}>
+            <div className='login-input-container'>
+              <input className='login-input-email'
+                placeholder="email"
+                type="text"
+                name="email"
+                required
+                value={this.state.email}
+                onChange={(e) => this.changeHandler(e)}
+                />
+              <input className='login-input-password'
+                placeholder="password"
+                type="password"
+                name="password"
+                required
+                value={this.state.password}
+                onChange={(e) => this.changeHandler(e)}
+                />
+            </div>
+          <button className='login-button'>Register</button>
+        </form>
+        {
+          this.props.location
+          ?
+          null
+          :
+          <div className='need-register-container'>
+            <p>Already have an account?</p>
+            <button className='click-register-button' onClick={this.props.display}>Click to Login</button>
+        </div>
+        }
+      </div>
+    );
+
+    return (
+      <div className="login-container">
         <form onSubmit={this.registrationHandler}>
           <input
             placeholder="email"
@@ -40,7 +79,7 @@ class Register extends React.Component {
           />
           <input
             placeholder="password"
-            type="password"
+            type="text"
             name="password"
             required
             value={this.state.password}

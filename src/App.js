@@ -9,6 +9,16 @@ import {connect} from 'react-redux'
 import {requestUserData} from './redux/reducers/user'
 import Header from './Components/Header/Header'
 import {Redirect} from 'react-router-dom'
+import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
+import blue from '@material-ui/core/colors/blue';
+import red from '@material-ui/core/colors/red'
+
+const theme = createMuiTheme({
+  palette: {
+       primary: blue,
+       secondary: red
+     }
+   });
 
 class App extends React.Component {
   constructor() {
@@ -35,7 +45,8 @@ class App extends React.Component {
       return <Redirect to='/'/>
   }
     return (
-      
+      <MuiThemeProvider theme={theme}>
+
       <div className="App">
         {
           this.props.location.pathname === '/main'
@@ -49,6 +60,7 @@ class App extends React.Component {
         <Route path='/main' component={Main}/>
       </Switch>
     </div>
+        </MuiThemeProvider>
   );
 }
 }

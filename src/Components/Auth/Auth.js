@@ -46,16 +46,25 @@ class Auth extends React.Component {
         return(
             <div className='landing-login'>
                 {/* <button onClick={this.loginHandler}>Sample</button> */}
-                <h1 className='welcome'>Welcome to Sleep Like a Log</h1>
-                <div className='introduction'>My name is Derek Lamarr and this is my personal project for my software engineering class. You can use this app to track sleep logs. It's intended for parents to track the logs of new babies, but it will work for any entity that sleeps.</div>
-                {
-                    this.state.display
-                    ?
-                    <Login display={this.toggleDisplay} redirect={this.toggleRedirect}/>
-                    :
-                    <Register display={this.toggleDisplay} redirect={this.toggleRedirect}/>
-
-                }
+                <div className='about-text'>
+                    <h1 className='auth-text'>Welcome to 'Sleep Like a Log'</h1>
+                    <br/>
+                    <br/>
+                    <p className='auth-text'>My name is Derek Lamarr and this is my personal project for my software engineering class.</p>
+                    <br/>
+                    <p className='auth-text'>You can use this app to track sleep logs. It's intended for parents to track the 
+                        logs of new babies, but it will work for any entity that sleeps.</p>
+                </div>
+                    
+                    {
+                        this.state.display
+                        ?
+                        <Login display={this.toggleDisplay} redirect={this.toggleRedirect}/>
+                        :
+                        <Register display={this.toggleDisplay} redirect={this.toggleRedirect}/>
+                        
+                    }
+                    
             </div>
         )
     }

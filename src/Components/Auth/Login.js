@@ -1,7 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
 import { login } from "../../redux/reducers/user";
-
 import "./Auth.scss";
 
 class Login extends React.Component {
@@ -34,23 +33,29 @@ class Login extends React.Component {
   render() {
     return (
       <div className="login-container">
-        <form onSubmit={this.loginHandler}>
-          <input
-            placeholder="email"
-            type="text"
-            name="email"
-            required
-            value={this.state.email}
-            onChange={(e) => this.changeHandler(e)}
-          />
-          <input
-            placeholder="password"
-            type="password"
-            name="password"
-            required
-            value={this.state.password}
-            onChange={(e) => this.changeHandler(e)}
-          />
+        <div className='login-text-container'>
+          <h1>Welcome</h1>
+          <p>Please login to continue.</p>
+        </div>
+        <form className='form-container' onSubmit={this.loginHandler}>
+            <div className='login-input-container'>
+              <input className='login-input-email'
+                placeholder="email"
+                type="text"
+                name="email"
+                required
+                value={this.state.email}
+                onChange={(e) => this.changeHandler(e)}
+                />
+              <input className='login-input-password'
+                placeholder="password"
+                type="password"
+                name="password"
+                required
+                value={this.state.password}
+                onChange={(e) => this.changeHandler(e)}
+                />
+            </div>
           <button className='login-button'>Login</button>
         </form>
         {
@@ -58,7 +63,10 @@ class Login extends React.Component {
           ?
           null
           :
-        <button className='click-register-button' onClick={this.props.display}>Click to Register</button>
+          <div className='need-register-container'>
+            <p>Need an account?</p>
+            <button className='click-register-button' onClick={this.props.display}>Click to Register</button>
+        </div>
         }
       </div>
     );
