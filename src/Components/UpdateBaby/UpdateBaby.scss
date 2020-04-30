@@ -11,10 +11,7 @@
     left: 5px;
 }
 .update-baby-button {
-    font-size: 16px;
-    // bottom: 10px;
-    // left: 10px;
-    
+    font-size: 16px;  
 }
 .update-baby-input {
 
@@ -27,4 +24,10 @@
     // margin-bottom: 13px;
     // margin-left: 300px;
     
+}
+@media screen and (max-width: 767px) {
+    .update-baby-button {
+        position: absolute;
+        bottom: -106px;
+    }
 }

@@ -82,7 +82,7 @@ class BabyDisplay extends React.Component {
                     onClick={() => { if (window.confirm('Are you sure you wish to delete this baby?')) this.deleteBaby(baby.baby_id) } }
                     >Delete Baby</button>
                     }
-                    <UpdateBaby toggleButton={this.toggleButton} updatingName={this.state.updatingName} getBabies={this.getBabies} babyId={baby.baby_id}/>
+                    <UpdateBaby toggleButton={this.toggleButton} updatingName={this.state.updatingName} getBabies={this.getBabies} babyId={baby.baby_id} babyName={baby.name}/>
                 </TabPanel>
             )
         })
@@ -96,13 +96,16 @@ class BabyDisplay extends React.Component {
                     :
                     <div className='baby-container'>
                  
-                            <AddBaby babies={this.state.babies} getBabies={this.getBabies}/>
                 
                     <Tabs className='tabs' selectedIndex={this.state.tabIndex} onSelect={tabIndex => this.setState({tabIndex})}>
                         <TabList>
                             {mappedNames}
+                            <Tab>ADD BABY</Tab>
                         </TabList>
                             {mappedBabies}
+                            <TabPanel>
+                                <AddBaby babies={this.state.babies} getBabies={this.getBabies}/>
+                            </TabPanel>
                     </Tabs>
                 </div>
                 }

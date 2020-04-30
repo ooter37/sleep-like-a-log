@@ -13,7 +13,19 @@
 	right: 0;
 	margin: auto;
 }
-
+.welcome {
+    color: $font-color;
+    font-size: 24px;
+    font-weight: bold;
+    position: absolute;
+    bottom: 300px;
+}
+.introduction {
+    color: $font-color;
+    font-size: 20px;
+    position: absolute;
+    bottom: 150px;
+}
 //Login.js
 .login-button {
     font-size: 14px;
@@ -26,7 +38,6 @@
     padding-top: 10px;
     margin-left: 10px;
 }
-
 //Register.js
 .already-registered-button {
     font-size: 14px;

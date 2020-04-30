@@ -16,7 +16,6 @@ class Login extends React.Component {
   }
   loginHandler(e) {
     e.preventDefault();
-    console.log(this.state)
     this.props
       .login(this.state)
       .then(() => {
@@ -46,7 +45,7 @@ class Login extends React.Component {
           />
           <input
             placeholder="password"
-            type="text"
+            type="password"
             name="password"
             required
             value={this.state.password}

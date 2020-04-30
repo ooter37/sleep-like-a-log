@@ -4,7 +4,6 @@ import "react-datepicker/dist/react-datepicker.css";
 import "./AddLog.scss";
 import axios from "axios";
 import { connect } from "react-redux";
-import requestUserData from "../../redux/reducers/user";
 
 class AddLog extends React.Component {
   constructor(props) {
@@ -87,8 +86,7 @@ class AddLog extends React.Component {
   }
 }
 
-const mapDispatchToProps = { requestUserData };
 
 const mapStateToProps = (state) => state;
 
-export default connect(mapStateToProps, mapDispatchToProps)(AddLog);
+export default connect(mapStateToProps, null)(AddLog);

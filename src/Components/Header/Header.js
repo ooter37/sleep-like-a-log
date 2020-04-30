@@ -1,6 +1,5 @@
 import React from "react";
 import "./Header.scss";
-import requestUserData from '../../redux/reducers/user'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import Logout from '../Auth/Logout'
@@ -39,6 +38,5 @@ function Header (props) {
 
   const mapStateToProps = state => state
 
-  const mapDispatchToProps = {requestUserData}
   
-  export default connect(mapStateToProps, mapDispatchToProps)(Header)
+  export default connect(mapStateToProps, null)(Header)

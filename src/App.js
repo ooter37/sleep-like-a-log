@@ -26,7 +26,9 @@ class App extends React.Component {
     })
 }
   componentDidMount(){
-    this.props.requestUserData()
+    if (this.props.user) {
+      this.props.requestUserData()
+    }
   }
   render(){
     if (this.state.redirect) {

@@ -7,7 +7,7 @@ class UpdateBaby extends React.Component {
     constructor(props){
         super(props)
         this.state = {
-            babyName: ''
+            babyName: this.props.babyName
         }
         this.changeHandler = this.changeHandler.bind(this)
         this.updateBaby = this.updateBaby.bind(this)
@@ -17,7 +17,6 @@ class UpdateBaby extends React.Component {
             [e.target.name]: e.target.value
         })
     }
-    
     updateBaby() {
         if (this.props.user.data) {
             const babyName = this.state.babyName
@@ -57,7 +56,7 @@ class UpdateBaby extends React.Component {
                     <button
                         className='update-baby-button'
                         onClick={() => this.props.toggleButton()}
-                    >Edit Name</button>
+                    >Edit Baby Name</button>
                 }
             </div>
         )

@@ -40,7 +40,7 @@ class Register extends React.Component {
           />
           <input
             placeholder="password"
-            type="text"
+            type="password"
             name="password"
             required
             value={this.state.password}

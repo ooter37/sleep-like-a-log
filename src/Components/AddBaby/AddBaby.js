@@ -25,7 +25,7 @@ addBaby() {
         const relationship = this.state.relationship;
         axios
         .post("api/babies", { babyName, user_id, relationship })
-        .then(() => this.props.getBabies())
+        .then(() => {this.props.getBabies()})
         .catch((err) => console.log("Error adding baby", err));
     } else {
         window.alert("Please log in.");
@@ -65,7 +65,8 @@ render() {
                     `Would you like to add ${this.state.babyName}, with a relationship of ${this.state.relationship}?`
                 )
                 ) {
-                this.addBaby();
+                this.addBaby()
+                this.setState({babyName: '', relationship: ''});
             }
             }
         }}
