@@ -19,7 +19,10 @@ class Register extends React.Component {
       .then(() => {
         this.props.redirect();
       })
-      .catch((err) => console.log("Error registering.", err));
+      .catch((err) => {
+        window.alert('That username already exists. Please login.')
+        // console.log("Error registering.", err)
+      });
   }
   changeHandler(e) {
     this.setState({
