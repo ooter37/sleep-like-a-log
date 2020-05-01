@@ -33,7 +33,7 @@ class BabyDisplay extends React.Component {
             }
         }
     componentDidMount(){
-        if (this.props.user){
+        if (this.props.user.data){
             this.getBabies()
         }
     }

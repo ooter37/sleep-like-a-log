@@ -2,12 +2,12 @@
 
 .App {
   height: 120vh;
-  width: 100vw;
+  max-width: 100vw;
   background-color: $primary-color;
 }
 .loading {
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   background-color: white;
 }
 

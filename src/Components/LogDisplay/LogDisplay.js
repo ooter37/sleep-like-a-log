@@ -26,10 +26,12 @@ class LogDisplay extends React.Component {
         this.setArrow = this.setArrow.bind(this)
     }
     componentDidMount(){
-        this.getLogsByBaby()
+        if (this.props.user.data) {
+            this.getLogsByBaby()
+        }
     }
     getLogsByBaby() {
-        if (this.props.user) {
+        if (this.props.user.data) {
             const id = this.props.babyId
             axios.get(`/api/logs/${id}`).then(res => {
                 this.setState({

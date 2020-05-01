@@ -29,7 +29,7 @@ function Header (props) {
                     <Logout toggleRedirect={props.toggleRedirect} />
                     <h1 className='welcome-username'>Welcome, {props.user.data.email}</h1>
                     </div>
-                }
+        }
         
       </div>
     );

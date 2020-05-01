@@ -41,7 +41,7 @@ class Logout extends React.Component{
                         className='logout-button'
                         onClick={this.logoutHandler}
                     >Logout</button>
-                    <div className='welcome-username'>Welcome, {this.props.user.data.email}</div>
+                    {/* <div className='welcome-username'>Welcome, {this.props.user.data.email}</div> */}
                     </div>
                 
         </div>
