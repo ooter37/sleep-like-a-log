@@ -27,7 +27,7 @@ function Header (props) {
                     :
                     <div>
                     <Logout toggleRedirect={props.toggleRedirect} />
-                    <div className='welcome-username'>Welcome, {props.user.data.email}</div>
+                    <h1 className='welcome-username'>Welcome, {props.user.data.email}</h1>
                     </div>
                 }
         

@@ -44,24 +44,33 @@ class AddLog extends React.Component {
     // console.log('date goes out',this.state.startDate)
     return (
       <div className="add-log-container">
-        <div className="add-log-label">Add Log</div>
-        <div className='logging-container'>
-        <div className="asleep-awake-container">
-          <div className="add-log-labels">Sleep Time</div>
-          <DatePicker
-            className="add-log-inputs"
-            selected={this.state.startDate}
-            onChange={this.startHandler}
-            showTimeSelect
-            timeFormat="h:mm aa"
-            timeIntervals={15}
-            timeCaption="time"
-            dateFormat="MMMM d, h:mm aa"
-            />
+        <div className='label-button-container'>
+          <div className="add-log-label">Add Log</div>
+          <button
+          className="add-log-button"
+          onClick={() => {
+            this.submitDates();
+          }}
+          >
+          Submit
+          </button>
         </div>
-        <div className="asleep-awake-container">
-          <div className="add-log-labels">Wake Time</div>
-          <DatePicker
+        <div className='logging-container'>
+          <div className="asleep-awake-container">
+            <DatePicker
+              className="add-log-inputs"
+              selected={this.state.startDate}
+              onChange={this.startHandler}
+              showTimeSelect
+              timeFormat="h:mm aa"
+              timeIntervals={15}
+              timeCaption="time"
+              dateFormat="MMMM d, h:mm aa"
+              />
+            <div className="add-log-labels">Sleep Time</div>
+          </div>
+          <div className="asleep-awake-container">
+            <DatePicker
             className="add-log-inputs"
             selected={this.state.endDate}
             onChange={this.endHandler}
@@ -71,16 +80,10 @@ class AddLog extends React.Component {
             timeCaption="time"
             dateFormat="MMMM d, h:mm aa"
             />
+            <div className="add-log-labels">Wake Time</div>
+          </div>
         </div>
-            </div>
-        <button
-          className="add-log-button"
-          onClick={() => {
-            this.submitDates();
-          }}
-        >
-          Submit
-        </button>
+        
       </div>
     );
   }

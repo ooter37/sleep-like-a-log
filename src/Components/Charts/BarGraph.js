@@ -1,7 +1,7 @@
 import React from "react";
 import { Bar } from "react-chartjs-2";
-import './Charts.scss'
-import moment from 'moment'
+import "./Charts.scss";
+import moment from "moment";
 // import 'chartjs-plugin-colorschemes'
 
 export default class BarGraph extends React.Component {
@@ -10,15 +10,14 @@ export default class BarGraph extends React.Component {
     this.chartReference = React.createRef();
   }
 
-  componentDidMount() {
-  }
+  componentDidMount() {}
 
   render() {
-    const today = moment().format().slice(0,10)
-    const minusOne = moment().subtract(1,'days').format().slice(0,10)
-    const minusTwo = moment().subtract(2,'days').format().slice(0,10)
-    const minusThree = moment().subtract(3,'days').format().slice(0,10)
-    const minusFour = moment().subtract(4,'days').format().slice(0,10)
+    const today = moment().format().slice(0, 10);
+    const minusOne = moment().subtract(1, "days").format().slice(0, 10);
+    const minusTwo = moment().subtract(2, "days").format().slice(0, 10);
+    const minusThree = moment().subtract(3, "days").format().slice(0, 10);
+    const minusFour = moment().subtract(4, "days").format().slice(0, 10);
     let todayNaps = 0;
     let minusOneNaps = 0;
     let minusTwoNaps = 0;
@@ -66,58 +65,63 @@ export default class BarGraph extends React.Component {
       //     scheme: 'brewer.BrBG11'
       //   }
       // },
-        maintainAspectRatio: false,
-        legend: {
+      maintainAspectRatio: false,
+      response: true,
+      legend: {
+        display: false,
+        labels: {
+          fontColor: "red",
+          fontSize: 16,
           display: false,
-             labels: {
-                  fontColor: 'red',
-                  fontSize: 16,
-                  display: false
-                 }
-              },
-        title: {
-            display: false,
-            fontColor: '#cae8d5',
-            fontSize: 18
-            // text: 'Custom Chart Title'
-        }     ,
-        scales: {
-            yAxes: [{
-                scaleLabel: {
-                  display: true,
-                  abelString: 'Minutes',
-                  fontColor: '#cae8d5'
-                },
-                gridLines: {display: false},
-                ticks: {
-                    beginAtZero:true,
-                    fontColor: '#cae8d5'
-                },
-            }],
-          xAxes: [{
-                scaleLabel: {
-                  display: true,
-                  labelString: 'Minutes Slept Over the Past Five Days',
-                  fontColor: '#cae8d5',
-                  fontSize: 18
-              },
-                gridLines: {display: false},
-                ticks: {
-                    fontColor: '#cae8d5',
-                    fontSize: 16
-                },
-            }]
-        } 
-
-    }
+        },
+      },
+      title: {
+        display: false,
+        fontColor: "#cae8d5",
+        fontSize: 18,
+        // text: 'Custom Chart Title'
+      },
+      scales: {
+        yAxes: [
+          {
+            scaleLabel: {
+              display: true,
+              abelString: "Minutes",
+              fontColor: "#cae8d5",
+            },
+            gridLines: { display: false },
+            ticks: {
+              beginAtZero: true,
+              fontColor: "#cae8d5",
+            },
+          },
+        ],
+        xAxes: [
+          {
+            scaleLabel: {
+              display: true,
+              labelString: "Minutes Slept Over Past Five Days",
+              fontColor: "#cae8d5",
+              fontSize: 18,
+            },
+            gridLines: { display: false },
+            ticks: {
+              fontColor: "#cae8d5",
+              fontSize: 16,
+            },
+          },
+        ],
+      },
+    };
     return (
-        <div className='slept-per-day'>
-    <Bar className='chart'
-    options={options}
-    ref={this.chartReference}
-     data={data} 
-    />
-    </div>
-    )
+      <div className='slept-per-day'>
+        <Bar
+          className='chart'
+          options={options}
+          ref={this.chartReference}
+          data={data}
+        />
+      </div>
+    );
   }
 }
