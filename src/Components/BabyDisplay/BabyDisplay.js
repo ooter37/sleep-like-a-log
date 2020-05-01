@@ -90,7 +90,7 @@ class BabyDisplay extends React.Component {
         return(
             <div>
                 {
-                    (this.props.user.loading === true)
+                    (this.props.user.loading === true && this.props.user.data)
                     ?
                     <Loading/>
                     :

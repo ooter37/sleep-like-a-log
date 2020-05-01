@@ -4,77 +4,96 @@ import axios from "axios";
 import { connect } from "react-redux";
 
 class AddBaby extends React.Component {
-    constructor(props) {
+  constructor(props) {
     super(props);
     this.state = {
-        babyName: "",
-        relationship: "",
+      babyName: "",
+      relationship: "",
     };
     this.addBaby = this.addBaby.bind(this);
     this.changeHandler = this.changeHandler.bind(this);
-}
-changeHandler(e) {
+  }
+  changeHandler(e) {
     this.setState({
-        [e.target.name]: e.target.value,
+      [e.target.name]: e.target.value,
     });
-}
-addBaby() {
+  }
+  addBaby() {
     if (this.props.user.data) {
-        const babyName = this.state.babyName;
-        const user_id = this.props.user.data.user_id;
-        const relationship = this.state.relationship;
-        axios
+      const babyName = this.state.babyName;
+      const user_id = this.props.user.data.user_id;
+      const relationship = this.state.relationship;
+      axios
         .post("api/babies", { babyName, user_id, relationship })
-        .then(() => {this.props.getBabies()})
+        .then(() => {
+          this.props.getBabies();
+        })
         .catch((err) => console.log("Error adding baby", err));
     } else {
-        window.alert("Please log in.");
+      window.alert("Please log in.");
     }
-}
-render() {
+  }
+  render() {
     // if (!this.props.user.data) {
     //     return <></>
     // }
     return (
-    <div className="add-baby-container">
-        <div className="add-baby-label">Add Baby</div>
-        <div className="add-baby-input-container">
-            <input
-            className="add-baby-name-input"
-            placeholder="Name"
-            type="text"
-            name="babyName"
-            value={this.state.babyName}
-            onChange={(e) => this.changeHandler(e)}
-            />
-            <input
-            className="add-baby-relationship-input"
-            placeholder="Relationship"
-            type="text"
-            name="relationship"
-            value={this.state.relationship}
-            onChange={(e) => this.changeHandler(e)}
-            />
-        </div>
-        <button
-        className="add-baby-button"
-        onClick={() => {
-            if (this.state.babyName !== "" && this.state.relationship) {
-                if (
-                window.confirm(
-                    `Would you like to add ${this.state.babyName}, with a relationship of ${this.state.relationship}?`
-                )
-                ) {
-                this.addBaby()
-                this.setState({babyName: '', relationship: ''});
-            }
-            }
-        }}
-        >
-            Add Baby
-        </button>
-        </div>
-    );}
+      <div>
+        {this.props.user.data ? (
+          <div className='add-baby-container'>
+            <h1 className='add-baby-label'>Add a New Baby</h1>
+            <p className='add-baby-paragraph'>
+              Enter a name and your relationship to the baby, then click add.
+              Your baby will display in a new tab where you'll be able to add
+              sleep logs.
+            </p>
+            <p className='add-baby-paragraph'>
+              Total sleep time per day over the last five days will be displayed
+              in a chart, and you can view detailed records of all logs in the
+              detailed log section.
+            </p>
+            <div className='add-baby-input-container'>
+              <input
+                className='add-baby-name-input'
+                placeholder='Name'
+                type='text'
+                name='babyName'
+                value={this.state.babyName}
+                onChange={(e) => this.changeHandler(e)}
+              />
+              <input
+                className='add-baby-relationship-input'
+                placeholder='Relationship'
+                type='text'
+                name='relationship'
+                value={this.state.relationship}
+                onChange={(e) => this.changeHandler(e)}
+              />
+            </div>
+            <button
+              className='add-baby-button'
+              onClick={() => {
+                if (this.state.babyName !== "" && this.state.relationship) {
+                  if (
+                    window.confirm(
+                      `Would you like to add ${this.state.babyName}, with a relationship of ${this.state.relationship}?`
+                    )
+                  ) {
+                    this.addBaby();
+                    this.setState({ babyName: "", relationship: "" });
+                  }
+                }
+              }}
+            >
+              Add Baby
+            </button>
+          </div>
+        ) : (
+          <p className='add-baby-login-paragraph'>Please login to continue.</p>
+        )}
+      </div>
+    );
+  }
 }
 
 const mapStateToProps = (state) => state;

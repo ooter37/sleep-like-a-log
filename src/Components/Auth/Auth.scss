@@ -21,8 +21,21 @@
     height: 400px;
     // background-color: black;
 }
+@media screen and (max-width: 767px) {
+    .landing-login {
+        flex-direction: column;
+    }
+    .login-container {
+        width: 98%;
+    }
+    .about-text {
+        width: 98%;
+        margin-top: 10px;
+        height: 200px;
+        max-width: 500px;
+    }
+}
 //Login.js
-
 .login-text-container {
     text-align: center;
 }
@@ -59,6 +72,7 @@
 }
 .click-register-button {
     width: 80%;   
+    
 }
 .need-register-container {
     width: 100%;
@@ -72,7 +86,6 @@
 .already-registered-button {
     font-size: 14px;
 }
-
 //Logout.js
 .logout-button {
     font-size: 14px;
@@ -85,18 +98,65 @@
     right: 20px;
     top: 20px;
 }
-
-@media screen and (max-width: 767px) {
-    .landing-login {
-        flex-direction: column;
-    }
-    .login-container {
-        width: 98%;
-    }
-    .about-text {
-        width: 98%;
-        margin-top: 10px;
-        height: 200px;
-        max-width: 500px;
-    }
+//LoginFromHeader.js
+.header-login-container {
+    max-width: 480px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    // background-color: red;
 }
+.header-input-container {
+    width: 405px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    // background-color: black;
+}
+.header-login-input {
+    width: 200px;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    // background-color: green;
+}
+.header-login-button {
+    font-size: 14px;
+}
+.header-click-register-button {
+    font-size: 14px;
+    position: absolute;
+    right: 20px;
+    top: 62px;
+}
+@media screen and (max-width: 662px) {
+    .header-login-container {
+        height: 90px;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-left: 5px;
+        width: 95%;
+    }
+    .header-input-container {
+        width: 200px;
+        height: 57px;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-between;
+    }
+    .header-login-input {
+        padding: 5px;
+        margin: 0;
+    }
+    
+    // .header-login-container {
+    //     width: 95%;
+    //     height: 80px;
+    //     background-color: red;
+    //     flex-direction: column;
+    //     justify-content: flex-start;
+    //     align-items: flex-start;
+    // }
+} 

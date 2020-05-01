@@ -1,59 +1,70 @@
 @import '../../variables.scss';
 
 .add-baby-container {
-    right: 20px;
-    top: 40px;
-    position: absolute;
+    // right: 20px;
+    // top: 40px;
+    // position: absolute;
     color: $font-color;
-    width: 300px;
-    @include shadowbox-light;
-    height: 100px;
+    // width: 300px;
+    // @include shadowbox-light;
+    // height: 100px;
+    // background-color: red;
 }
 .add-baby-label {
-    font-size: 20px;
-    padding: 7px;
-    margin-left: 5px;
-    font-weight: bold;
+    // font-size: 20px;
+    // padding: 7px;
+    // margin-left: 5px;
+    // font-weight: bold;
+    text-align: left;
+    margin-top: 20px;
+    margin-left: 20px;
+    padding-bottom: 10px;
+    width: 200px;
+}
+.add-baby-paragraph {
+    max-width: 500px;
+    margin-left: 20px;
+    margin-top: 20px;
 }
 .add-baby-input-container {
     display: flex;
     flex-direction: column;
-    width: 150px;
-    position: relative;
-    margin: auto;
-    left: 60px;
+    justify-content: space-between;
+    width: 300px;
+    height: 110px;
+    margin-left: 20px;
+    margin-top: 20px;
 }
-.add-baby-name-input {
-    margin-bottom: 1px;
-}
+
 .add-baby-button {
     font-size: 14px;
-    width: 100px;
-    position: relative;
-    bottom: 6px;
-    left: 8px;
-    margin-right: 10px;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+.add-baby-login-paragraph {
+    margin: 20px;
+    font-size: 24px;
 }
 
-@media screen and (max-width: 767px) {
-    .add-baby-container {
-        left: 10px;
-        top: 10px;
-        margin-bottom: 20px;
-        position: relative;
-        width: 95%;
-        max-width: 300px;
+// @media screen and (max-width: 767px) {
+//     .add-baby-container {
+//         left: 10px;
+//         top: 10px;
+//         margin-bottom: 20px;
+//         position: relative;
+//         width: 95%;
+//         max-width: 300px;
 
-        // width: 95%;
-        // margin-left:20px;
-        // max-width: 400px; 
-        // height: 110px;
-        // position: relative;
-    }
-    .submit-new-log{
-        position: absolute;
-    }
-}
+//         // width: 95%;
+//         // margin-left:20px;
+//         // max-width: 400px; 
+//         // height: 110px;
+//         // position: relative;
+//     }
+//     .submit-new-log{
+//         position: absolute;
+//     }
+// }
 
 // .add-baby {
 //     @include shadowbox-light;

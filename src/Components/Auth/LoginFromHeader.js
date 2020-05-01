@@ -30,33 +30,36 @@ class Login extends React.Component {
   }
   render() {
     return (
-      <div className="login-container">
-        <form onSubmit={this.loginHandler}>
-          <input
+      <div>
+
+        <form  className="header-login-container" onSubmit={this.loginHandler}>
+        <div className="header-input-container">
+          <input className='header-login-input'
             placeholder="email"
             type="text"
             name="email"
             required
             value={this.state.email}
             onChange={(e) => this.changeHandler(e)}
-          />
-          <input
+            />
+          <input className='header-login-input'
             placeholder="password"
             type="password"
             name="password"
             required
             value={this.state.password}
             onChange={(e) => this.changeHandler(e)}
-          />
-          <button className='login-button'>Login</button>
+            />
+            </div>
+          <button className='header-login-button'>Login</button>
         </form>
-        {
+        {/* {
           this.props.location
           ?
           null
           :
-        <button className='click-register-button' onClick={this.props.display}>Click to Register</button>
-        }
+        <button className='dfgfg' onClick={this.props.display}>Click to </button>
+        } */}
       </div>
     );
   }

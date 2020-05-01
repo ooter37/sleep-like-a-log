@@ -56,7 +56,7 @@ class Login extends React.Component {
                 onChange={(e) => this.changeHandler(e)}
                 />
             </div>
-          <button className='login-button'>Login</button>
+          <button className='login-button auth-button'>Login</button>
         </form>
         {
           this.props.location
@@ -65,7 +65,7 @@ class Login extends React.Component {
           :
           <div className='need-register-container'>
             <p>Need an account?</p>
-            <button className='click-register-button' onClick={this.props.display}>Click to Register</button>
+            <button className='click-register-button auth-button' onClick={this.props.display}>Click to Register</button>
         </div>
         }
       </div>
