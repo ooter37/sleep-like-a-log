@@ -35,7 +35,7 @@ class UpdateBaby extends React.Component {
                     ?
                     <div>
                     <button
-                        className='update-baby-button'
+                        className='submit-baby-button'
                         onClick={() => { if (this.state.babyName !== '') {if (window.confirm('Are you sure you wish to edit this name?')) {
                             this.updateBaby()
                             this.props.toggleButton()
@@ -54,7 +54,7 @@ class UpdateBaby extends React.Component {
                     </div>
                     :
                     <button
-                        className='update-baby-button'
+                        className='edit-baby-button'
                         onClick={() => this.props.toggleButton()}
                     >Edit Baby Name</button>
                 }

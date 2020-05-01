@@ -1,20 +1,9 @@
 @import '../../variables.scss';
 
 .add-baby-container {
-    // right: 20px;
-    // top: 40px;
-    // position: absolute;
     color: $font-color;
-    // width: 300px;
-    // @include shadowbox-light;
-    // height: 100px;
-    // background-color: red;
 }
 .add-baby-label {
-    // font-size: 20px;
-    // padding: 7px;
-    // margin-left: 5px;
-    // font-weight: bold;
     text-align: left;
     margin-top: 20px;
     margin-left: 20px;
@@ -37,7 +26,6 @@
 }
 
 .add-baby-button {
-    font-size: 14px;
     margin-top: 10px;
     margin-left: 20px;
 }

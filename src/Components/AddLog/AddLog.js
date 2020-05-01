@@ -45,7 +45,7 @@ class AddLog extends React.Component {
     return (
       <div className="add-log-container">
         <div className='label-button-container'>
-          <div className="add-log-label">Add Log</div>
+          <h2 className="add-log-label">Add Log</h2>
           <button
           className="add-log-button"
           onClick={() => {

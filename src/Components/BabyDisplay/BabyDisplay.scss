@@ -15,16 +15,23 @@
     width: 100%;
     
 }
+.update-delete-container {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 10px;
+}
 .delete-baby-button {
-    font-size: 15px;
-    position: absolute;
-    bottom: 5px;
-    right: 5px;
+    // position: absolute;
+    // bottom: 60px;
+    // right: 9px;
+    width: 120px;
+    height: 36px;
 }
 @media screen and (max-width: 538px) {
-    // .delete-baby-button {
-    //     bottom: -50px;
-    // }
+
     .baby-container {
         height: 600px;
     }

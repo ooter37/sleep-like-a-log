@@ -1,9 +1,24 @@
+// $primary-color: #204051;
+// $secondary-color: #3b6978;
+// $darker-highlight: #84a9ac;
+// $lighter-highlight: #cae8d5;
+// $font-color: white;
+// //Auxillary Colors
+// $aux-1: #26596A;	// Main Primary color */
+// $aux-2: #6C939F;
+// $aux-3: #457585;
+// $aux-4: #104050;
+// $aux-5: #022835;
+// //NEW COLORS
+// $button-background: #112E3E;
+// $button-hover: #335365;
+// $button-click: #8DAAB4;
 body {
     font-family: "Roboto", sans-serif;
   } 
 
 $primary-color: #204051;
-$secondary-color: #3b6978;
+$secondary-color: #405c6b;
 $darker-highlight: #84a9ac;
 $lighter-highlight: #cae8d5;
 $font-color: white;
@@ -13,6 +28,10 @@ $aux-2: #6C939F;
 $aux-3: #457585;
 $aux-4: #104050;
 $aux-5: #022835;
+//NEW COLORS
+$button-background: #3b6978;
+$button-hover: #437889;
+$button-click: #8DAAB4;
 
 p {
     color: $font-color;
@@ -23,7 +42,12 @@ H1 {
     font-weight: bold;
     text-align: center;
 }
-
+H2 {
+    color: $font-color;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}
 input {
     font-family: "Roboto", sans-serif;
     outline: 0;
@@ -35,67 +59,63 @@ input {
     box-sizing: border-box;
     font-size: 14px;
   }
-  button {
-    font-family: "Roboto", sans-serif;
-    text-transform: uppercase;
-    outline: 0;
-    background: $secondary-color;
-    border: 0;
-    padding: 15px;
-    color: $font-color;
-    font-size: 14px;
-    -webkit-transition: all 0.3 ease;
-    transition: all 0.3 ease;
-    cursor: pointer;
-  }
+//   button {
+//     font-family: "Roboto", sans-serif;
+//     text-transform: uppercase;
+//     outline: 0;
+//     background: $secondary-color;
+//     border: 0;
+//     padding: 15px;
+//     color: $font-color;
+//     font-size: 14px;
+//     -webkit-transition: all 0.3 ease;
+//     transition: all 0.3 ease;
+//     cursor: pointer;
+//   }
 
 
+// button {
+//     display: inline-block; 
+//     padding: .3em .6em;
+//     border: .094em solid $aux-1; 
+//     border-radius: .625em;
+//     background: $aux-2;
+//     box-shadow: 0 .375em .313em -0.313em rgba(0,0,0,.8), inset 0 .063em rgba(255,255,255,.4), inset 0 -0.188em rgba(0,0,0,.15);
+//     color: #FFF;
+//     text-decoration: none;
+//     text-transform: uppercase;
+//     text-shadow: 0 .063em rgba(0,0,0,.3);
+//     cursor: pointer;
+// }
+// button:hover {
+//     background: $aux-2;
+//     box-shadow: 0 .125em rgba(255,255,255,.4), inset 0 .063em rgba(255,255,255,.4), inset 0 -0.188em $aux-3;
+// }
+// button:active {
+//     box-shadow: inset 0 0 1.094em $aux-5, inset 0 .063em $aux-4, inset 0 -0.188em $aux-3, 0 .063em rgba(255,255,255,.4); 
+// }
 
+// @mixin shadowbox-heavy($border-radius:10px, $box-shadow:5px 5px 15px  $darker-highlight, $background-color:$secondary-color) {
+//     border-radius: $border-radius;
+//     box-shadow: $box-shadow;   
+//     background-color: $background-color;
+// }
+// @mixin shadowbox-light($border-radius:10px, $box-shadow: inset 3px 4px 10px  $primary-color, $background-color:$aux-2) {
+//     border-radius: $border-radius;
+//     box-shadow: $box-shadow; 
+//     background-color: $background-color;
+// }
+@mixin shadowbox-heavy {
+    border-radius: 0px;
+    // box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+    background-color: $primary-color;
+}
+@mixin shadowbox-light {
+    border-radius: 0px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 
-.delete-button {
-    background-color: #ca3535;
-    border-color: #c43c35;
+background-color: $secondary-color;
 }
-.delete-button:hover {
-    background-color: #ee5f5b;
-    box-shadow: none;
-}
-.delete-button:active {
-    background: #c43c35;
-    box-shadow: inset 0 0 1.094em black, inset 0 .063em black, inset 0 -0.188em black, 0 .063em rgba(255,255,255,.4); 
-}
-button {
-    display: inline-block; 
-    padding: .3em .6em;
-    border: .094em solid $aux-1; 
-    border-radius: .625em;
-    background: $aux-2;
-    box-shadow: 0 .375em .313em -0.313em rgba(0,0,0,.8), inset 0 .063em rgba(255,255,255,.4), inset 0 -0.188em rgba(0,0,0,.15);
-    color: #FFF;
-    text-decoration: none;
-    text-transform: uppercase;
-    text-shadow: 0 .063em rgba(0,0,0,.3);
-    cursor: pointer;
-}
-button:hover {
-    background: $aux-2;
-    box-shadow: 0 .125em rgba(255,255,255,.4), inset 0 .063em rgba(255,255,255,.4), inset 0 -0.188em $aux-3;
-}
-button:active {
-    box-shadow: inset 0 0 1.094em $aux-5, inset 0 .063em $aux-4, inset 0 -0.188em $aux-3, 0 .063em rgba(255,255,255,.4); 
-}
-
-@mixin shadowbox-heavy($border-radius:10px, $box-shadow:5px 5px 15px  $darker-highlight, $background-color:$secondary-color) {
-    border-radius: $border-radius;
-    box-shadow: $box-shadow;   
-    background-color: $background-color;
-}
-@mixin shadowbox-light($border-radius:10px, $box-shadow: inset 3px 4px 10px  $primary-color, $background-color:$aux-2) {
-    border-radius: $border-radius;
-    box-shadow: $box-shadow; 
-    background-color: $background-color;
-}
-
 // @mixin button($padding:5px 10px, $font-size:14px, $border-radius:10px, $bg-color:$secondary-color, $font-color:$font-color) {
 // 	padding:$padding;
 // 	display:inline-block;
@@ -116,16 +136,16 @@ button:active {
 // 	@include button(20px 30px, 22px);
 // }
 
-.auth-button {
-    width: 60%;    
+button {
+    width: 100px;    
+    height: 35px;
     font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    font-size: 16px;
     outline: 0;
-    background: $secondary-color;
-    box-shadow: none;
+    background: $button-background;
     border: 0;
-    padding: 15px;
     color: $font-color;
-    font-size: 14px;
     -webkit-transition: all 0.3 ease;
     transition: all 0.3 ease;
     cursor: pointer;
@@ -135,11 +155,12 @@ button:active {
     transition-duration: 0.4s;
     overflow: hidden;
     position: relative;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.12), 0 2px 3px rgba(0,0,0,0.24);
 
 }
-.auth-button:after {
+button:after {
     content: "";
-    background: #8DAAB4;
+    background: $button-click;
     display: block;
     position: absolute;
     padding-top: 300%;
@@ -149,13 +170,29 @@ button:active {
     opacity: 0;
     transition: all 0.8s
 }
-.auth-button:active:after {
+button:active:after {
     padding: 0;
     margin: 0;
     opacity: 1;
     transition: 0s;
 }
-.auth-button:hover {
-    background: $secondary-color;
+button:hover {
+    background: $button-hover;
     box-shadow: none;
+}
+
+.delete-button {
+    background-color: #ca3535;
+    border-color: #c43c35;
+}
+.delete-button:hover {
+    background-color: #B03F3F;
+}
+.delete-button:active {
+    background: #c43c35;
+}
+.delete-button:after {
+
+    background: #FFD0D0;
+
 }

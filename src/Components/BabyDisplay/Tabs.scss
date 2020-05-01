@@ -21,7 +21,8 @@
       cursor: pointer;
   
       &--selected {
-        background: $secondary-color;
+        background: $primary-color;
+        // filter: brightness(130%);
         border-color: $lighter-highlight;
         color: $font-color;
         font-weight: bolder;
