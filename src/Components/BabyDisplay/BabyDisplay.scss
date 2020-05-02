@@ -2,13 +2,15 @@
 @import '../../Components/BabyDisplay/Tabs.scss';
 
 .baby-container {
-    margin: auto;
+    margin-left: 20px;
     width: 95%;
+    max-width: 1000px;
     background-color: $secondary-color;
     height: 500px;
     position: relative;
     margin-bottom: 20px;
     @include shadowbox-heavy;
+    // background-color: green;
 }
 .tab-panel {
     height: 100%;

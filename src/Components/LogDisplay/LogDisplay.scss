@@ -1,6 +1,5 @@
 @import '../../variables.scss';
-.log-display-container {
-}
+
 .log-display {
     border: 1px;
     border-color: white;
@@ -30,7 +29,7 @@
     // margin: auto;
     margin-top: 5px;
     margin-bottom: 5px;
-    padding-right: 20px;
+    padding-right: 5px;
     // margin-left: 20px;
     font-size: 20px;
 }
@@ -40,7 +39,7 @@
     // padding-left: 20px;
     padding-top: 6px;
     // background-color: red;
-    margin-left: 51px;
+    margin-left: 61px;
 }
 .log-display-awake {
     width: 150px;
@@ -96,13 +95,12 @@
 .click-to-collapse {
     cursor: pointer; 
     padding-top: 1px;
-    text-align: right;
+    text-align: center;
     height: 24px;
     position: absolute;
-    width: 130px;
+    width: 150px;
     margin: auto;
     left: 10px;
-    
     border: solid white 2px;
     border-radius: 10px;
     border-top: none;
