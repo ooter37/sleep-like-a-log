@@ -17,6 +17,7 @@ class Register extends React.Component {
     this.props
       .register(this.state)
       .then(() => {
+        this.setState({email: '', password: ''})
         this.props.redirect();
       })
       .catch((err) => {

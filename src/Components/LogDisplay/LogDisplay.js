@@ -114,11 +114,10 @@ class LogDisplay extends React.Component {
         const length = moment.utc(moment.duration(moment(log.awake).diff(moment(log.asleep)), "milliseconds").asMilliseconds()).format("HH:mm")
             return (
                 <tr className='log-display' key={log.log_id}>
+                    <td><button className='log-display-delete delete-button' onClick={() => { if (window.confirm('Are you sure you wish to delete this log entry?')) this.deleteLog(log.log_id) } }>Delete</button></td>
                     <td className='log-display-asleep'>{moment(log.asleep).format('MMMM Do, h:mm A')}</td>
                     <td className='log-display-awake' >{moment(log.awake).format('MMMM Do, h:mm A')}</td>
                     <td className='log-display-length' >{length}</td>
-                    <td><button className='log-display-delete delete-button' onClick={() => { if (window.confirm('Are you sure you wish to delete this log entry?')) this.deleteLog(log.log_id) } }
-                    >Delete</button></td>
                 </tr>
             )
         })
@@ -149,14 +148,14 @@ class LogDisplay extends React.Component {
                         <table>
                             <thead className='log-display-container'>
                                 <tr className='log-display-labels'>
-                                    <th className='log-display-asleep' onClick={this.onSort('asleep')}>Asleep
+                                    <th className='log-display-asleep sort-asleep' onClick={this.onSort('asleep')}>Asleep
                                     <span className={this.setArrow('asleep')}></span>
                                     </th>
-                                    <th className='log-display-awake' onClick={this.onSort('awake')}>Awake
+                                    <th className='log-display-awake sort-awake' onClick={this.onSort('awake')}>Awake
                                     <span className={this.setArrow('awake')}></span>
                                     
                                     </th>
-                                    <th className='log-display-length' onClick={this.onSort('length')}>Length
+                                    <th className='log-display-length sort-length' onClick={this.onSort('length')}>Length
                                     <span className={this.setArrow('length')}></span>
                                     </th>
                                     <th></th>

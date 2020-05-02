@@ -18,6 +18,7 @@ class Login extends React.Component {
     this.props
       .login(this.state)
       .then(() => {
+        this.setState({email: '', password: ''})
         this.props.redirect();
       })
       .catch((err) => {

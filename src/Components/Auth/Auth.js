@@ -53,7 +53,7 @@ class Auth extends React.Component {
                     <p className='auth-text'>My name is Derek Lamarr and this is my personal project for my software engineering class.</p>
                     <br/>
                     <p className='auth-text'>You can use this app to track sleep logs. It's intended for parents to track the 
-                        logs of new babies, but it will work for any entity that sleeps.</p>
+                        sleep logs of new babies, but it will work for any entity that sleeps.</p>
                 </div>
                     
                     {
