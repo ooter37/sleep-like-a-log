@@ -65,8 +65,9 @@ class BabyDisplay extends React.Component {
     }
     render(){
         const mappedNames = this.state.babies.map(baby => {
+            const displayName = baby.name.toUpperCase() + ' #' + baby.baby_id
             return (
-                <Tab onClick={() => this.setStateOnSelect(baby.baby_id)} key={`Tab${baby.baby_id}`}>{baby.name.toUpperCase()}</Tab>
+                <Tab onClick={() => this.setStateOnSelect(baby.baby_id)} key={`Tab${baby.baby_id}`}>{displayName}</Tab>
             )
         })
         const mappedBabies = this.state.babies.map(baby => {

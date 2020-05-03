@@ -1,14 +1,24 @@
 @import '../../variables.scss';
-
 .add-baby-container {
-    color: $font-color;
+    display: flex;
+    justify-content: space-between;
+    // background-color: blue;
+    width: 100%;
+}
+.add-new-baby-container {
+    // background-color: green;
+    width: 49%;
+}
+.add-existing-container {
+    // background-color: red;
+    width: 49%;
 }
 .add-baby-label {
     text-align: left;
     margin-top: 20px;
     margin-left: 20px;
     padding-bottom: 10px;
-    width: 200px;
+    width: 220px;
 }
 .add-baby-paragraph {
     max-width: 500px;
@@ -20,14 +30,20 @@
     flex-direction: column;
     justify-content: space-between;
     width: 300px;
-    height: 110px;
     margin-left: 20px;
     margin-top: 20px;
+    // background-color: black;
 }
 
 .add-baby-button {
     margin-top: 10px;
     margin-left: 20px;
+    width: 130px;
+}
+.add-existing-button {
+    margin-top: 18px;
+    margin-left: 20px;
+    width: 170px;
 }
 .add-baby-login-paragraph {
     margin: 20px;

@@ -14,12 +14,10 @@ module.exports = {
     addBaby: async (req,res) => {
         try {
             const db = req.app.get('db')
-            
-                const user_id = req.session.user.user_id
-                const {babyName, relationship} = req.body
-                const newBaby = await db.babies.add_baby(babyName, user_id, relationship)
-                res.status(200).send(newBaby)
-            
+            const user_id = req.session.user.user_id
+            const {babyName, identifier} = req.body
+            const newBaby = await db.babies.add_baby(babyName, identifier, user_id)
+            res.status(200).send(newBaby)
         } catch (error) {
             console.log('Error adding baby.', error)
             res.status(500).send(error)
@@ -44,6 +42,25 @@ module.exports = {
             res.status(200).send(baby)
         } catch (error) {
             console.log('Error updating baby.', error)
+            res.status(500).send(error)
+        }
+    },
+    addExistingBaby: async (req,res) => {
+        try {
+            const db = req.app.get('db')
+            const user_id = req.session.user.user_id
+            const {existingName, existingIdentifier, existingId} = req.body
+            let existingBabies = await db.babies.find_existing_baby(existingName,existingIdentifier,existingId)
+            let baby = existingBabies[0]
+            if (!baby) {
+                return res.status(400).send('Baby name, ID, and/or identifier incorrect.')
+            } else {
+                const baby_id = baby.baby_id
+                const babies = await db.babies.add_existing_baby(baby_id, user_id)
+                res.status(200).send(babies)
+            }
+        } catch (error) {
+            console.log('Error adding existing baby.', error)
             res.status(500).send(error)
         }
     }

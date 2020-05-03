@@ -46,3 +46,7 @@ CREATE TABLE logs (
     asleep TEXT,
     awake TEXT
 );
+
+ALTER TABLE ownership
+RENAME COLUMN relationship TO identifier;
+
