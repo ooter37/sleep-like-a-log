@@ -115,11 +115,11 @@ setArrow = (column) => {
     }
     return className;
 };
-revokeShared(babyId,userId){
 
-}
 render() {
+    console.log(this.props.sharedBabies)
     const mappedShared = this.props.sharedBabies.map(baboo => {
+        console.log(baboo)
         return (
             <div key={`shared${baboo.baby_id}`} className='shared-babies-container'>
                 <p>Baby: {baboo.name}</p>
