@@ -16,13 +16,16 @@ class BabyDisplay extends React.Component {
             sharedBabies: [],
             tabIndex: 0,
             selectedTab: 1,
-            updatingName: false
+            updatingName: false,
+            sharedOpen: false
         }
         this.deleteBaby = this.deleteBaby.bind(this)
         this.getBabies = this.getBabies.bind(this)
         this.setStateOnSelect = this.setStateOnSelect.bind(this)
         this.toggleButton = this.toggleButton.bind(this)
         this.removeExisting = this.removeExisting.bind(this)
+        this.toggleShared = this.toggleShared.bind(this)
+
     }
     componentDidUpdate(prevProps){
         if (!this.props.user.data && this.state.babies[0]) {
@@ -78,7 +81,24 @@ class BabyDisplay extends React.Component {
             updatingName: !updatingName
         })
     }
+    toggleShared() {
+        this.setState({
+            sharedOpen: !this.state.sharedOpen});}
     render(){
+        const mappedShared = this.state.sharedBabies.map(baboo => {
+            return (
+                <tr key={`shared ${baboo.user_id} ${baboo.baby_id}`} className='shared-display'>
+                    <td className='shared-display-name'>{baboo.name}</td>
+                    <td className='shared-display-email'>{baboo.email}</td>
+                    <td>
+                        <button className='revoke-sharing delete-button' 
+                        onClick={() => { if (window.confirm(`Are you sure you wish to remove ${baboo.name} from ${baboo.email}'s account?`)) 
+                        this.props.removeExisting(baboo.baby_id,baboo.user_id) } }
+                        >Revoke</button>
+                    </td>
+                </tr>
+            )
+        })
         const mappedNames = this.state.babies.map(baby => {
             const displayName = baby.name.toUpperCase() + ' #' + baby.baby_id
             return (
@@ -95,8 +115,42 @@ class BabyDisplay extends React.Component {
         const mappedBabies = this.state.babies.map(baby => {
             return (
                 <TabPanel className='tab-panel' key={`TabPanel${baby.baby_id}`}>
-                    {/* <div className='guardian-status'>Guardian Status</div> */}
-                    <LogDisplay removeExisting={this.removeExisting} sharedBabies={this.state.sharedBabies} identifier={baby.identifier} babyId={baby.baby_id} selectedTab={this.state.selectedTab}/>
+
+
+                <div className='shared-scroll-container'>
+                    <div className='collapsible-shared-container'>
+                        <div onClick={(e) => this.toggleShared(e)} className='center-log-name'>
+                            {
+                            !this.state.sharedOpen 
+                            ? 
+                            null 
+                            : 
+                            (<div className='shared-collapse-button'>Collapse</div>)
+                            }
+                        </div>
+                        {
+                        this.state.sharedOpen 
+                        ? 
+                        (<div>
+                            <table>
+                                <thead className='shared-display-container'>
+                                    <tr className='shared-display-labels'>
+                                        <th className='shared-display-name'>Name</th>
+                                        <th className='shared-display-email'>Shared With</th>
+                                    </tr>
+                                </thead>
+                                <tbody>{mappedShared}</tbody>
+                            </table>
+                        </div>) 
+                        : 
+                        (<div className='shared-expand-button' onClick={(e) => this.toggleShared(e)}>Shared Babies</div>)
+                        }
+                    </div>
+
+                </div>
+    
+
+                    <LogDisplay guardian={baby.guardian} removeExisting={this.removeExisting} sharedBabies={this.state.sharedBabies} identifier={baby.identifier} babyId={baby.baby_id} selectedTab={this.state.selectedTab}/>
                     {
                     (baby.guardian)
                     ?
@@ -112,7 +166,7 @@ class BabyDisplay extends React.Component {
                         onClick={() => { if (window.confirm('Are you sure you wish to delete this baby?')) this.deleteBaby(baby.baby_id) } }
                         >Delete Baby</button>
                         }
-                        <div>Shared Babies</div>
+                        {/* <div>Shared Babies</div> */}
                     </div>
                     :
                     <button className='delete-baby-button delete-button' 

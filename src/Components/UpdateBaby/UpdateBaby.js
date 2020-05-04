@@ -36,14 +36,7 @@ class UpdateBaby extends React.Component {
                     this.props.updatingName
                     ?
                     <div className='updating-container'>
-                    <button
-                        className='submit-baby-button'
-                        onClick={() => { if (this.state.babyName !== '' && this.state.babyIdentifier !== '') {if (window.confirm('Are you sure you wish to edit this baby?')) {
-                            this.updateBaby()
-                            this.props.toggleButton()
-                        }}}
-                    }
-                    >Submit</button>
+                    <button className='cancel-update-button' onClick={this.props.toggleButton}>Cancel</button>
                     <input
                         className='update-baby-input'
                         placeholder='Name'
@@ -60,7 +53,14 @@ class UpdateBaby extends React.Component {
                         value={this.state.babyIdentifier}
                         onChange={this.changeHandler}
                     />
-                    <button className='cancel-update-button' onClick={this.props.toggleButton}>Cancel</button>
+                    <button
+                        className='submit-baby-button'
+                        onClick={() => { if (this.state.babyName !== '' && this.state.babyIdentifier !== '') {if (window.confirm('Are you sure you wish to edit this baby?')) {
+                            this.updateBaby()
+                            this.props.toggleButton()
+                        }}}
+                    }
+                    >Submit</button>
                     </div>
                     :
                     <button
