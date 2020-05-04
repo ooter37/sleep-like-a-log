@@ -11,18 +11,18 @@ module.exports = {
             res.status(500).send(error)
         }
     },
-    getLogsByGuardian: async (req,res) => {
-        try {
-            const db = req.app.get('db')
-            if (req.session.user) {
-                const logs = await db.logs.get_logs_by_guardian(req.session.user.user_id)
-                res.status(200).send(logs)
-            }
-        } catch (error) {
-            console.log('Error getting logs by guardian.', error)
-            res.status(500).send(error)
-        }
-    },
+    // getLogsByGuardian: async (req,res) => {
+    //     try {
+    //         const db = req.app.get('db')
+    //         if (req.session.user) {
+    //             const logs = await db.logs.get_logs_by_guardian(req.session.user.user_id)
+    //             res.status(200).send(logs)
+    //         }
+    //     } catch (error) {
+    //         console.log('Error getting logs by guardian.', error)
+    //         res.status(500).send(error)
+    //     }
+    // },
     deleteLog: async (req,res) => {
         try {
             const db = req.app.get('db')

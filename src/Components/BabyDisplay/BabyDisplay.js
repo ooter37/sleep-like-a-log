@@ -67,16 +67,27 @@ class BabyDisplay extends React.Component {
         const mappedNames = this.state.babies.map(baby => {
             const displayName = baby.name.toUpperCase() + ' #' + baby.baby_id
             return (
-                <Tab onClick={() => this.setStateOnSelect(baby.baby_id)} key={`Tab${baby.baby_id}`}>{displayName}</Tab>
+                <Tab onClick={() => this.setStateOnSelect(baby.baby_id)} key={`Tab${baby.baby_id}`}>
+                    <div className={`${baby.guardian}-container`}>
+                        <div className={`guardian-${baby.guardian}`}></div>
+                        <div className='tab-baby-name'>{displayName}</div>
+                    </div>
+            
+                </Tab>
             )
         })
         const mappedBabies = this.state.babies.map(baby => {
             
             return (
                 <TabPanel className='tab-panel' key={`TabPanel${baby.baby_id}`}>
-                    <LogDisplay babyId={baby.baby_id} selectedTab={this.state.selectedTab}/>
-                    <div className='update-delete-container'>
-                    <UpdateBaby toggleButton={this.toggleButton} 
+                    {/* <div className='guardian-status'>Guardian Status</div> */}
+                    <LogDisplay identifier={baby.identifier} babyId={baby.baby_id} selectedTab={this.state.selectedTab}/>
+                    
+                    {
+                        (baby.guardian)
+                        ?
+                        <div className='update-delete-container'>
+                        <UpdateBaby toggleButton={this.toggleButton} 
                         updatingName={this.state.updatingName} getBabies={this.getBabies} 
                         babyId={baby.baby_id} babyName={baby.name}/>
                         {
@@ -87,8 +98,10 @@ class BabyDisplay extends React.Component {
                             onClick={() => { if (window.confirm('Are you sure you wish to delete this baby?')) this.deleteBaby(baby.baby_id) } }
                             >Delete Baby</button>
                         }
-                        
                     </div>
+                    :
+                    <p className='update-delete-container'>To edit or delete this baby, please log in to the primary account the baby was initially registered under.</p>
+                        }
                 </TabPanel>
             )
         })

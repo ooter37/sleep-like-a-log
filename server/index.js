@@ -48,6 +48,6 @@ app.put('/api/babies', addExistingBaby)
 
 //LOG ENDPOINTS
 app.post('/api/logs', addLog)
-app.get('/api/logs', getLogsByGuardian)
+// app.get('/api/logs', getLogsByGuardian)
 app.delete('/api/logs/:id', deleteLog)
 app.get('/api/logs/:id', getLogsByBaby)

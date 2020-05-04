@@ -24,7 +24,7 @@ class AddBaby extends React.Component {
   addBaby() {
     if (this.props.user.data) {
       const user_id = this.props.user.data.user_id;
-      const babyName = this.state.babyName;
+      const babyName = this.state.babyName.toUpperCase();
       const identifier = this.state.identifier;
       axios
         .post("api/babies", { babyName, user_id, identifier })
@@ -39,7 +39,7 @@ class AddBaby extends React.Component {
   addExistingBaby() {
     if (this.props.user.data) {
       const user_id = this.props.user.data.user_id
-      const existingName = this.state.existingBabyName
+      const existingName = this.state.existingBabyName.toUpperCase()
       const existingIdentifier = this.state.existingIdentifier
       const existingId = this.state.existingId
       console.log(existingName, existingIdentifier, existingId)
@@ -80,6 +80,7 @@ class AddBaby extends React.Component {
                 onChange={(e) => this.changeHandler(e)}
               />
               <input
+                maxLength='10'
                 className='add-baby-identifier-input'
                 placeholder='Identifier'
                 type='text'
@@ -91,8 +92,9 @@ class AddBaby extends React.Component {
             <button
               className='add-baby-button'
               onClick={() => {
-                if (this.state.babyName !== "" && this.state.identifier) {
-                  if (
+                if (this.state.babyName !== "") 
+                  if (this.state.identifier.length > 3) {
+                {if (
                     window.confirm(
                       `Would you like to add ${this.state.babyName}, with an identifier of ${this.state.identifier}?`
                     )
@@ -101,13 +103,16 @@ class AddBaby extends React.Component {
                     this.setState({ babyName: "", identifier: "" });
                   }
                 }
+              } else {
+                window.alert('Identifier must be at least four characters.')
+              }
               }}>Add New Baby
             </button>
           </div> 
           <div className='add-existing-container'>
           <h1 className='add-baby-label'>Add an Existing Baby</h1>
           <p className='add-baby-paragraph'>Add a baby that already exists on another user's account. You'll need
-          the baby's name (case doesn't matter), the ID number, and the identifier. ID numbers are automatically generated
+          the baby's name (not case sensitive), the ID number, and the identifier. ID numbers are automatically generated
           when the baby is initially added, and can be found on the tab with the baby name.</p>
           <div className='add-baby-input-container'>
               <input
@@ -138,10 +143,11 @@ class AddBaby extends React.Component {
             <button
                 className='add-existing-button'
                 onClick={() => {
-                  if (this.state.existingBabyName !== '' && this.state.existingId !== '' && this.state.existingIdentifier !== '') {
-                    if (
+                  if (this.state.existingBabyName !== '' && this.state.existingId !== '' && this.state.existingIdentifier !== '') 
+                  {if (
                       window.confirm(
-                        `Would you like to add ${this.state.existingBabyName}, with an ID of ${this.state.existingId} and an identifier of ${this.state.existingIdentifier} to your account?`
+                        `Would you like to add ${this.state.existingBabyName}, with an ID of ${this.state.existingId} and an 
+                        identifier of ${this.state.existingIdentifier} to your account?`
                       )
                     ) {
                       this.addExistingBaby();

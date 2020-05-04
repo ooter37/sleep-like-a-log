@@ -33,8 +33,31 @@
     height: 36px;
 }
 @media screen and (max-width: 538px) {
-
     .baby-container {
         height: 600px;
     }
 }
+.guardian-false {
+    // background-color: rgba(255, 255, 255, 0.2);
+    // position: absolute;
+    // top: 0;
+    // right: 0;
+    // left: 0;
+    // bottom: 0;
+    // margin: auto;
+    // width: 80%;
+    // height: 30%;
+    // // border-radius: 100px;
+    // box-shadow: 0 0 5px 10px rgba(255, 255, 255, 0.2);
+}
+.false-container {
+    font-style: italic;
+    font-weight: 100;
+    color: grey;
+}
+.tab-baby-name {}
+// .guardian-status {
+//     background-color: green;
+    
+// }
+
