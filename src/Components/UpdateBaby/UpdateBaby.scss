@@ -1,24 +1,27 @@
 @import '../../variables.scss';
 
 .update-baby-container {
-    // width: 335px;
-    height: 40px;
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
+
     // position: absolute;
     // bottom: -5px;
     // left: 5px;
+    background-color: red;
+}
+.updating-container {
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+    width: 420px;
+
 }
 .edit-baby-button {
-    width: 140px;
     // margin-bottom: 66px;
     // margin-left: -5px;
 }
 .update-baby-input {
     padding: 9px;
-    margin-left: 5px;
-    margin-right: 5px;
+    // margin-left: 5px;
+    // margin-right: 5px;
     width: 100px;
 }
 .cancel-update-button {

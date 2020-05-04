@@ -7,7 +7,8 @@ class UpdateBaby extends React.Component {
     constructor(props){
         super(props)
         this.state = {
-            babyName: this.props.babyName
+            babyName: this.props.babyName,
+            babyIdentifier: this.props.babyIdentifier
         }
         this.changeHandler = this.changeHandler.bind(this)
         this.updateBaby = this.updateBaby.bind(this)
@@ -19,9 +20,10 @@ class UpdateBaby extends React.Component {
     }
     updateBaby() {
         if (this.props.user.data) {
-            const babyName = this.state.babyName
+            const babyName = this.state.babyName.toUpperCase()
+            const babyIdentifier = this.state.babyIdentifier.toUpperCase()
             const id = this.props.babyId
-            axios.put(`/api/babies/${id}`, {babyName}).then(()=> this.props.getBabies())
+            axios.put(`/api/babies/${id}`, {babyName, babyIdentifier}).then(()=> this.props.getBabies())
             .catch(err => console.log('Error updating baby.', err))
         } else {
             window.alert('Please login')
@@ -33,10 +35,10 @@ class UpdateBaby extends React.Component {
                 {
                     this.props.updatingName
                     ?
-                    <div>
+                    <div className='updating-container'>
                     <button
                         className='submit-baby-button'
-                        onClick={() => { if (this.state.babyName !== '') {if (window.confirm('Are you sure you wish to edit this name?')) {
+                        onClick={() => { if (this.state.babyName !== '' && this.state.babyIdentifier !== '') {if (window.confirm('Are you sure you wish to edit this baby?')) {
                             this.updateBaby()
                             this.props.toggleButton()
                         }}}
@@ -50,13 +52,21 @@ class UpdateBaby extends React.Component {
                         value={this.state.babyName}
                         onChange={this.changeHandler}
                     />
+                    <input
+                        className='update-baby-input'
+                        placeholder='Identifier'
+                        type='text'
+                        name='babyIdentifier'
+                        value={this.state.babyIdentifier}
+                        onChange={this.changeHandler}
+                    />
                     <button className='cancel-update-button' onClick={this.props.toggleButton}>Cancel</button>
                     </div>
                     :
                     <button
                         className='edit-baby-button'
                         onClick={() => this.props.toggleButton()}
-                    >Edit Baby Name</button>
+                    >Edit Baby</button>
                 }
             </div>
         )

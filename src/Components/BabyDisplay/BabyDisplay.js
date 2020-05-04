@@ -13,6 +13,7 @@ class BabyDisplay extends React.Component {
         super()
         this.state = {
             babies: [],
+            sharedBabies: [],
             tabIndex: 0,
             selectedTab: 1,
             updatingName: false
@@ -21,6 +22,7 @@ class BabyDisplay extends React.Component {
         this.getBabies = this.getBabies.bind(this)
         this.setStateOnSelect = this.setStateOnSelect.bind(this)
         this.toggleButton = this.toggleButton.bind(this)
+        this.removeExisting = this.removeExisting.bind(this)
     }
     componentDidUpdate(prevProps){
         if (!this.props.user.data && this.state.babies[0]) {
@@ -42,12 +44,25 @@ class BabyDisplay extends React.Component {
             this.setState({
                 babies: res.data
             })
-        }).catch(err => console.log('Error getting babies', err))
+        }).catch(err => console.log('Error getting babies.', err))
+        axios.get('/api/shared').then(res => {
+            this.setState({
+                sharedBabies: res.data
+            })
+        }).catch(err => console.log('Error getting shared babies.', err))
     }
     deleteBaby(id){
         if (this.props.user.data) {
             axios.delete(`/api/babies/${id}`).then(()=> this.getBabies())
             .catch(err => console.log('Error deleting baby', err))
+        } else {
+            window.alert('Please log in.')
+        }
+    }
+    removeExisting(babyId,userId) {
+        if (this.props.user.data) {
+            axios.delete(`/api/babies/${babyId}/${userId}`).then(() => this.getBabies())
+            .catch(err => console.log('Error removing baby', err))
         } else {
             window.alert('Please log in.')
         }
@@ -76,32 +91,40 @@ class BabyDisplay extends React.Component {
                 </Tab>
             )
         })
+        
         const mappedBabies = this.state.babies.map(baby => {
-            
             return (
                 <TabPanel className='tab-panel' key={`TabPanel${baby.baby_id}`}>
                     {/* <div className='guardian-status'>Guardian Status</div> */}
-                    <LogDisplay identifier={baby.identifier} babyId={baby.baby_id} selectedTab={this.state.selectedTab}/>
-                    
+                    <LogDisplay removeExisting={this.removeExisting} sharedBabies={this.state.sharedBabies} identifier={baby.identifier} babyId={baby.baby_id} selectedTab={this.state.selectedTab}/>
                     {
-                        (baby.guardian)
-                        ?
-                        <div className='update-delete-container'>
+                    (baby.guardian)
+                    ?
+                    <div className='update-delete-container'>
                         <UpdateBaby toggleButton={this.toggleButton} 
                         updatingName={this.state.updatingName} getBabies={this.getBabies} 
-                        babyId={baby.baby_id} babyName={baby.name}/>
+                        babyId={baby.baby_id} babyName={baby.name} babyIdentifier={baby.identifier}/>
                         {
-                            this.state.updatingName
-                            ?
-                            null:
-                            <button className='delete-baby-button delete-button' 
-                            onClick={() => { if (window.confirm('Are you sure you wish to delete this baby?')) this.deleteBaby(baby.baby_id) } }
-                            >Delete Baby</button>
+                        this.state.updatingName
+                        ?
+                        null:
+                        <button className='delete-baby-button delete-button' 
+                        onClick={() => { if (window.confirm('Are you sure you wish to delete this baby?')) this.deleteBaby(baby.baby_id) } }
+                        >Delete Baby</button>
                         }
+                        <div>Shared Babies</div>
                     </div>
                     :
-                    <p className='update-delete-container'>To edit or delete this baby, please log in to the primary account the baby was initially registered under.</p>
-                        }
+                    <button className='delete-baby-button delete-button' 
+                    onClick={() => { if (this.props.user.data) {
+                        if (window.confirm('Are you sure you wish to remove this baby from your account?')) 
+                    this.removeExisting(baby.baby_id,this.props.user.data.user_id) 
+                    } else {
+                        window.alert('Please log in.')
+                    }
+                } }
+                    >Remove Baby</button>
+                    }
                 </TabPanel>
             )
         })

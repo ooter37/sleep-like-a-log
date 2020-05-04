@@ -7,8 +7,8 @@ const massive = require('massive')
 //IMPORT 
 const {CONNECTION_STRING, SERVER_PORT, SESSION_SECRET} = process.env
 const {login, register, logout, getUser, userData} = require('./controllers/authController')
-const {getBabiesByGuardian, addBaby, deleteBaby, updateBaby, addExistingBaby} = require('./controllers/babyController')
-const {addLog, getLogsByGuardian, deleteLog, getLogsByBaby} = require('./controllers/logController')
+const {getBabiesByGuardian, addBaby, deleteBaby, updateBaby, addExistingBaby, removeExisting, getSharedBabiesByGuardian} = require('./controllers/babyController')
+const {addLog, deleteLog, getLogsByBaby} = require('./controllers/logController')
 
 //TOP-LEVEL MIDDLEWARE
 const app=express()
@@ -45,6 +45,8 @@ app.get('/api/babies', getBabiesByGuardian)
 app.delete('/api/babies/:id', deleteBaby)
 app.put('/api/babies/:id', updateBaby)
 app.put('/api/babies', addExistingBaby)
+app.delete('/api/babies/:babyid/:userid', removeExisting)
+app.get('/api/shared', getSharedBabiesByGuardian)
 
 //LOG ENDPOINTS
 app.post('/api/logs', addLog)

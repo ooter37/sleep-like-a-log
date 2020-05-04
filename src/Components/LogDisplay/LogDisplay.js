@@ -115,7 +115,22 @@ setArrow = (column) => {
     }
     return className;
 };
+revokeShared(babyId,userId){
+
+}
 render() {
+    const mappedShared = this.props.sharedBabies.map(baboo => {
+        return (
+            <div key={`shared${baboo.baby_id}`} className='shared-babies-container'>
+                <p>Baby: {baboo.name}</p>
+                <p>Shared With: {baboo.email}</p>
+                <button className='revoke-sharing delete-button' 
+                    onClick={() => { if (window.confirm(`Are you sure you wish to remove ${baboo.name} from ${baboo.email}'s account?`)) 
+                    this.props.removeExisting(baboo.baby_id,baboo.user_id) } }
+                    >Revoke</button>
+            </div>
+        )
+    })
     const mappedLogs = this.state.logs.map((log, index) => {
         const length = moment.utc(moment.duration(moment(log.awake).diff(moment(log.asleep)),"milliseconds").asMilliseconds()).format("HH:mm");
         return (
@@ -138,6 +153,7 @@ render() {
         <div className='identifier-log-container'>
             <AddLog getLogsByBaby={this.getLogsByBaby} babyId={this.props.babyId}/>
             <p className='identifier-label'>Identifier: {this.props.identifier}</p>
+            <div>{mappedShared}</div>
         </div>
         <div className='scroll-container'>
             <div className='collapsible-log-container'>

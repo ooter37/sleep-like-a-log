@@ -25,9 +25,9 @@ class AddBaby extends React.Component {
     if (this.props.user.data) {
       const user_id = this.props.user.data.user_id;
       const babyName = this.state.babyName.toUpperCase();
-      const identifier = this.state.identifier;
+      const identifier = this.state.identifier.toUpperCase();
       axios
-        .post("api/babies", { babyName, user_id, identifier })
+        .post("/api/babies", { babyName, user_id, identifier })
         .then(() => {
           this.props.getBabies();
         })
@@ -42,11 +42,12 @@ class AddBaby extends React.Component {
       const existingName = this.state.existingBabyName.toUpperCase()
       const existingIdentifier = this.state.existingIdentifier
       const existingId = this.state.existingId
-      console.log(existingName, existingIdentifier, existingId)
       axios.put('api/babies', {user_id, existingName, existingIdentifier, existingId})
       .then(() => {
         this.props.getBabies()
-      }).catch((err) => console.log('Error adding existing baby.', err))
+      }).catch((err) => {
+        window.alert('Information incorrect or baby has already been added to your account.')
+        console.log('Error adding existing baby.', err)})
     } else {
       window.alert('Please log in.')
     }
