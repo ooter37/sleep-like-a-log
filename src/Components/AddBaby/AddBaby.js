@@ -52,7 +52,6 @@ class AddBaby extends React.Component {
     }
   }
   render() {
-    console.log(this.state)
     // if (!this.props.user.data) {
     //     return <></>
     // }
@@ -94,14 +93,14 @@ class AddBaby extends React.Component {
               onClick={() => {
                 if (this.state.babyName !== "") 
                   if (this.state.identifier.length > 3) {
-                {if (
+                if (
                     window.confirm(
                       `Would you like to add ${this.state.babyName}, with an identifier of ${this.state.identifier}?`
                     )
                   ) {
                     this.addBaby();
                     this.setState({ babyName: "", identifier: "" });
-                  }
+                  
                 }
               } else {
                 window.alert('Identifier must be at least four characters.')
