@@ -60,7 +60,7 @@ const confirmDelete = Swal.mixin({
     showCancelButton: true,
     confirmButtonColor: '#d33',
     cancelButtonColor: '#3085d6',
-    confirmButtonText: 'DELETE'
+    confirmButtonText: 'DELETE',    
 })
 const deleteSuccess = Swal.mixin({
     icon: 'success',
@@ -74,6 +74,16 @@ const deleteSuccess = Swal.mixin({
         toast.addEventListener('mouseleave', Swal.resumeTimer)
     }
 })
+
+//UPDATE
+
+// const update = Swal.mixin({
+//     input: 'text',
+//     confirmButtonText: 'Next &rarr;',
+//     showCancelButton: true,
+//     progressSteps: ['1', '2']
+// })
+
 
 
 export  {

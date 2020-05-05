@@ -1,3 +1,4 @@
+
 // $primary-color: #204051;
 // $secondary-color: #3b6978;
 // $darker-highlight: #84a9ac;
@@ -13,6 +14,8 @@
 // $button-background: #112E3E;
 // $button-hover: #335365;
 // $button-click: #8DAAB4;
+@import '~@sweetalert2/theme-borderless/borderless.scss';
+
 body {
     font-family: "Roboto", sans-serif;
   } 
@@ -156,7 +159,6 @@ button {
     overflow: hidden;
     position: relative;
     box-shadow: 0 2px 4px rgba(0,0,0,0.12), 0 2px 3px rgba(0,0,0,0.24);
-
 }
 button:after {
     content: "";
@@ -192,10 +194,9 @@ button:hover {
     background: #c43c35;
 }
 .delete-button:after {
-
     background: #FFD0D0;
-
 }
+
 .swal2-container .swal2-popup.swal2-toast {
     flex-direction: column;
     align-items: start;
@@ -211,3 +212,8 @@ button:hover {
   .swal2-container .swal2-popup.swal2-toast .swal2-content {
     margin-left: 50px;
   }
+  
+//   .swal2-styled.swal2-delete{
+//     display: flex !important;
+//     background-color: green !important;
+//   }

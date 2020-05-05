@@ -70,7 +70,7 @@ class BabyDisplay extends React.Component {
         if (this.props.user.data) {
             axios.delete(`/api/babies/${babyId}/${userId}`).then(() => {
                 this.getBabies()
-                deleteSuccess.fire({title: `${name} has been removed from your account.`})
+                deleteSuccess.fire({title: `${name} has been removed.`})
             })
             .catch(err => console.log('Error removing baby', err))
         } else {
@@ -99,9 +99,12 @@ class BabyDisplay extends React.Component {
                     <td className='shared-display-email'>{baboo.email}</td>
                     <td>
                         <button className='revoke-sharing delete-button' 
-                        onClick={() => { if (window.confirm(`Are you sure you wish to remove ${baboo.name} from ${baboo.email}'s account?`)) 
-                        this.props.removeExisting(baboo.baby_id,baboo.user_id,baboo.name) } }
-                        >Revoke</button>
+                            onClick={() => { if (this.props.user.data) {
+                            confirmDelete.fire({
+                                text: `Are you sure you want to remove ${baboo.name} from ${baboo.email}'s account?`}).then((result) => {
+                                if (result.value) {this.removeExisting(baboo.baby_id,baboo.user_id,baboo.name)}})
+                            } else {pleaseSignIn.fire()}}}
+                    >Revoke</button>
                     </td>
                 </tr>
             )
@@ -172,7 +175,7 @@ class BabyDisplay extends React.Component {
                         <button className='delete-baby-button delete-button' 
                         onClick={() => { if (this.props.user.data) {
                             confirmDelete.fire({
-                                text: `Are you sure you wish to delete ${baby.name}?`}).then((result) => {
+                                text: `Are you sure you want to delete ${baby.name}?`}).then((result) => {
                                 if (result.value) {this.deleteBaby(baby.baby_id, baby.name)}})
                         } else {pleaseSignIn.fire()}}}
                     >Delete Baby</button>
@@ -184,7 +187,7 @@ class BabyDisplay extends React.Component {
                     onClick={() => { if (this.props.user.data) {
                         confirmDelete.fire({
                             text: `Are you sure you want to remove ${baby.name} from your account?`}).then((result) => {
-                            if (result.value) {this.removeExisting(baby.baby_id,this.props.user.data.user_id)}})
+                            if (result.value) {this.removeExisting(baby.baby_id,this.props.user.data.user_id,baby.name)}})
                         } else {pleaseSignIn.fire()}}}
                     >Remove Baby</button>
                     
