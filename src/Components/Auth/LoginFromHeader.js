@@ -53,7 +53,7 @@ class Login extends React.Component {
             onChange={(e) => this.changeHandler(e)}
             />
             </div>
-          <button className='header-login-button'>Login</button>
+          <button className='button header-login-button'>Login</button>
         </form>
       </div>
     );

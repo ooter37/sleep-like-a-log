@@ -57,7 +57,7 @@ class AddLog extends React.Component {
         <div className='label-button-container'>
           <h2 className="add-log-label">Add Log</h2>
           <button
-          className="add-log-button"
+          className="button add-log-button"
           onClick={() => { if (this.props.user.data) {
             confirmAdd.fire({
               title: `Confirm New Log For ${this.props.babyName}`,

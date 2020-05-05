@@ -18,7 +18,7 @@ function Header (props) {
                       props.location
                       ?
                       <Link to='/'>
-                      <button className='header-click-register-button'>Click to Register</button>
+                      <button className='button header-click-register-button'>Click to Register</button>
                       </Link>
                       :
                       null

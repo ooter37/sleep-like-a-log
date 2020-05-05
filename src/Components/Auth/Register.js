@@ -57,7 +57,7 @@ class Register extends React.Component {
                 onChange={(e) => this.changeHandler(e)}
                 />
             </div>
-          <button className='login-button auth-button'>Register</button>
+          <button className='button login-button auth-button'>Register</button>
         </form>
         {
           this.props.location
@@ -66,7 +66,7 @@ class Register extends React.Component {
           :
           <div className='need-register-container'>
             <p>Already have an account?</p>
-            <button className='click-register-button auth-button' onClick={this.props.display}>Click to Login</button>
+            <button className='button click-register-button auth-button' onClick={this.props.display}>Click to Login</button>
         </div>
         }
       </div>

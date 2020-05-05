@@ -101,7 +101,7 @@ class AddBaby extends React.Component {
               />
             </div>
             <button
-              className='add-baby-button'
+              className='button add-baby-button'
               onClick={() => { if (this.props.user.data) {
                 if (this.state.babyName === "") {errorAdding.fire({text: 'Please enter a name.'})}
                   else if (this.state.identifier.length > 3) {
@@ -154,7 +154,7 @@ class AddBaby extends React.Component {
               />
           </div>
             <button
-                className='add-existing-button'
+                className='button add-existing-button'
                 onClick={() => { if (this.props.user.data) {
                   if (this.state.existingBabyName === '' || this.state.existingId === '' || this.state.existingIdentifier === '') 
                   {errorAdding.fire({text: 'Please enter a name, ID, and identifier for the baby you would like to add.'})} 

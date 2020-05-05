@@ -139,8 +139,8 @@ background-color: $secondary-color;
 // 	@include button(20px 30px, 22px);
 // }
 
-button {
-    width: 100px;    
+//STANDARD BUTTON
+.button {
     height: 35px;
     font-family: "Roboto", sans-serif;
     text-transform: uppercase;
@@ -160,7 +160,7 @@ button {
     position: relative;
     box-shadow: 0 2px 4px rgba(0,0,0,0.12), 0 2px 3px rgba(0,0,0,0.24);
 }
-button:after {
+.button:after {
     content: "";
     background: $button-click;
     display: block;
@@ -170,31 +170,62 @@ button:after {
     margin-left: -20px!important;
     margin-top: -120%;
     opacity: 0;
-    transition: all 0.8s
+    transition: all 0.8s;
 }
-button:active:after {
+.button:active:after {
     padding: 0;
     margin: 0;
     opacity: 1;
     transition: 0s;
 }
-button:hover {
+.button:hover {
     background: $button-hover;
     box-shadow: none;
 }
-
+//DELETE BUTTON
 .delete-button {
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    outline: 0;
+    border: 0;
+    color: $font-color;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
+    border-radius: 0;
+    text-shadow: none;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.12), 0 2px 3px rgba(0,0,0,0.24);
     background-color: #ca3535;
     border-color: #c43c35;
 }
+.delete-button:after {
+    content: "";
+    display: block;
+    position: absolute;
+    padding-top: 300%;
+    padding-left: 350%;
+    margin-left: -20px!important;
+    margin-top: -120%;
+    opacity: 0;
+    transition: all 0.8s;
+    background: #FFD0D0;
+}
+.delete-button:active:after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s;
+}
 .delete-button:hover {
     background-color: #B03F3F;
+    box-shadow: none;
 }
 .delete-button:active {
     background: #c43c35;
-}
-.delete-button:after {
-    background: #FFD0D0;
 }
 
 .swal2-container .swal2-popup.swal2-toast {

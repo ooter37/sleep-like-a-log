@@ -42,7 +42,7 @@ class UpdateBaby extends React.Component {
         return(
             <div className='update-baby-container'>
                 <button
-                        className='edit-baby-button'
+                        className='button edit-baby-button'
                         onClick={() => {
                             Swal.mixin({
                                 input: 'text',
@@ -71,7 +71,7 @@ class UpdateBaby extends React.Component {
                     this.props.updatingName
                     ?
                     <div className='updating-container'>
-                    <button className='cancel-update-button' onClick={this.props.toggleButton}>Cancel</button>
+                    <button className='button cancel-update-button' onClick={this.props.toggleButton}>Cancel</button>
                     <input
                         className='update-baby-input'
                         placeholder='Name'
@@ -89,7 +89,7 @@ class UpdateBaby extends React.Component {
                         onChange={this.changeHandler}
                     />
                     <button
-                        className='submit-baby-button'
+                        className='button submit-baby-button'
                         onClick={() => { if (this.state.babyName !== '' && this.state.babyIdentifier !== '') 
                         {if (window.confirm('Are you sure you wish to edit this baby?')) {
                             this.updateBaby()
@@ -101,7 +101,7 @@ class UpdateBaby extends React.Component {
                     </div>
                     :
                     <button
-                        className='edit-baby-button'
+                        className='button edit-baby-button'
                         onClick={() => this.props.toggleButton()}
                     >Edit Baby</button>
                 } */}
