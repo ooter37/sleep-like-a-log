@@ -5,6 +5,7 @@ import "./LogDisplay.scss";
 import AddLog from "../AddLog/AddLog";
 import BarGraph from "../Charts/BarGraph";
 import { connect } from "react-redux";
+import {pleaseSignIn,confirmDelete,deleteSuccess} from '../Alerts'
 
 class LogDisplay extends React.Component {
     constructor(props) {
@@ -41,8 +42,8 @@ getLogsByBaby() {
 deleteLog(id) {
     if (this.props.user.data) {
         axios.delete(`/api/logs/${id}`).then(() => {
-            this.togglePanel();
-            this.getLogsByBaby();})
+            this.getLogsByBaby();
+            deleteSuccess.fire({title: 'Log entry deleted.'})})
         .catch((err) => console.log("Error deleting log.", err));
     } else {
         window.alert("Please log in.");}}
@@ -123,12 +124,13 @@ render() {
         return (
         <tr className='log-display' key={log.log_id}>
             <td>
-                <button
-                    className='log-display-delete delete-button'
-                    onClick={() => {
-                        if (window.confirm("Are you sure you wish to delete this log entry?"))
-                        this.deleteLog(log.log_id);}}>Delete
-                </button>
+                <button className='log-display-delete delete-button' 
+                    onClick={() => { if (this.props.user.data) {
+                        confirmDelete.fire({
+                            text: 'Are you sure you want to delete this log entry?'}).then((result) => {
+                            if (result.value) {this.deleteLog(log.log_id)}})
+                        } else {pleaseSignIn.fire()}}}
+                >Delete</button>
             </td>
             <td className='log-display-asleep'>{moment(log.asleep).format("MMMM Do, h:mm A")}</td>
             <td className='log-display-awake'>{moment(log.awake).format("MMMM Do, h:mm A")}</td>
@@ -138,7 +140,7 @@ render() {
     return (
     <div className='log-display-container'>
         <div className='identifier-log-container'>
-            <AddLog getLogsByBaby={this.getLogsByBaby} babyId={this.props.babyId}/>
+            <AddLog babyName={this.props.babyName} getLogsByBaby={this.getLogsByBaby} babyId={this.props.babyId}/>
             {
             (this.props.guardian)
             ?

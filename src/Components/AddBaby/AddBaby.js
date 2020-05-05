@@ -2,6 +2,7 @@ import React from "react";
 import "./AddBaby.scss";
 import axios from "axios";
 import { connect } from "react-redux";
+import {pleaseSignIn,addedSuccess,errorAdding,confirmAdd} from '../Alerts'
 
 class AddBaby extends React.Component {
   constructor(props) {
@@ -30,10 +31,15 @@ class AddBaby extends React.Component {
         .post("/api/babies", { babyName, user_id, identifier })
         .then(() => {
           this.props.getBabies();
+          addedSuccess.fire({
+            title: 'New Baby Added',
+            text: `${this.state.babyName} added with an identifier of ${this.state.identifier}.`
+          })
+          this.setState({ babyName: "", identifier: "" })
         })
         .catch((err) => console.log("Error adding new baby.", err));
     } else {
-      window.alert("Please log in.");
+      pleaseSignIn.fire()
     }
   }
   addExistingBaby() {
@@ -45,11 +51,16 @@ class AddBaby extends React.Component {
       axios.put('api/babies', {user_id, existingName, existingIdentifier, existingId})
       .then(() => {
         this.props.getBabies()
+        addedSuccess.fire({
+          title: 'Existing Baby Added',
+          text: `Added ${this.state.existingBabyName} to ${this.props.user.data.user_id}'s account.`
+        })
+        this.setState({ existingBabyName: '', existingId: '', existingIdentifier: '' })
       }).catch((err) => {
-        window.alert('Information incorrect or baby has already been added to your account.')
+        errorAdding.fire({text: 'Information is incorrect or baby has already been added to your account.'})
         console.log('Error adding existing baby.', err)})
     } else {
-      window.alert('Please log in.')
+      pleaseSignIn.fire()
     }
   }
   render() {
@@ -91,22 +102,24 @@ class AddBaby extends React.Component {
             </div>
             <button
               className='add-baby-button'
-              onClick={() => {
-                if (this.state.babyName !== "") 
-                  if (this.state.identifier.length > 3) {
-                if (
-                    window.confirm(
-                      `Would you like to add ${this.state.babyName}, with an identifier of ${this.state.identifier}?`
-                    )
-                  ) {
-                    this.addBaby();
-                    this.setState({ babyName: "", identifier: "" });
-                  
-                }
+              onClick={() => { if (this.props.user.data) {
+                if (this.state.babyName === "") {errorAdding.fire({text: 'Please enter a name.'})}
+                  else if (this.state.identifier.length > 3) {
+                    confirmAdd.fire({
+                      text: `Would you like to add ${this.state.babyName} with an identifier of ${this.state.identifier}?`
+                    }).then((result) => {
+                      if (result.value) {
+                        this.addBaby()
+                      }
+                    })
               } else {
-                window.alert('Identifier must be at least four characters.')
+                errorAdding.fire({text: 'Identifier must be at least four characters.'})
+              } } else {
+                pleaseSignIn.fire()
               }
-              }}>Add New Baby
+              }
+              
+              }>Add New Baby
             </button>
           </div> 
           <div className='add-existing-container'>
@@ -142,19 +155,22 @@ class AddBaby extends React.Component {
           </div>
             <button
                 className='add-existing-button'
-                onClick={() => {
-                  if (this.state.existingBabyName !== '' && this.state.existingId !== '' && this.state.existingIdentifier !== '') 
-                  {if (
-                      window.confirm(
-                        `Would you like to add ${this.state.existingBabyName}, with an ID of ${this.state.existingId} and an 
-                        identifier of ${this.state.existingIdentifier} to your account?`
-                      )
-                    ) {
-                      this.addExistingBaby();
-                      this.setState({ existingBabyName: '', existingId: '', existingIdentifier: '' });
+                onClick={() => { if (this.props.user.data) {
+                  if (this.state.existingBabyName === '' || this.state.existingId === '' || this.state.existingIdentifier === '') 
+                  {errorAdding.fire({text: 'Please enter a name, ID, and identifier for the baby you would like to add.'})} 
+                  else {
+                    confirmAdd.fire({
+                      text: `Would you like to add ${this.state.existingBabyName}, with an ID of ${this.state.existingId} and an 
+                      identifier of ${this.state.existingIdentifier} to your account?`
+                    }).then((result) => {
+                      if (result.value) {
+                        this.addExistingBaby();
+                      }
+                    })} } else {
+                      pleaseSignIn.fire()
                     }
-                  }
-                }}>Add Existing Baby
+                }
+                }>Add Existing Baby
             </button>
           </div> 
         </div>

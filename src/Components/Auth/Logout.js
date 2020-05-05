@@ -3,31 +3,17 @@ import "./Auth.scss";
 import {connect} from 'react-redux'
 // import {Redirect} from 'react-router-dom'
 import {logout} from '../../redux/reducers/user'
+import {authSuccess} from '../Alerts'
 
 
 class Logout extends React.Component{
     constructor(props) {
         super(props)
-        // this.state = {
-        //     redirect: false
-        // }
         this.logoutHandler = this.logoutHandler.bind(this)
     }
-    // componentDidMount(){
-    //     if (this.props.user.data) {
-    //         this.setState({
-    //             redirect: false
-    //         })
-    //     }
-    // }
     logoutHandler(){
-        this.props.logout().then(() => {
-            // this.props.toggleRedirect()
-            // this.props.redirect()
-            // this.setState({
-            //     redirect: true
-            // })
-        }).catch(err => console.log('Error logging out', err))
+        this.props.logout().then(() => {authSuccess.fire({title: 'Logged out successfully.'})})
+        .catch(err => console.log('Error logging out', err))
     }
     render() {
         // if (this.state.redirect) {

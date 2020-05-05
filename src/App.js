@@ -3,12 +3,13 @@ import './App.scss';
 import './reset.css';
 import './react-datepicker.min.css'
 import {Route, Switch, withRouter} from 'react-router-dom'
-import Auth from './Components/Auth/Auth'
-import Main from './Components/Main/Main'
 import {connect} from 'react-redux'
+import {Redirect} from 'react-router-dom'
 import {requestUserData} from './redux/reducers/user'
 import Header from './Components/Header/Header'
-import {Redirect} from 'react-router-dom'
+import Main from './Components/Main/Main'
+import Auth from './Components/Auth/Auth'
+
 // import { createMuiTheme, MuiThemeProvider } from '@material-ui/core';
 // import blue from '@material-ui/core/colors/blue';
 // import red from '@material-ui/core/colors/red'

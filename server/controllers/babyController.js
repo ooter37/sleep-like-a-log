@@ -46,7 +46,6 @@ module.exports = {
     removeExisting: async (req,res) => {
         try {
                 const db = req.app.get('db')
-                console.log(req.params)
                 const baby = await db.babies.remove_existing_baby(req.params.babyid,req.params.userid)
                 res.status(200).send(baby)
         } catch (error) {

@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { register } from "../../redux/reducers/user";
 import "./Auth.scss";
+import {authSuccess,errorLogin} from '../Alerts'
 
 class Register extends React.Component {
   constructor(props) {
@@ -19,9 +20,10 @@ class Register extends React.Component {
       .then(() => {
         this.setState({email: '', password: ''})
         this.props.redirect();
+        authSuccess.fire({title: `Thanks for registering!`})
       })
       .catch((err) => {
-        window.alert('That username already exists. Please login.')
+        errorLogin.fire({text: 'That username is already in use. Please login.'})
         // console.log("Error registering.", err)
       });
   }

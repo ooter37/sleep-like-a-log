@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { login } from "../../redux/reducers/user";
 import "./Auth.scss";
+import {authSuccess,errorLogin} from '../Alerts'
 
 class Login extends React.Component {
   constructor(props) {
@@ -20,12 +21,16 @@ class Login extends React.Component {
       .then(() => {
         this.setState({email: '', password: ''})
         this.props.redirect();
+        authSuccess.fire({title: 'Signed in successfully.'})
       })
       .catch((err) => {
-        window.alert('Incorrect username or password.')
+        errorLogin.fire({
+          text: 'Incorrect username or password.',
+      })
         // console.log("Error with login.", err)   // This causes a ~7 sec delay on login?
       });
   }
+  
   changeHandler(e) {
     this.setState({
       [e.target.name]: e.target.value,

@@ -42,6 +42,7 @@
     "redux": "^4.0.5",
     "redux-promise-middleware": "^6.1.2",
     "style-loader": "^1.1.4",
+    "sweetalert2": "^9.10.12",
     "underscore": "^1.10.2"
   },
   "scripts": {

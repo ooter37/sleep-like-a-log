@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { login } from "../../redux/reducers/user";
-
+import {authSuccess,errorLogin} from '../Alerts'
 import "./Auth.scss";
 
 class Login extends React.Component {
@@ -17,10 +17,12 @@ class Login extends React.Component {
   loginHandler(e) {
     e.preventDefault();
     this.props
-      .login(this.state)
+      .login(this.state).then(() => authSuccess.fire({title: 'Signed in successfully.'}))
       .catch((err) => {
-        window.alert('Incorrect username or password.') 
-        console.log("Error with login from landing.", err)
+        errorLogin.fire({
+          text: 'Incorrect username or password.',
+      })
+        console.log("Error with login from header.", err)
       });
   }
   changeHandler(e) {
@@ -53,13 +55,6 @@ class Login extends React.Component {
             </div>
           <button className='header-login-button'>Login</button>
         </form>
-        {/* {
-          this.props.location
-          ?
-          null
-          :
-        <button className='dfgfg' onClick={this.props.display}>Click to </button>
-        } */}
       </div>
     );
   }

@@ -196,3 +196,18 @@ button:hover {
     background: #FFD0D0;
 
 }
+.swal2-container .swal2-popup.swal2-toast {
+    flex-direction: column;
+    align-items: start;
+    position: relative;
+  }
+  
+//   .swal2-container .swal2-icon {
+//     position: absolute;
+//     top: 13px;
+//   }
+  
+  .swal2-container .swal2-popup.swal2-toast .swal2-title,
+  .swal2-container .swal2-popup.swal2-toast .swal2-content {
+    margin-left: 50px;
+  }
