@@ -3,7 +3,7 @@ import './UpdateBaby.scss'
 import axios from 'axios'
 import {connect} from 'react-redux'
 import {addedSuccess} from '../Alerts'
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2/src/sweetalert2.js'
 import {pleaseSignIn} from '../Alerts'
 
 class UpdateBaby extends React.Component {
