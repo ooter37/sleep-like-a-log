@@ -35,6 +35,7 @@ $aux-5: #022835;
 $button-background: #3b6978;
 $button-hover: #437889;
 $button-click: #8DAAB4;
+$secondary-hover: #4a6a7b;
 
 p {
     color: $font-color;
@@ -248,3 +249,7 @@ background-color: $secondary-color;
 //     display: flex !important;
 //     background-color: green !important;
 //   }
+
+.swal2-timer-progress-bar {
+    background-color: lightgrey !important;
+}

@@ -117,12 +117,20 @@
     margin-bottom: 5px;
     // background-color: green;
 }
-
+// .header-click-register-button {
+//     position: absolute;
+//     right: 20px;
+//     top: 63px;
+//     width: 160px;
+// }
+.header-register-button-container {
+    margin-left: 12px;
+    margin-top: 10px;
+}
 .header-click-register-button {
-    position: absolute;
-    right: 20px;
-    top: 63px;
-    width: 160px;
+    // font-size: 11px !important;
+    // width: 120px;   
+    // height: 25px !important;
 }
 @media screen and (max-width: 662px) {
     .header-login-container {
@@ -143,5 +151,8 @@
         padding: 5px;
         margin: 0;
     }
-
+    .header-register-button-container {
+        margin-left: 1060px;
+        margin-top: -37px;
+    }
 } 

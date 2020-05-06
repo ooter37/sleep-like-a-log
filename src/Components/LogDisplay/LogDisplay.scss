@@ -117,7 +117,9 @@
     text-align: center;
     padding-top: 5px;
     font-weight: bold;
-
+}
+.click-to-expand:hover {
+    background-color: $secondary-hover;
 }
 .click-to-collapse {
     cursor: pointer; 
@@ -140,7 +142,7 @@
     padding-right: 5px;
 }
 .click-to-collapse:hover {
-    background: #274e63;
+    background: $secondary-hover;
 
 }
 .collapsible-log-container {
@@ -204,7 +206,7 @@ Table {
     transition: 0s;
 }
 .sort-asleep:hover {
-    background: #4a6a7b;
+    background: $secondary-hover;
 }
 
 .sort-awake {
@@ -237,7 +239,7 @@ Table {
     transition: 0s;
 }
 .sort-awake:hover {
-    background: #4a6a7b;
+    background: $secondary-hover;
 }
 .sort-length {
     height: 25px;
@@ -269,6 +271,37 @@ Table {
     transition: 0s;
 }
 .sort-length:hover {
-    background: #4a6a7b;
+    background: $secondary-hover;
 }
-
+.sort-email {
+    height: 25px;
+    font-size: 16px;
+    -webkit-transition: all 0.3 ease;
+    -webkit-transition-duration: 0.4s;
+    transition: all 0.3 ease;
+    transition-duration: 0.4s;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+}
+.sort-email:after {
+    content: "";
+    background: $button-click;
+    display: block;
+    position: absolute;
+    padding-top: 300%;
+    padding-left: 350%;
+    margin-left: -20px!important;
+    margin-top: -120%;
+    opacity: 0;
+    transition: all 0.8s
+}
+.sort-email:active:after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s;
+}
+.sort-email:hover {
+    background: $secondary-hover;
+}

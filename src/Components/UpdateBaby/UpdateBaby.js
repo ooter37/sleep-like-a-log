@@ -4,6 +4,7 @@ import axios from 'axios'
 import {connect} from 'react-redux'
 import {addedSuccess} from '../Alerts'
 import Swal from 'sweetalert2'
+import {pleaseSignIn} from '../Alerts'
 
 class UpdateBaby extends React.Component {
     constructor(props){
@@ -22,9 +23,8 @@ class UpdateBaby extends React.Component {
     }
     updateBaby(babyName,babyIdentifier) {
         if (this.props.user.data) {
-            // const babyName = this.state.babyName.toUpperCase()
-            // const babyIdentifier = this.state.babyIdentifier.toUpperCase()
-            
+            // const babyName = this.state.babyName
+            // const babyIdentifier = this.state.babyIdentifier
             const id = this.props.babyId
             axios.put(`/api/babies/${id}`, {babyName, babyIdentifier}).then(()=> {
                 this.props.getBabies()
@@ -35,7 +35,7 @@ class UpdateBaby extends React.Component {
             })
             .catch(err => console.log('Error updating baby.', err))
         } else {
-            window.alert('Please login')
+            pleaseSignIn.fire()
         }
     }
     render(){

@@ -5,7 +5,7 @@ import "./AddLog.scss";
 import axios from "axios";
 import { connect } from "react-redux";
 import moment from 'moment'
-import {pleaseSignIn,addedSuccess,confirmAdd} from '../Alerts'
+import {pleaseSignIn,addedSuccess,confirmAdd, errorAdding} from '../Alerts'
 
 class AddLog extends React.Component {
   constructor(props) {
@@ -47,6 +47,7 @@ class AddLog extends React.Component {
           })
         })
         .catch((err) => console.log("Error adding log.", err));
+      
     } else {
       pleaseSignIn.fire()
     }
@@ -59,6 +60,10 @@ class AddLog extends React.Component {
           <button
           className="button add-log-button"
           onClick={() => { if (this.props.user.data) {
+            // if (!moment(this.state.startDate).isSame(this.state.endDate, 'day'))
+            if (moment(this.state.endDate).diff(moment(this.state.startDate), 'minutes') > 60*24) {
+              errorAdding.fire({text: 'Please limit nap length to less than 24 hours.'})
+            } else
             confirmAdd.fire({
               title: `Confirm New Log For ${this.props.babyName}`,
               html: `<div>Start time: ${moment(this.state.startDate).format("MMMM Do, h:mm A")}</div>

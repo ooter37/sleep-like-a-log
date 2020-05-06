@@ -42,7 +42,7 @@ class Register extends React.Component {
             <div className='login-input-container'>
               <input className='login-input-email'
                 placeholder="email"
-                type="text"
+                type="email"
                 name="email"
                 required
                 value={this.state.email}

@@ -6,7 +6,6 @@ import AddLog from "../AddLog/AddLog";
 import BarGraph from "../Charts/BarGraph";
 import { connect } from "react-redux";
 import {pleaseSignIn,confirmDelete,deleteSuccess} from '../Alerts'
-import Swal from 'sweetalert2'
 
 class LogDisplay extends React.Component {
     constructor(props) {
