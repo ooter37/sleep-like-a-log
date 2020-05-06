@@ -14,8 +14,8 @@
 // $button-background: #112E3E;
 // $button-hover: #335365;
 // $button-click: #8DAAB4;
-@import '~@sweetalert2/theme-borderless/borderless.scss';
-
+// @import '~@sweetalert2/theme-borderless/borderless.scss';
+@import '../node_modules/@sweetalert2/theme-borderless/borderless.scss';
 body {
     font-family: "Roboto", sans-serif;
   } 
