@@ -6,6 +6,7 @@ import AddLog from "../AddLog/AddLog";
 import BarGraph from "../Charts/BarGraph";
 import { connect } from "react-redux";
 import {pleaseSignIn,confirmDelete,deleteSuccess} from '../Alerts'
+import ReactTooltip from 'react-tooltip'
 
 class LogDisplay extends React.Component {
     constructor(props) {
@@ -141,10 +142,13 @@ render() {
     <div className='log-display-container'>
         <div className='identifier-log-container'>
             <AddLog babyName={this.props.babyName} getLogsByBaby={this.getLogsByBaby} babyId={this.props.babyId}/>
+            <ReactTooltip data-multiline={true} />
             {
             (this.props.guardian)
             ?
-            <p className='identifier-label'>Identifier: {this.props.identifier}</p>
+
+            <p data-tip="The identifier is used to allow other users to add this baby to their account." className='identifier-label'>Identifier: {this.props.identifier}</p>
+            
             :
             null
             }
