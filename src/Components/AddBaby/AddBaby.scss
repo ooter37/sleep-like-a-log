@@ -19,11 +19,13 @@
     margin-left: 20px;
     padding-bottom: 10px;
     width: 220px;
+    // background-color: red;
 }
 .add-baby-paragraph {
     max-width: 500px;
     margin-left: 20px;
     margin-top: 20px;
+    // background-color: green;
 }
 .add-baby-input-container {
     display: flex;
@@ -39,15 +41,41 @@
     margin-top: 10px;
     margin-left: 20px;
     width: 130px;
+    // background-color: red;
 }
 .add-existing-button {
     margin-top: 18px;
     margin-left: 20px;
     width: 170px;
+    // background-color: red;
 }
 .add-baby-login-paragraph {
     margin: 20px;
     font-size: 24px;
+}
+@media screen and (max-width: 767px) {
+    .add-baby-container{
+        // background-color: red;
+        flex-direction: column;
+        margin-right: 10px;
+        align-items: center;
+        justify-content: flex-start;
+        width: 95%;
+    }
+    .add-baby-paragraph {
+        // background-color: red;
+        // margin-left: 5px;
+    }
+    .add-existing-container {
+        // background-color: blue;
+        width: 350px;
+    }
+    .add-new-baby-container {
+        width: 350px;
+    }
+    .baby-container {
+        height: 100%;
+    }
 }
 
 // @media screen and (max-width: 767px) {

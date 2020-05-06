@@ -61,7 +61,7 @@ class AddLog extends React.Component {
           className="button add-log-button"
           onClick={() => { if (this.props.user.data) {
             // if (!moment(this.state.startDate).isSame(this.state.endDate, 'day'))
-            if (moment(this.state.endDate).diff(moment(this.state.startDate), 'minutes') > 60*24) {
+            if (moment(this.state.endDate).diff(moment(this.state.startDate), 'minutes') > 1438) {
               errorAdding.fire({text: 'Please limit nap length to less than 24 hours.'})
             } else
             confirmAdd.fire({

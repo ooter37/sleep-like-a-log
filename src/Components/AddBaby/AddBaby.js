@@ -53,7 +53,7 @@ class AddBaby extends React.Component {
         this.props.getBabies()
         addedSuccess.fire({
           title: 'Existing Baby Added',
-          text: `Added ${this.state.existingBabyName} to ${this.props.user.data.user_id}'s account.`
+          text: `Added ${this.state.existingBabyName} to ${this.props.user.data.email}'s account.`
         })
         this.setState({ existingBabyName: '', existingId: '', existingIdentifier: '' })
       }).catch((err) => {

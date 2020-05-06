@@ -142,7 +142,7 @@ class BabyDisplay extends React.Component {
                         this.state.sharedOpen 
                         ? 
                         (<div>
-                            <table>
+                            <table className='shared-table'>
                                 <thead className='shared-display-container'>
                                     <tr className='shared-display-labels'>
                                         <th className='shared-display-name'>Name</th>
