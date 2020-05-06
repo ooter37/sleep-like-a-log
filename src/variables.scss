@@ -185,45 +185,20 @@ background-color: $secondary-color;
 }
 //DELETE BUTTON
 .delete-button {
-    font-family: "Roboto", sans-serif;
-    text-transform: uppercase;
-    outline: 0;
-    border: 0;
-    color: $font-color;
-    -webkit-transition: all 0.3 ease;
-    transition: all 0.3 ease;
-    cursor: pointer;
-    border-radius: 0;
-    text-shadow: none;
-    -webkit-transition-duration: 0.4s;
-    transition-duration: 0.4s;
-    overflow: hidden;
-    position: relative;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.12), 0 2px 3px rgba(0,0,0,0.24);
+    @extend .button;
     background-color: #ca3535;
     border-color: #c43c35;
 }
 .delete-button:after {
-    content: "";
-    display: block;
-    position: absolute;
-    padding-top: 300%;
-    padding-left: 350%;
-    margin-left: -20px!important;
-    margin-top: -120%;
-    opacity: 0;
-    transition: all 0.8s;
+    @extend .button:after;
     background: #FFD0D0;
 }
 .delete-button:active:after {
-    padding: 0;
-    margin: 0;
-    opacity: 1;
-    transition: 0s;
+    @extend .button:active:after
 }
 .delete-button:hover {
+    @extend .button:hover;
     background-color: #B03F3F;
-    box-shadow: none;
 }
 .delete-button:active {
     background: #c43c35;
