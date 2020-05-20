@@ -47,7 +47,7 @@ deleteLog(id) {
             deleteSuccess.fire({title: 'Log entry deleted.'})})
         .catch((err) => console.log("Error deleting log.", err));
     } else {
-        window.alert("Please log in.");}}
+        pleaseSignIn.fire();}}
 togglePanel() {
     this.setState({
         open: !this.state.open});}
